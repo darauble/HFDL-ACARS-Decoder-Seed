@@ -1,0 +1,95 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>HFDL standalone mockup</title>
+<style>
+body{margin:0;background:#1b1d20;color:#d7d9dc;font:13px "Ubuntu","DejaVu Sans",sans-serif;width:2000px;height:1110px;overflow:hidden}
+.bar{display:flex;gap:8px;align-items:center;padding:6px 10px;background:#232528;border-bottom:1px solid #333}
+.btn{background:#3a3d42;border:1px solid #4a4d52;border-radius:3px;padding:3px 10px;color:#e6e6e6}
+.live{background:#d32f2f;border-color:#d32f2f;font-weight:bold}
+.search{background:#2a2c30;border:1px solid #444;border-radius:3px;padding:3px 8px;width:260px;color:#888}
+.chk{color:#ccc}.chk b{display:inline-block;width:11px;height:11px;border:1px solid #888;margin-right:5px;vertical-align:-1px}
+.chk b.on{background:#4a8ff7;border-color:#4a8ff7}
+.sp{flex:1}
+.tabs{display:flex;gap:2px;padding:6px 10px 0;background:#1b1d20}
+.tab{padding:5px 18px;background:#2a2c30;border:1px solid #3a3c40;border-bottom:none;border-radius:4px 4px 0 0;color:#aaa}
+.tab.on{background:#232528;color:#fff;font-weight:bold}
+.alert{background:#b26a00;color:#fff;padding:6px 12px;display:flex;font-weight:bold}
+.alert span{font-weight:normal;margin-left:10px}
+.pane{background:#202226;border:1px solid #333;margin:6px 6px 0}
+.ph{padding:4px 8px;font-weight:bold;border-bottom:1px solid #333}.ph i{font-weight:normal;color:#999;font-style:normal}
+table{border-collapse:collapse;width:100%}
+td,th{padding:2px 8px;white-space:nowrap;text-align:left}
+th{color:#ddd;font-weight:bold;border-bottom:1px solid #3a3a3a}
+tr.sel td{background:#2f6bc9;color:#fff}
+tr.c td{background:#4a3712}
+.dec{background:#f2c200;color:#000;font-weight:bold;padding:0 6px}
+.lvl{display:inline-block;width:70px;height:7px;background:#444;vertical-align:1px}.lvl i{display:block;height:7px;background:#ddd}
+.main{display:flex;margin:6px}
+.list{flex:1;background:#202226;border:1px solid #333;height:742px;overflow:hidden}
+.det{width:560px;background:#202226;border:1px solid #333;margin-left:6px;height:742px;overflow:hidden}
+.det table td{padding:1px 6px;vertical-align:top;white-space:normal}
+.det td:first-child{color:#9aa0a6;width:118px;white-space:nowrap}
+.sec{color:#7fb3ff;font-weight:bold;padding-top:7px!important}
+.sevE{color:#ff5252;font-weight:bold}.sevC{color:#ffb300;font-weight:bold}.dim{color:#777}
+.subtabs{display:flex;gap:16px;padding:4px 8px;border-bottom:1px solid #333}
+.subtabs span{color:#999}.subtabs span.on{color:#fff;font-weight:bold;border-bottom:2px solid #4a8ff7}
+.foot{position:absolute;bottom:0;left:0;right:0;padding:3px 8px;color:#aaa;background:#1b1d20;display:flex}
+.mono{font-family:"DejaVu Sans Mono",monospace;font-size:12px}
+.wl{color:#ffd54f}
+</style></head><body>
+<div class="tabs"><span class="tab">DSC</span><span class="tab on">HFDL</span><span class="tab" style="color:#666">NAVTEX</span><span class="sp"></span><span class="dim" style="padding:5px">dsqrust (Digital Signal QRA) · mockup</span></div>
+<div class="bar"><span class="btn live">● LIVE</span><span class="btn">Stop (F5)</span><span class="btn">Stop all</span><span class="btn">Open</span>
+<span class="search">Search (Ctrl+F)</span><span class="chk"><b class="on"></b>Hide link traffic</span><span class="chk"><b></b>Alerts only (F7)</span><span class="chk"><b class="on"></b>Hide joined blocks</span><span class="btn">Clear</span><span class="chk"><b class="on"></b>Follow (F8)</span>
+<span class="sp"></span><span class="btn">☾ Dark</span><span class="btn">Settings</span><span class="btn">Help</span></div>
+<div class="alert">CAUTION · RA73824 (U62905) · ACARS H1/CF<span>ENG 1 FIRE LOOP B FAULT — 19:28:26, 8942 kHz via 7 Shannon, Ireland</span><span class="sp"></span><span class="btn" style="background:#8a5200">Acknowledge (Ctrl+K)</span></div>
+<div class="pane"><div class="ph">Sources <i>· 1 412 messages in view · 15 channels</i></div>
+<table class="mono" style="font-size:12px">
+<tr class="sel"><td><b>RSPduo T1 · 8.9 MHz band</b></td><td>I/Q 500 kS/s @ 8902.5 kHz</td><td>15 channels</td><td style="width:40%"></td><td><span class="dec">DECODING</span></td><td><span class="lvl"><i style="width:62%"></i></span></td></tr>
+<tr><td>&nbsp;&nbsp;8942 · 7 Shannon</td><td>frames 214 / errors 31</td><td>last 19:28:26</td><td></td><td>decoding</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;8977 · 3 Reykjavik</td><td>frames 167 / errors 22</td><td>last 19:28:11</td><td></td><td>activity</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;8886 · 14 Krasnoyarsk &nbsp; 8885 · 15 Al Muharraq &nbsp; 8948 · 17 Canarias &nbsp; … 10 more</td><td></td><td></td><td></td><td class="dim">silent</td><td></td></tr>
+</table></div>
+<div class="main">
+<div class="list"><div class="subtabs"><span class="on">Messages</span><span>Aircraft (63)</span><span>Ground stations (16)</span></div>
+<table class="mono">
+<tr><th></th><th>Time</th><th>Freq</th><th>Dir</th><th>GS</th><th>Aircraft</th><th>Flight</th><th>Type</th><th>Subject</th><th style="text-align:right">km</th></tr>
+<tr><td></td><td>19:21:03</td><td>8977</td><td>▲</td><td>3 Reykjavik</td><td>TC-JNH</td><td>THY6TY</td><td>ADS-C</td><td>Basic report, Flight ID, Earth reference</td><td style="text-align:right">2 412</td></tr>
+<tr><td></td><td>19:21:40</td><td>8942</td><td>▼</td><td>7 Shannon</td><td>TC-JNH</td><td></td><td>ADS-C</td><td>Periodic contract request: 1024 s</td><td></td></tr>
+<tr><td></td><td>19:22:17</td><td>8942</td><td>▲</td><td>7 Shannon</td><td>RA73752</td><td>SU1003</td><td>ACARS H1/DF</td><td>A320,000430,1,1,TB000000/REP001,01,01,1/CCA73752,OCT12</td><td style="text-align:right">1 266</td></tr>
+<tr><td></td><td>19:23:05</td><td>8977</td><td>▲</td><td>3 Reykjavik</td><td>N784AV</td><td>AVA071</td><td>CPDLC</td><td>REQUEST CLIMB TO FL370</td><td style="text-align:right">3 980</td></tr>
+<tr><td></td><td>19:23:44</td><td>8977</td><td>▼</td><td>3 Reykjavik</td><td>N784AV</td><td></td><td>CPDLC</td><td>CLIMB TO AND MAINTAIN FL370</td><td></td></tr>
+<tr><td></td><td>19:24:19</td><td>8942</td><td>▲</td><td>7 Shannon</td><td>EI-FNH</td><td>ASL54K</td><td>Media adv.</td><td>HF link established 19:24:10</td><td></td></tr>
+<tr><td></td><td>19:25:52</td><td>8886</td><td>▲</td><td>14 Krasnoyarsk</td><td>B-1402</td><td>CCA931</td><td>ACARS 5Z</td><td>/ETA UUEE 2155</td><td style="text-align:right">4 870</td></tr>
+<tr><td></td><td>19:26:30</td><td>8942</td><td>▲</td><td>7 Shannon</td><td>G-VZIG</td><td>VIR401</td><td>ACARS H1</td><td>#M1BPOSN52317W020194,TUNUN,192630,370,NETKI,1950</td><td style="text-align:right">2 948</td></tr>
+<tr class="c"><td class="sevC">C</td><td>19:28:26</td><td>8942</td><td>▲</td><td>7 Shannon</td><td>RA73824</td><td>U62905</td><td>ACARS H1/CF</td><td>ENG 1 FIRE LOOP B FAULT</td><td style="text-align:right">1 830</td></tr>
+<tr><td class="wl">★</td><td>19:29:02</td><td>8977</td><td>▲</td><td>3 Reykjavik</td><td class="wl">D-ABYT</td><td>DLH400</td><td>ACARS 80</td><td>OOOI ON 1929</td><td style="text-align:right">2 102</td></tr>
+<tr><td></td><td>19:29:40</td><td>8948</td><td>▲</td><td>17 Canarias</td><td>EC-NVN</td><td>IBE6253</td><td>Freq data</td><td>Position 31.82 N 22.40 W</td><td style="text-align:right">4 621</td></tr>
+<tr class="sel"><td class="sevC">C</td><td>19:30:11</td><td>8942</td><td>▲</td><td>7 Shannon</td><td>RA73824</td><td>U62905</td><td>ACARS H1/CF</td><td>ENG 1 FIRE LOOP B FAULT (complete, 3 blocks)</td><td style="text-align:right">1 806</td></tr>
+</table></div>
+<div class="det"><div class="ph" style="display:flex">Detail<span class="sp"></span><span style="font-weight:normal">Save… &nbsp; Copy &nbsp; ×</span></div>
+<table>
+<tr><td>Severity</td><td class="sevC">CAUTION · keyword FIRE</td></tr>
+<tr><td>Type</td><td>ACARS H1, sublabel CF (central fault display)</td></tr>
+<tr><td class="sec" colspan="2">Aircraft</td></tr>
+<tr><td>ICAO</td><td>152060 (AC ID 23 on 8942 kHz)</td></tr>
+<tr><td>Registration</td><td><b>RA73824</b> · A320 · Ural Airlines</td></tr>
+<tr><td>Flight</td><td>U62905</td></tr>
+<tr><td>Position</td><td>57.312 N, 41.884 E [frequency data, 19:27:58] (1 806 km / 975 NM)</td></tr>
+<tr><td>Route</td><td>USSS Yekaterinburg (2 734 km) → UUDD Moscow Domodedovo (1 078 km) [hexdb]</td></tr>
+<tr><td class="sec" colspan="2">Ground station</td></tr>
+<tr><td>GS</td><td>7 Shannon, Ireland (2 144 km / 1 158 NM), 8942 kHz (#2)</td></tr>
+<tr><td class="sec" colspan="2">HFDL</td></tr>
+<tr><td>LPDU</td><td>Downlink, unnumbered ack'ed data → enveloped data</td></tr>
+<tr><td class="sec" colspan="2">ACARS</td></tr>
+<tr><td>Header</td><td>mode 2 · label H1 · blk 6 · ack NAK · msg C00C · CRC OK</td></tr>
+<tr><td>Reassembly</td><td>complete (3 blocks)</td></tr>
+<tr><td>Text</td><td class="mono">MPF/DBN /ANRA73824/FISVR2903 /DM221012063700/DAUSSS/DSUCFO/WN22101206370026000002ENG 1 FIRE LOOP B FAULT (3)<br>/FR22101206370038314102TOILET ASSY LAV A<br>/IDTOILET<br>/FR22101206370023131302RMP</td></tr>
+<tr><td class="sec" colspan="2">Reception</td></tr>
+<tr><td>UTC</td><td>2022-10-12T16:30:11Z</td></tr>
+<tr><td>Local</td><td>2022-10-12T19:30:11+03:00 (wallclock)</td></tr>
+<tr><td>Signal</td><td>600 bit/s, single slot · −81.8 / −84.5 dBFS · SNR 2.7 dB · −1.7 Hz</td></tr>
+<tr><td>Rx at</td><td>54.841, 23.831</td></tr>
+<tr><td>Raw</td><td class="mono">1d ff ff 01 32 52 c1 37 b3 38 32 34 15 c8 31 36<br>02 43 b0 b0 43 d5 b6 32 b9 b0 b5 23 43 46 c2 …</td></tr>
+</table></div>
+</div>
+<div class="foot">Files: ▸2022-10-12.ndjson<span class="sp"></span><b>message 1 412 of 1 412</b> &nbsp;· ~/.local/share/dsqrust/hfdl</div>
+</body></html>

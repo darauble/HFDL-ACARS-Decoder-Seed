@@ -1,0 +1,2177 @@
+{
+ "suite": "parse-apps",
+ "normative": true,
+ "description": "An ACARS message's direction, label and text (after reassembly; the sublabel and MFI still in it) -> the application decoded (spec/03-domain/acars.md \u00a74, applications.md), in the vocabulary of libacars' JSON output (F-H19). `decoded: null`: no application recognises the text. Each text is decoded alone, without reassembly (that is `parse/sequence.json` and `parse/acars.json`), so reassembly statuses are not compared here.",
+ "compare": {
+  "method": "every key of expected present with an equal value; keys not in expected ignored; non_normative_keys not compared",
+  "non_normative_keys": [
+   "descr",
+   "name",
+   "msg_type",
+   "reasm_status"
+  ],
+  "float_abs_tolerance": 1e-05
+ },
+ "cases": [
+  {
+   "id": "app-00",
+   "source": "libacars-doc",
+   "description": "ADS-C basic report, earth/air reference, meteo",
+   "input": {
+    "direction": "downlink",
+    "label": "B6",
+    "text": "/BOMASAI.ADS.VT-ANB072501A070A988CA73248F0E5DC10200000F5EE1ABC000102B885E0A19F5"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": true,
+      "gs_addr": "BOMASAI",
+      "air_addr": ".VT-ANB",
+      "adsc": {
+       "tags": [
+        {
+         "basic_report": {
+          "lat": 52.040176,
+          "lon": 19.803886,
+          "alt": 36004,
+          "ts_sec": 3273.125,
+          "pos_accuracy_nm": 0.05,
+          "nav_redundancy": true,
+          "tcas_avail": false
+         }
+        },
+        {
+         "earth_ref_data": {
+          "true_trk_deg": 263.671875,
+          "true_trk_valid": true,
+          "gnd_spd_kts": 516.0,
+          "vspd_ftmin": 0
+         }
+        },
+        {
+         "air_ref_data": {
+          "true_hdg_deg": 266.835938,
+          "true_hdg_valid": true,
+          "spd_mach": 0.8555,
+          "vspd_ftmin": 0.0
+         }
+        },
+        {
+         "meteo_data": {
+          "wind_spd_kts": 43.5,
+          "wind_dir_true_deg": 46.40625,
+          "wind_dir_valid": true,
+          "temp_c": -62.75
+         }
+        }
+       ],
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-01",
+   "source": "libacars-doc",
+   "description": "ADS-C report with predicted route",
+   "input": {
+    "direction": "downlink",
+    "label": "B6",
+    "text": "/LPAFAYA.ADS.VQ-BPJ1423CCA85D2D090886301D0D24C7D0704309088442255CC87CE2C90880DF97"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": true,
+      "gs_addr": "LPAFAYA",
+      "air_addr": ".VQ-BPJ",
+      "adsc": {
+       "tags": [
+        {
+         "wpt_change_event": {
+          "lat": 50.34296,
+          "lon": 16.378555,
+          "alt": 37000,
+          "ts_sec": 396.0,
+          "pos_accuracy_nm": 0.25,
+          "nav_redundancy": true,
+          "tcas_avail": true
+         }
+        },
+        {
+         "predicted_route": {
+          "next_wpt": {
+           "lat": 51.722603,
+           "lon": 19.733505,
+           "alt": 37000,
+           "eta_sec": 1090
+          },
+          "next_next_wpt": {
+           "lat": 52.540913,
+           "lon": 21.952572,
+           "alt": 37000
+          }
+         }
+        }
+       ],
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-02",
+   "source": "libacars-doc",
+   "description": "ADS-C in H1 with sublabel M1 and MFI B6",
+   "input": {
+    "direction": "downlink",
+    "label": "H1",
+    "text": "#M1B/B6 LHWE1YA.ADS.N572UP07263B5872A048C9F21C1F0E5B88D700000239"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": true,
+      "gs_addr": "LHWE1YA",
+      "air_addr": ".N572UP",
+      "adsc": {
+       "tags": [
+        {
+         "basic_report": {
+          "lat": 53.763485,
+          "lon": 20.149097,
+          "alt": 35996,
+          "ts_sec": 3207.0,
+          "pos_accuracy_nm": 0.05,
+          "nav_redundancy": true,
+          "tcas_avail": true
+         }
+        },
+        {
+         "earth_ref_data": {
+          "true_trk_deg": 257.431641,
+          "true_trk_valid": true,
+          "gnd_spd_kts": 430.0,
+          "vspd_ftmin": 0
+         }
+        }
+       ],
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-03",
+   "source": "libacars-doc",
+   "description": "CPDLC uplink",
+   "input": {
+    "direction": "uplink",
+    "label": "AA",
+    "text": "/AKLCDYA.AT1.9V-SVG21D0755D84AD067448398722949A7521C8AB4A1C8EAB5CE393"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "fans1a_cpdlc_msg",
+      "crc_ok": true,
+      "gs_addr": "AKLCDYA",
+      "air_addr": ".9V-SVG",
+      "cpdlc": {
+       "err": false,
+       "atc_uplink_msg": {
+        "header": {
+         "msg_id": 3,
+         "timestamp": {
+          "hour": 20,
+          "min": 7,
+          "sec": 21
+         }
+        },
+        "atc_uplink_msg_element_id": {
+         "choice_label": "AT [position] CONTACT [icaounitname] [frequency]",
+         "choice": "uM118PositionICAOunitnameFrequency",
+         "data": {
+          "pos_icao_unit_name_freq": {
+           "pos": {
+            "choice": "fixName",
+            "data": {
+             "fix": "VANDA"
+            }
+           },
+           "icao_unit_name": {
+            "icao_facility_id": {
+             "choice": "iCAOfacilityname",
+             "data": {
+              "icao_facility_name": "CHRISTCHURCH"
+             }
+            },
+            "icao_facility_function": "control"
+           },
+           "freq": {
+            "choice": "frequencyvhf",
+            "data": {
+             "vhf": {
+              "val": 128.1,
+              "unit": "MHz"
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-04",
+   "source": "libacars-doc",
+   "description": "CPDLC uplink",
+   "input": {
+    "direction": "uplink",
+    "label": "AA",
+    "text": "/AKLCDYA.AT1.9M-MTB215B659D84995674293583561CB9906744E9AF40F9EB"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "fans1a_cpdlc_msg",
+      "crc_ok": true,
+      "gs_addr": "AKLCDYA",
+      "air_addr": ".9M-MTB",
+      "cpdlc": {
+       "err": false,
+       "atc_uplink_msg": {
+        "header": {
+         "msg_id": 2,
+         "timestamp": {
+          "hour": 22,
+          "min": 54,
+          "sec": 22
+         }
+        },
+        "atc_uplink_msg_element_id": {
+         "choice_label": "AT [position] CONTACT [icaounitname] [frequency]",
+         "choice": "uM118PositionICAOunitnameFrequency",
+         "data": {
+          "pos_icao_unit_name_freq": {
+           "pos": {
+            "choice": "fixName",
+            "data": {
+             "fix": "LUNBI"
+            }
+           },
+           "icao_unit_name": {
+            "icao_facility_id": {
+             "choice": "iCAOfacilityname",
+             "data": {
+              "icao_facility_name": "AUCKLAND"
+             }
+            },
+            "icao_facility_function": "control"
+           },
+           "freq": {
+            "choice": "frequencyvhf",
+            "data": {
+             "vhf": {
+              "val": 123.9,
+              "unit": "MHz"
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-05",
+   "source": "libacars-doc",
+   "description": "ADS-C",
+   "input": {
+    "direction": "downlink",
+    "label": "B6",
+    "text": "/CTUE1YA.ADS.HB-JNB1424AB686D9308CA2EBA1D0D24A2C06C1B48CA004A248050667908CA004BF6"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": true,
+      "gs_addr": "CTUE1YA",
+      "air_addr": ".HB-JNB",
+      "adsc": {
+       "tags": [
+        {
+         "wpt_change_event": {
+          "lat": 51.566563,
+          "lon": 19.261093,
+          "alt": 36000,
+          "ts_sec": 2990.5,
+          "pos_accuracy_nm": 0.25,
+          "nav_redundancy": true,
+          "tcas_avail": true
+         }
+        },
+        {
+         "predicted_route": {
+          "next_wpt": {
+           "lat": 51.519012,
+           "lon": 19.003086,
+           "alt": 36000,
+           "eta_sec": 74
+          },
+          "next_next_wpt": {
+           "lat": 51.329842,
+           "lon": 18.012772,
+           "alt": 36000
+          }
+         }
+        }
+       ],
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-06",
+   "source": "libacars-doc",
+   "description": "CPDLC downlink",
+   "input": {
+    "direction": "downlink",
+    "label": "BA",
+    "text": "/MSTEC7X.AT1.VT-ANE21409DCC3DD03BB52350490502B2E5129D5A15692BA009A08892E7CC831E210A4C06EEBC28B1662BC02360165C80E1F7"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "fans1a_cpdlc_msg",
+      "crc_ok": true,
+      "gs_addr": "MSTEC7X",
+      "air_addr": ".VT-ANE",
+      "cpdlc": {
+       "err": false,
+       "atc_downlink_msg": {
+        "header": {
+         "msg_id": 2,
+         "timestamp": {
+          "hour": 16,
+          "min": 9,
+          "sec": 55
+         }
+        },
+        "atc_downlink_msg_element_id": {
+         "choice_label": "POSITION REPORT [positionreport]",
+         "choice": "dM48PositionReport",
+         "data": {
+          "pos_report": {
+           "pos_current": {
+            "choice": "latitudeLongitude",
+            "data": {
+             "lat_lon": {
+              "lat": {
+               "deg": 53,
+               "min": 14.1,
+               "dir": "north"
+              },
+              "lon": {
+               "deg": 4,
+               "min": 57.7,
+               "dir": "east"
+              }
+             }
+            }
+           },
+           "time_at_pos_current": {
+            "hour": 16,
+            "min": 10
+           },
+           "alt": {
+            "choice": "altitudeFlightLevel",
+            "data": {
+             "flight_level": 400
+            }
+           },
+           "next_fix": {
+            "choice": "placeBearingDistance",
+            "data": {
+             "place_bearing_dist": {
+              "fix": "SUPUR",
+              "deg": {
+               "choice": "degreesMagnetic",
+               "data": {
+                "deg_mag": {
+                 "val": 350.0,
+                 "unit": "deg"
+                }
+               }
+              },
+              "dist": {
+               "choice": "distanceNm",
+               "data": {
+                "dist_nm": {
+                 "val": 3.8,
+                 "unit": "nm"
+                }
+               }
+              }
+             }
+            }
+           },
+           "eta_at_fix_next": {
+            "hour": 16,
+            "min": 17
+           },
+           "next_next_fix": {
+            "choice": "fixName",
+            "data": {
+             "fix": "KOLAG"
+            }
+           },
+           "eta_at_dest": {
+            "hour": 17,
+            "min": 2
+           },
+           "temp": {
+            "choice": "temperatureC",
+            "data": {
+             "temp_deg_c": {
+              "val": -60.0,
+              "unit": "C"
+             }
+            }
+           },
+           "winds": {
+            "wind_dir": {
+             "val": 305.0,
+             "unit": "deg"
+            },
+            "wind_speed": {
+             "choice": "windSpeedEnglish",
+             "data": {
+              "wind_speed_english": {
+               "val": 55.0,
+               "unit": "kts"
+              }
+             }
+            }
+           },
+           "turbulence": "moderate",
+           "speed": {
+            "choice": "speedMach",
+            "data": {
+             "speed_mach": {
+              "val": 0.84,
+              "unit": ""
+             }
+            }
+           },
+           "reported_wpt_pos": {
+            "choice": "placeBearingDistance",
+            "data": {
+             "place_bearing_dist": {
+              "fix": "EEL",
+              "deg": {
+               "choice": "degreesMagnetic",
+               "data": {
+                "deg_mag": {
+                 "val": 351.0,
+                 "unit": "deg"
+                }
+               }
+              },
+              "dist": {
+               "choice": "distanceNm",
+               "data": {
+                "dist_nm": {
+                 "val": 14.1,
+                 "unit": "nm"
+                }
+               }
+              }
+             }
+            }
+           },
+           "reported_wpt_time": {
+            "hour": 16,
+            "min": 2
+           },
+           "reported_wpt_alt": {
+            "choice": "altitudeFlightLevel",
+            "data": {
+             "flight_level": 400
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-07",
+   "source": "libacars-doc",
+   "description": "CPDLC connect request in H1 (uplink sublabel and MFI)",
+   "input": {
+    "direction": "uplink",
+    "label": "H1",
+    "text": "- #MD/AA ATLTWXA.CR1.N856DN203A3AA8E5C1A9323EDD"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "fans1a_cpdlc_connect_request",
+      "crc_ok": true,
+      "gs_addr": "ATLTWXA",
+      "air_addr": ".N856DN",
+      "cpdlc": {
+       "err": false,
+       "atc_uplink_msg": {
+        "header": {
+         "msg_id": 0,
+         "timestamp": {
+          "hour": 14,
+          "min": 35,
+          "sec": 42
+         }
+        },
+        "atc_uplink_msg_element_id": {
+         "choice_label": "[icaofacilitydesignation] [tp4table]",
+         "choice": "uM163ICAOfacilitydesignationTp4table",
+         "data": {
+          "icao_facility_designation_tp4_table": {
+           "icao_facility_designation": "KATL",
+           "tp4table": "labelB"
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-08",
+   "source": "libacars-doc",
+   "description": "media advisory",
+   "input": {
+    "direction": "downlink",
+    "label": "SA",
+    "text": "0EV192001VS"
+   },
+   "expected": {
+    "decoded": {
+     "media-adv": {
+      "err": false,
+      "version": 0,
+      "current_link": {
+       "code": "V",
+       "descr": "VHF ACARS",
+       "established": true,
+       "time": {
+        "hour": 19,
+        "min": 20,
+        "sec": 1
+       }
+      },
+      "links_avail": [
+       {
+        "code": "V",
+        "descr": "VHF ACARS"
+       },
+       {
+        "code": "S",
+        "descr": "Default SATCOM"
+       }
+      ]
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-09",
+   "source": "libacars-doc",
+   "description": "MIAM-like text after a sublabel (libacars example)",
+   "input": {
+    "direction": "downlink",
+    "label": "H1",
+    "text": "#T2BT-3![[mS0L8ZeIK0?J|EDDF"
+   },
+   "expected": {
+    "decoded": {
+     "miam": {
+      "single_transfer": {
+       "miam_core": {
+        "version": 2,
+        "pdu_type": 0,
+        "data": {
+         "msg_num": 19,
+         "ack_required": false,
+         "compression": 0,
+         "encoding": 0,
+         "app_type": 10,
+         "non_acars": {
+          "app_id": "0AT",
+          "message": {
+           "text": "EDDF"
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-10",
+   "source": "real-recording",
+   "description": "real: media-adv from N873FD",
+   "input": {
+    "direction": "downlink",
+    "label": "SA",
+    "text": "0EH0953332HS"
+   },
+   "expected": {
+    "decoded": {
+     "media-adv": {
+      "err": false,
+      "version": 0,
+      "current_link": {
+       "code": "H",
+       "descr": "HF",
+       "established": true,
+       "time": {
+        "hour": 9,
+        "min": 53,
+        "sec": 33
+       }
+      },
+      "links_avail": [
+       {
+        "code": "2",
+        "descr": "VDL2"
+       },
+       {
+        "code": "H",
+        "descr": "HF"
+       },
+       {
+        "code": "S",
+        "descr": "Default SATCOM"
+       }
+      ]
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-11",
+   "source": "real-recording",
+   "description": "real: arinc622 from A6-BNI",
+   "input": {
+    "direction": "uplink",
+    "label": "A6",
+    "text": "/REKCAYA.ADS.A6-BNI070C0B000D010F015416\r\n"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": true,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".A6-BNI",
+      "adsc": {
+       "tags": [
+        {
+         "periodic_contract_req": {
+          "contract_num": 12,
+          "groups": [
+           {
+            "report_interval": {
+             "interval_secs": 0
+            }
+           },
+           {
+            "predicted_route": {
+             "modulus": 1
+            }
+           },
+           {
+            "air_ref_data": {
+             "modulus": 1
+            }
+           }
+          ]
+         }
+        }
+       ],
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-12",
+   "source": "real-recording",
+   "description": "real: arinc622 from EC-NXE",
+   "input": {
+    "direction": "uplink",
+    "label": "AA",
+    "text": "/SMACAYA.AT1.EC-NXE22278E1D0095A6"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "fans1a_cpdlc_msg",
+      "crc_ok": true,
+      "gs_addr": "SMACAYA",
+      "air_addr": ".EC-NXE",
+      "cpdlc": {
+       "err": false,
+       "atc_uplink_msg": {
+        "header": {
+         "msg_id": 4,
+         "timestamp": {
+          "hour": 9,
+          "min": 56,
+          "sec": 56
+         }
+        },
+        "atc_uplink_msg_element_id": {
+         "choice_label": "RESUME NORMAL SPEED",
+         "choice": "uM116NULL",
+         "data": {}
+        }
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-13",
+   "source": "real-recording",
+   "description": "real: miam from F-WMIL",
+   "input": {
+    "direction": "uplink",
+    "label": "MA",
+    "text": "T.0&HDeF/k.Eo9hA$7z:>dl$|\r\n"
+   },
+   "expected": {
+    "decoded": {
+     "miam": {
+      "single_transfer": {
+       "miam_core": {
+        "version": 1,
+        "pdu_type": 1,
+        "ack": {
+         "pdu_len": 20,
+         "aircraft_id": ".F-WMIL",
+         "msg_ack_num": 68,
+         "ack_xfer_result": 0
+        }
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-14",
+   "source": "synthetic",
+   "description": "ADS-C basic report, flight ID, earth reference, airframe ID",
+   "input": {
+    "direction": "downlink",
+    "label": "A6",
+    "text": "/WAWSAYA.ADS.SP-LRA0725555878E388CA134A1F0C30F532DE08200E6088F3BFF01148AE1A0276"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": true,
+      "gs_addr": "WAWSAYA",
+      "air_addr": ".SP-LRA",
+      "adsc": {
+       "tags": [
+        {
+         "basic_report": {
+          "lat": 52.500057,
+          "lon": 21.249962,
+          "alt": 36000,
+          "ts_sec": 1234.5,
+          "pos_accuracy_nm": 0.05,
+          "nav_redundancy": true,
+          "tcas_avail": true
+         }
+        },
+        {
+         "flight_id": {
+          "flight_id": "LOT27   "
+         }
+        },
+        {
+         "earth_ref_data": {
+          "true_trk_deg": 271.494141,
+          "true_trk_valid": true,
+          "gnd_spd_kts": 487.0,
+          "vspd_ftmin": -64
+         }
+        },
+        {
+         "airframe_id": {
+          "icao_id": 4763162
+         }
+        }
+       ],
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-15",
+   "source": "synthetic",
+   "description": "ADS-C EMERGENCY basic report (tag 9), meteo",
+   "input": {
+    "direction": "downlink",
+    "label": "B6",
+    "text": "/PAOFAYA.ADS.N784AV09F738ACA7D287918008071037B57E7EEC14"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": true,
+      "gs_addr": "PAOFAYA",
+      "air_addr": ".N784AV",
+      "adsc": {
+       "tags": [
+        {
+         "emerg_basic_report": {
+          "lat": -12.345028,
+          "lon": -150.499992,
+          "alt": 31000,
+          "ts_sec": 2.0,
+          "pos_accuracy_nm": 8.0,
+          "nav_redundancy": true,
+          "tcas_avail": false
+         }
+        },
+        {
+         "meteo_data": {
+          "wind_spd_kts": 55.5,
+          "wind_dir_true_deg": 300.234375,
+          "wind_dir_valid": true,
+          "temp_c": -48.25
+         }
+        }
+       ],
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-16",
+   "source": "synthetic",
+   "description": "ADS-C with air reference",
+   "input": {
+    "direction": "downlink",
+    "label": "B6",
+    "text": "/PAOFAYA.ADS.N784AV07071C7071C7075301901F0F10019A0100D741"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": true,
+      "gs_addr": "PAOFAYA",
+      "air_addr": ".N784AV",
+      "adsc": {
+       "tags": [
+        {
+         "basic_report": {
+          "lat": 9.999962,
+          "lon": 19.999924,
+          "alt": 30000,
+          "ts_sec": 100.0,
+          "pos_accuracy_nm": 0.05,
+          "nav_redundancy": true,
+          "tcas_avail": true
+         }
+        },
+        {
+         "air_ref_data": {
+          "true_hdg_deg": 45.0,
+          "true_hdg_valid": true,
+          "spd_mach": 0.82,
+          "vspd_ftmin": 1024.0
+         }
+        }
+       ],
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-17",
+   "source": "synthetic",
+   "description": "ADS-C predicted route, fixed and intermediate projection",
+   "input": {
+    "direction": "downlink",
+    "label": "B6",
+    "text": "/REKCAYA.ADS.A6-BNI0D2ABCE78D15894703842B60BFA7D2894700172C16C7C71C890887081604B420E121109600F64A"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": true,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".A6-BNI",
+      "adsc": {
+       "tags": [
+        {
+         "predicted_route": {
+          "next_wpt": {
+           "lat": 60.100021,
+           "lon": -20.200081,
+           "alt": 38000,
+           "eta_sec": 900
+          },
+          "next_next_wpt": {
+           "lat": 61.000042,
+           "lon": -15.499992,
+           "alt": 38000
+          }
+         }
+        },
+        {
+         "fixed_projection": {
+          "lat": 61.999969,
+          "lon": -9.999962,
+          "alt": 37000,
+          "eta_sec": 1800
+         }
+        },
+        {
+         "intermediate_projection": {
+          "dist_nm": 150.5,
+          "true_trk_deg": 92.460938,
+          "true_trk_valid": true,
+          "alt": 37000,
+          "eta_sec": 1200
+         }
+        }
+       ],
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-18",
+   "source": "synthetic",
+   "description": "ADS-C acknowledgement",
+   "input": {
+    "direction": "downlink",
+    "label": "B6",
+    "text": "/REKCAYA.ADS.A6-BNI030C8F47"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": true,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".A6-BNI",
+      "adsc": {
+       "tags": [
+        {
+         "ack": {
+          "contract_num": 12
+         }
+        }
+       ],
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-19",
+   "source": "synthetic",
+   "description": "ADS-C NACK with an erroneous tag number",
+   "input": {
+    "direction": "downlink",
+    "label": "B6",
+    "text": "/REKCAYA.ADS.A6-BNI040C0763450A"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": true,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".A6-BNI",
+      "adsc": {
+       "tags": [
+        {
+         "nack": {
+          "contract_req_num": 12,
+          "reason": 7,
+          "err_tag": 99
+         }
+        }
+       ],
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-20",
+   "source": "synthetic",
+   "description": "ADS-C noncompliance: a whole group and three parameters",
+   "input": {
+    "direction": "downlink",
+    "label": "B6",
+    "text": "/REKCAYA.ADS.A6-BNI050C020D4010031230F985"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": true,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".A6-BNI",
+      "adsc": {
+       "tags": [
+        {
+         "noncomp_notify": {
+          "contract_req_num": 12,
+          "msg_groups": [
+           {
+            "noncomp_tag": 13,
+            "noncomp_cause": "group_unavailable"
+           },
+           {
+            "noncomp_tag": 16,
+            "noncomp_cause": "params_unavailable",
+            "params": [
+             1,
+             2,
+             3
+            ]
+           }
+          ]
+         }
+        }
+       ],
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-21",
+   "source": "synthetic",
+   "description": "ADS-C disconnect, normal",
+   "input": {
+    "direction": "downlink",
+    "label": "B6",
+    "text": "/REKCAYA.DIS.A6-BNI08F046"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_disconnect_request",
+      "crc_ok": true,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".A6-BNI",
+      "adsc": {
+       "tags": [
+        {
+         "reason": {
+          "reason_code": 0
+         }
+        }
+       ],
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-22",
+   "source": "synthetic",
+   "description": "ADS-C periodic (8 x 10 s) and event contract requests",
+   "input": {
+    "direction": "uplink",
+    "label": "A6",
+    "text": "/REKCAYA.ADS.A6-BNI070C0B8A0D010F01080D13280A1C5212FE14A03D"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": true,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".A6-BNI",
+      "adsc": {
+       "tags": [
+        {
+         "periodic_contract_req": {
+          "contract_num": 12,
+          "groups": [
+           {
+            "report_interval": {
+             "interval_secs": 88
+            }
+           },
+           {
+            "predicted_route": {
+             "modulus": 1
+            }
+           },
+           {
+            "air_ref_data": {
+             "modulus": 1
+            }
+           }
+          ]
+         }
+        },
+        {
+         "event_contract_req": {
+          "contract_num": 13,
+          "groups": [
+           {
+            "report_when_alt_out_of_range": {
+             "floor_alt": 29000,
+             "ceiling_alt": 41000
+            }
+           },
+           {
+            "report_when_vspd_is": {
+             "vspd_ftmin_threshold": 128,
+             "higher_than": false
+            }
+           },
+           {
+            "report_wpt_changes": {}
+           }
+          ]
+         }
+        }
+       ],
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-23",
+   "source": "synthetic",
+   "description": "ADS-C cancel all contracts",
+   "input": {
+    "direction": "uplink",
+    "label": "A6",
+    "text": "/REKCAYA.ADS.A6-BNI01605A"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": true,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".A6-BNI",
+      "adsc": {
+       "tags": [
+        {
+         "cancel_all_contracts": {}
+        }
+       ],
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-24",
+   "source": "synthetic",
+   "description": "ADS-C basic report cut short: an error",
+   "input": {
+    "direction": "downlink",
+    "label": "B6",
+    "text": "/REKCAYA.ADS.A6-BNI070102B3B6"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": true,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".A6-BNI",
+      "adsc": {
+       "tags": [],
+       "err": true
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-25",
+   "source": "synthetic",
+   "description": "ADS-C with a bad ARINC 622 CRC: decoded, CRC flagged",
+   "input": {
+    "direction": "downlink",
+    "label": "B6",
+    "text": "/REKCAYA.ADS.A6-BNI07238E3838E3888B80F01FFDFC"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": false,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".A6-BNI",
+      "adsc": {
+       "tags": [
+        {
+         "basic_report": {
+          "lat": 49.999981,
+          "lon": 9.999962,
+          "alt": 35000,
+          "ts_sec": 60.0,
+          "pos_accuracy_nm": 0.05,
+          "nav_redundancy": true,
+          "tcas_avail": true
+         }
+        }
+       ],
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-26",
+   "source": "synthetic",
+   "description": "ARINC 622 hex cut by a non-hex character",
+   "input": {
+    "direction": "downlink",
+    "label": "B6",
+    "text": "/REKCAYA.ADS.A6-BNI07ZZ"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "adsc_msg",
+      "crc_ok": false,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".A6-BNI",
+      "adsc": {}
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-27",
+   "source": "synthetic",
+   "description": "no IMI: not ARINC 622",
+   "input": {
+    "direction": "downlink",
+    "label": "B6",
+    "text": "/REKCAYA-ADS.A6-BNI0701"
+   },
+   "expected": {
+    "decoded": null
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-28",
+   "source": "synthetic",
+   "description": "CPDLC uplink: CLIMB TO AND MAINTAIN FL350",
+   "input": {
+    "direction": "uplink",
+    "label": "AA",
+    "text": "/REKCAYA.AT1.A6-BNI22A7A1C53280F165"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "fans1a_cpdlc_msg",
+      "crc_ok": true,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".A6-BNI",
+      "cpdlc": {
+       "err": false,
+       "atc_uplink_msg": {
+        "header": {
+         "msg_id": 5,
+         "timestamp": {
+          "hour": 9,
+          "min": 58,
+          "sec": 7
+         }
+        },
+        "atc_uplink_msg_element_id": {
+         "choice_label": "CLIMB TO AND MAINTAIN [altitude]",
+         "choice": "uM20Altitude",
+         "data": {
+          "alt": {
+           "choice": "altitudeFlightLevel",
+           "data": {
+            "flight_level": 350
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-29",
+   "source": "synthetic",
+   "description": "CPDLC downlink: WILCO",
+   "input": {
+    "direction": "downlink",
+    "label": "BA",
+    "text": "/REKCAYA.AT1.N784AV430A0004B9"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "fans1a_cpdlc_msg",
+      "crc_ok": true,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".N784AV",
+      "cpdlc": {
+       "err": false,
+       "atc_downlink_msg": {
+        "header": {
+         "msg_id": 6,
+         "msg_ref": 5
+        },
+        "atc_downlink_msg_element_id": {
+         "choice_label": "WILCO",
+         "choice": "dM0NULL",
+         "data": {}
+        }
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-30",
+   "source": "synthetic",
+   "description": "CPDLC downlink: MAYDAY MAYDAY MAYDAY, fuel and souls on board",
+   "input": {
+    "direction": "downlink",
+    "label": "BA",
+    "text": "/REKCAYA.AT1.N784AV839C072278AD4235"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "fans1a_cpdlc_msg",
+      "crc_ok": true,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".N784AV",
+      "cpdlc": {
+       "err": false,
+       "atc_downlink_msg": {
+        "header": {
+         "msg_id": 7
+        },
+        "atc_downlink_msg_element_id": {
+         "choice_label": "MAYDAY MAYDAY MAYDAY",
+         "choice": "dM56NULL",
+         "data": {}
+        },
+        "atc_downlink_msg_element_id_seq": [
+         {
+          "atc_downlink_msg_element_id": {
+           "choice_label": "[remainingfuel] OF FUEL REMAINING AND [remainingsouls] SOULS ON BOARD",
+           "choice": "dM57RemainingFuelRemainingSouls",
+           "data": {
+            "rem_fuel_persons_onboard": {
+             "rem_fuel_time": {
+              "hour": 2,
+              "min": 30
+             },
+             "persons_onboard": 174
+            }
+           }
+          }
+         }
+        ]
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-31",
+   "source": "synthetic",
+   "description": "CPDLC downlink: PAN PAN PAN, descending to FL100",
+   "input": {
+    "direction": "downlink",
+    "label": "BA",
+    "text": "/REKCAYA.AT1.N784AV841B87B84620D5"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "fans1a_cpdlc_msg",
+      "crc_ok": true,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".N784AV",
+      "cpdlc": {
+       "err": false,
+       "atc_downlink_msg": {
+        "header": {
+         "msg_id": 8
+        },
+        "atc_downlink_msg_element_id": {
+         "choice_label": "PAN PAN PAN",
+         "choice": "dM55NULL",
+         "data": {}
+        },
+        "atc_downlink_msg_element_id_seq": [
+         {
+          "atc_downlink_msg_element_id": {
+           "choice_label": "DESCENDING TO [altitude]",
+           "choice": "dM61Altitude",
+           "data": {
+            "alt": {
+             "choice": "altitudeFlightLevel",
+             "data": {
+              "flight_level": 100
+             }
+            }
+           }
+          }
+         }
+        ]
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-32",
+   "source": "synthetic",
+   "description": "CPDLC downlink free text",
+   "input": {
+    "direction": "downlink",
+    "label": "BA",
+    "text": "/REKCAYA.AT1.N784AV04A18CCD8B124C383310459B169478B3A1D9413E720853E0D288DCBC"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "fans1a_cpdlc_msg",
+      "crc_ok": true,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".N784AV",
+      "cpdlc": {
+       "err": false,
+       "atc_downlink_msg": {
+        "header": {
+         "msg_id": 9
+        },
+        "atc_downlink_msg_element_id": {
+         "choice_label": "[freetext]",
+         "choice": "dM67FreeText",
+         "data": {
+          "free_text": "MEDICAL EMERGENCY ON BOARD"
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-33",
+   "source": "synthetic",
+   "description": "CPDLC connect request with an empty message",
+   "input": {
+    "direction": "downlink",
+    "label": "BA",
+    "text": "/REKCAYA.CR1.N784AV7F2A"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "fans1a_cpdlc_connect_request",
+      "crc_ok": true,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".N784AV",
+      "cpdlc": {
+       "err": false
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-34",
+   "source": "synthetic",
+   "description": "CPDLC that does not decode",
+   "input": {
+    "direction": "downlink",
+    "label": "BA",
+    "text": "/REKCAYA.AT1.N784AVFFFFFF7DE3"
+   },
+   "expected": {
+    "decoded": {
+     "arinc622": {
+      "msg_type": "fans1a_cpdlc_msg",
+      "crc_ok": true,
+      "gs_addr": "REKCAYA",
+      "air_addr": ".N784AV",
+      "cpdlc": {
+       "err": true
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-35",
+   "source": "synthetic",
+   "description": "MIAM single transfer, core v2, deflate",
+   "input": {
+    "direction": "downlink",
+    "label": "MA",
+    "text": "T30![7V0824`%|;g*/%$?6Lb;=J];%X)r<<H&?:pJp_UFS&Q=1ZIKtz"
+   },
+   "expected": {
+    "decoded": {
+     "miam": {
+      "single_transfer": {
+       "miam_core": {
+        "version": 2,
+        "pdu_type": 0,
+        "data": {
+         "msg_num": 17,
+         "ack_required": false,
+         "compression": 1,
+         "encoding": 0,
+         "app_type": 0,
+         "acars": {
+          "label": "H1",
+          "message": {
+           "text": "#DFBTEST MESSAGE FROM MIAM V2\r\n"
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-36",
+   "source": "synthetic",
+   "description": "MIAM core v2, no compression, 4-character application ID",
+   "input": {
+    "direction": "downlink",
+    "label": "MA",
+    "text": "T32![IaH823M%G)cP&|<DGnW9i+_V;c?+Q+@8jl=TAF%"
+   },
+   "expected": {
+    "decoded": {
+     "miam": {
+      "single_transfer": {
+       "miam_core": {
+        "version": 2,
+        "pdu_type": 0,
+        "data": {
+         "msg_num": 18,
+         "ack_required": false,
+         "compression": 0,
+         "encoding": 0,
+         "app_type": 1,
+         "acars": {
+          "label": "H1",
+          "sublabel": "DF",
+          "message": {
+           "text": "UNCOMPRESSED BODY"
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-37",
+   "source": "synthetic",
+   "description": "MIAM core v2 with a bad CRC",
+   "input": {
+    "direction": "downlink",
+    "label": "MA",
+    "text": "T30![[n4825^R|F7OO3<!`4,nPF1(E,p%tE\"6mmz"
+   },
+   "expected": {
+    "decoded": {
+     "miam": {
+      "single_transfer": {
+       "miam_core": {
+        "version": 2,
+        "pdu_type": 0,
+        "data": {
+         "msg_num": 19,
+         "ack_required": false,
+         "compression": 1,
+         "encoding": 0,
+         "app_type": 0,
+         "acars": {
+          "label": "H1",
+          "message": {
+           "text": "BODY WITH A BAD CRC",
+           "err": 524288
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-38",
+   "source": "synthetic",
+   "description": "MIAM single transfer, core v1, CRC-32",
+   "input": {
+    "direction": "downlink",
+    "label": "MA",
+    "text": "T20!<<*L/k.Eo9hA#-!'j(0r2d;.|F7p,b<<tB[n9#0MG'%q.E:S40\"98E%"
+   },
+   "expected": {
+    "decoded": {
+     "miam": {
+      "single_transfer": {
+       "miam_core": {
+        "version": 1,
+        "pdu_type": 0,
+        "data": {
+         "pdu_len": 42,
+         "aircraft_id": ".F-WMIL",
+         "msg_num": 20,
+         "ack_required": true,
+         "compression": 1,
+         "encoding": 0,
+         "app_type": 0,
+         "acars": {
+          "label": "H1",
+          "message": {
+           "text": "CORE V1 MESSAGE BODY"
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-39",
+   "source": "synthetic",
+   "description": "MIAM file transfer request (21 characters)",
+   "input": {
+    "direction": "downlink",
+    "label": "MA",
+    "text": "F123000045261125120000"
+   },
+   "expected": {
+    "decoded": {
+     "miam": {
+      "file_transfer_request": {
+       "file_id": 123,
+       "file_size": 45,
+       "complete_until_datetime": {
+        "date": {
+         "year": 2026,
+         "month": 11,
+         "day": 25
+        },
+        "time": {
+         "hour": 12,
+         "minute": 0,
+         "second": 0
+        }
+       }
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-40",
+   "source": "synthetic",
+   "description": "MIAM file transfer accept",
+   "input": {
+    "direction": "downlink",
+    "label": "MA",
+    "text": "K1234010060"
+   },
+   "expected": {
+    "decoded": {
+     "miam": {
+      "file_transfer_accept": {
+       "file_id": 123,
+       "segment_size": 4,
+       "on_ground_seg_temp_secs": 10,
+       "in_flight_seg_temp_secs": 60
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-41",
+   "source": "synthetic",
+   "description": "MIAM file transfer abort, stopped by sender",
+   "input": {
+    "direction": "downlink",
+    "label": "MA",
+    "text": "A1232"
+   },
+   "expected": {
+    "decoded": {
+     "miam": {
+      "file_transfer_abort": {
+       "file_id": 123,
+       "reason": 2
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-42",
+   "source": "synthetic",
+   "description": "MIAM pause, all files",
+   "input": {
+    "direction": "downlink",
+    "label": "MA",
+    "text": "YFFF"
+   },
+   "expected": {
+    "decoded": {
+     "miam": {
+      "file_xoff_ind": {
+       "all_files": true
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-43",
+   "source": "synthetic",
+   "description": "MIAM resume",
+   "input": {
+    "direction": "downlink",
+    "label": "MA",
+    "text": "X123010060"
+   },
+   "expected": {
+    "decoded": {
+     "miam": {
+      "file_xon_ind": {
+       "all_files": false,
+       "file_id": 123,
+       "on_ground_seg_temp_secs": 10,
+       "in_flight_seg_temp_secs": 60
+      }
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-44",
+   "source": "synthetic",
+   "description": "media advisory: HF lost, free text",
+   "input": {
+    "direction": "downlink",
+    "label": "SA",
+    "text": "0LH095333VS2/TEXT"
+   },
+   "expected": {
+    "decoded": {
+     "media-adv": {
+      "err": false,
+      "version": 0,
+      "current_link": {
+       "code": "H",
+       "descr": "HF",
+       "established": false,
+       "time": {
+        "hour": 9,
+        "min": 53,
+        "sec": 33
+       }
+      },
+      "links_avail": [
+       {
+        "code": "V",
+        "descr": "VHF ACARS"
+       },
+       {
+        "code": "S",
+        "descr": "Default SATCOM"
+       },
+       {
+        "code": "2",
+        "descr": "VDL2"
+       }
+      ],
+      "text": "TEXT"
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-45",
+   "source": "synthetic",
+   "description": "media advisory of 9 characters (at least 10 needed): unparseable",
+   "input": {
+    "direction": "downlink",
+    "label": "SA",
+    "text": "0EI235959"
+   },
+   "expected": {
+    "decoded": {
+     "media-adv": {
+      "err": true
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-46",
+   "source": "synthetic",
+   "description": "media advisory version 1: unparseable",
+   "input": {
+    "direction": "downlink",
+    "label": "SA",
+    "text": "1EH095333"
+   },
+   "expected": {
+    "decoded": {
+     "media-adv": {
+      "err": true
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-47",
+   "source": "synthetic",
+   "description": "media advisory with an unknown link: unparseable",
+   "input": {
+    "direction": "downlink",
+    "label": "SA",
+    "text": "0EQ095333"
+   },
+   "expected": {
+    "decoded": {
+     "media-adv": {
+      "err": true
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-48",
+   "source": "synthetic",
+   "description": "OHMA single message",
+   "input": {
+    "direction": "downlink",
+    "label": "H1",
+    "text": "OHMAeNqrVipLLSrOzM9TslIy1DNQ0lHKTS0uTkxPBfKrY5TSEktzSmKUrGKUXP3cFYwUnHxcXV1ilGqVagEAhxER"
+   },
+   "expected": {
+    "decoded": {
+     "ohma": {
+      "err": 0,
+      "version": "1.0",
+      "reasm_status": "skipped",
+      "text": "{\"fault\":\"ENG 2 BLEED\"}"
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-49",
+   "source": "synthetic",
+   "description": "OHMA uplink with /xx. prefix",
+   "input": {
+    "direction": "uplink",
+    "label": "H1",
+    "text": "/O2.OHMAeNqrVipLLSrOzM9TslIy1DNQ0lHKTS0uTkxPBfJDA3w8/bwVglwDQ12DQ5RqATKODT8="
+   },
+   "expected": {
+    "decoded": {
+     "ohma": {
+      "err": 0,
+      "version": "1.0",
+      "reasm_status": "skipped",
+      "text": "UPLINK REQUEST"
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-50",
+   "source": "synthetic",
+   "description": "OHMA fragment 2 of 2 (decoded alone: not complete)",
+   "input": {
+    "direction": "downlink",
+    "label": "H1",
+    "text": "/RTNBOCR.OHMAeNqrVipLLSrOzM9TslIy1DNQ0lFKzs8ry4/PTAEKJBsC+bnF6fHFqYVKVkYQdkl+SWIOhJdaXJyYngpUGOzq7O/nolQLAMBGGCM="
+   },
+   "expected": {
+    "decoded": {
+     "ohma": {
+      "err": 0,
+      "version": "1.0",
+      "msg_id": "c1",
+      "msg_seq": 2,
+      "msg_total": 2,
+      "reasm_status": "unknown",
+      "text": "SECOND"
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  },
+  {
+   "id": "app-51",
+   "source": "synthetic",
+   "description": "OHMA prefix with base64 that is not zlib: error",
+   "input": {
+    "direction": "downlink",
+    "label": "H1",
+    "text": "OHMAQUJD"
+   },
+   "expected": {
+    "decoded": {
+     "ohma": {
+      "err": 2
+     }
+    }
+   },
+   "req": [
+    "PAR-05"
+   ]
+  }
+ ]
+}

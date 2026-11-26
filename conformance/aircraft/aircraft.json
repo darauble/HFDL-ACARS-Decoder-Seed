@@ -1,0 +1,3602 @@
+{
+ "suite": "aircraft",
+ "normative": true,
+ "description": "The messages of a parse/sequence.json case -> the aircraft view (04-support.md \u00a74.9): identity, flight, message count, first/last time, last frequency, last valid reported position (performance or frequency data of a downlink).",
+ "compare": {
+  "method": "as a set keyed by (icao, registration); floats 1e-6"
+ },
+ "cases": [
+  {
+   "id": "rec-10058500Hz-20261125T095504Z",
+   "source": "real-recording",
+   "description": "every message of parse/sequence.json's case of the same id, in order",
+   "input": {
+    "sequence_case": "rec-10058500Hz-20261125T095504Z"
+   },
+   "expected": {
+    "aircraft": [
+     {
+      "icao": null,
+      "registration": "9V-SJI",
+      "flight": null,
+      "messages": 1,
+      "first_t": 340.003,
+      "last_t": 340.003,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "B-1356",
+      "flight": null,
+      "messages": 2,
+      "first_t": 300.62,
+      "last_t": 428.621,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "B-228J",
+      "flight": null,
+      "messages": 1,
+      "first_t": 300.62,
+      "last_t": 300.62,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "B-30D9",
+      "flight": null,
+      "messages": 1,
+      "first_t": 1533.806,
+      "last_t": 1533.806,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "B-323H",
+      "flight": "MU0787",
+      "messages": 2,
+      "first_t": 59.399,
+      "last_t": 204.619,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "B-326D",
+      "flight": "CA1265",
+      "messages": 2,
+      "first_t": 2023.682,
+      "last_t": 2107.376,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "B-327S",
+      "flight": "CA4209",
+      "messages": 2,
+      "first_t": 2075.377,
+      "last_t": 2117.224,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "B-329S",
+      "flight": null,
+      "messages": 1,
+      "first_t": 1228.631,
+      "last_t": 1228.631,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "B-6091",
+      "flight": "CA1159",
+      "messages": 2,
+      "first_t": 856.946,
+      "last_t": 1041.563,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "B-6305",
+      "flight": null,
+      "messages": 4,
+      "first_t": 396.621,
+      "last_t": 940.628,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "B-7368",
+      "flight": null,
+      "messages": 1,
+      "first_t": 852.01,
+      "last_t": 852.01,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "HL7211",
+      "flight": null,
+      "messages": 1,
+      "first_t": 1228.631,
+      "last_t": 1228.631,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "HL7794",
+      "flight": null,
+      "messages": 1,
+      "first_t": 524.623,
+      "last_t": 524.623,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "HL8571",
+      "flight": null,
+      "messages": 1,
+      "first_t": 236.619,
+      "last_t": 236.619,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "HL8598",
+      "flight": null,
+      "messages": 1,
+      "first_t": 172.618,
+      "last_t": 172.618,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "HL8733",
+      "flight": null,
+      "messages": 1,
+      "first_t": 108.618,
+      "last_t": 108.618,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "JA807A",
+      "flight": null,
+      "messages": 2,
+      "first_t": 172.618,
+      "last_t": 204.619,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "N344KD",
+      "flight": null,
+      "messages": 1,
+      "first_t": 884.01,
+      "last_t": 884.01,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "RA73099",
+      "flight": null,
+      "messages": 2,
+      "first_t": 780.626,
+      "last_t": 820.009,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "RA73177",
+      "flight": "SU1486",
+      "messages": 3,
+      "first_t": 522.22,
+      "last_t": 1317.287,
+      "last_freq_khz": 10084,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "RA73768",
+      "flight": "SU1460",
+      "messages": 1,
+      "first_t": 1996.676,
+      "last_t": 1996.676,
+      "last_freq_khz": 10084,
+      "position": null
+     },
+     {
+      "icao": "151DD9",
+      "registration": null,
+      "flight": "SU1486",
+      "messages": 3,
+      "first_t": 74.219,
+      "last_t": 1940.059,
+      "last_freq_khz": 10084,
+      "position": null
+     },
+     {
+      "icao": "151E01",
+      "registration": "RA73217",
+      "flight": "FV6980",
+      "messages": 13,
+      "first_t": 88.93,
+      "last_t": 556.628,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "151FF3",
+      "registration": null,
+      "flight": null,
+      "messages": 2,
+      "first_t": 325.242,
+      "last_t": 359.705,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "151FFF",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 1228.631,
+      "last_t": 1228.631,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "152020",
+      "registration": null,
+      "flight": "SU1419",
+      "messages": 1,
+      "first_t": 1664.284,
+      "last_t": 1664.284,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "152021",
+      "registration": null,
+      "flight": "SU1401",
+      "messages": 1,
+      "first_t": 1735.751,
+      "last_t": 1735.751,
+      "last_freq_khz": 10084,
+      "position": null
+     },
+     {
+      "icao": "152022",
+      "registration": null,
+      "flight": "SU1535",
+      "messages": 1,
+      "first_t": 443.397,
+      "last_t": 443.397,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "152028",
+      "registration": null,
+      "flight": "SU1460",
+      "messages": 2,
+      "first_t": 340.003,
+      "last_t": 2112.368,
+      "last_freq_khz": 10084,
+      "position": null
+     },
+     {
+      "icao": "15202C",
+      "registration": null,
+      "flight": "SU1319",
+      "messages": 6,
+      "first_t": 27.39,
+      "last_t": 1472.364,
+      "last_freq_khz": 10084,
+      "position": null
+     },
+     {
+      "icao": "15203C",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 428.621,
+      "last_t": 428.621,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "1520AB",
+      "registration": null,
+      "flight": "NWC915",
+      "messages": 1,
+      "first_t": 2058.143,
+      "last_t": 2058.143,
+      "last_freq_khz": 10084,
+      "position": {
+       "lat": 68.303849,
+       "lon": 62.458081,
+       "t": 2058.143
+      }
+     },
+     {
+      "icao": "4072EA",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 716.625,
+      "last_t": 716.625,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "507C42",
+      "registration": null,
+      "flight": "HY0611",
+      "messages": 2,
+      "first_t": 1228.631,
+      "last_t": 1280.365,
+      "last_freq_khz": 10084,
+      "position": null
+     },
+     {
+      "icao": "71BE09",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 852.01,
+      "last_t": 852.01,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "71BE22",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 1612.584,
+      "last_t": 1612.584,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "71C099",
+      "registration": null,
+      "flight": "ABL618",
+      "messages": 2,
+      "first_t": 588.624,
+      "last_t": 1947.386,
+      "last_freq_khz": 10027,
+      "position": {
+       "lat": 35.04302,
+       "lon": 133.612201,
+       "t": 1947.386
+      }
+     },
+     {
+      "icao": "71C382",
+      "registration": "HL8382",
+      "flight": null,
+      "messages": 2,
+      "first_t": 884.01,
+      "last_t": 1228.631,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "71C537",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 748.625,
+      "last_t": 748.625,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "71C570",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 716.625,
+      "last_t": 716.625,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "71C574",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 300.62,
+      "last_t": 300.62,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "76CC6E",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 428.621,
+      "last_t": 428.621,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "780005",
+      "registration": null,
+      "flight": "CAO115",
+      "messages": 1,
+      "first_t": 790.483,
+      "last_t": 790.483,
+      "last_freq_khz": 10027,
+      "position": {
+       "lat": 57.676959,
+       "lon": 83.908584,
+       "t": 790.483
+      }
+     },
+     {
+      "icao": "780B20",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 172.618,
+      "last_t": 172.618,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "780EF0",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 1228.631,
+      "last_t": 1228.631,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "780F47",
+      "registration": "B-8392",
+      "flight": null,
+      "messages": 2,
+      "first_t": 460.622,
+      "last_t": 524.623,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "78108C",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 524.623,
+      "last_t": 524.623,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "7810A3",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 820.009,
+      "last_t": 820.009,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "78122C",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 588.624,
+      "last_t": 588.624,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "781610",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 1533.806,
+      "last_t": 1533.806,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "7817B7",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 748.625,
+      "last_t": 748.625,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "78189A",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 940.628,
+      "last_t": 940.628,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "781A60",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 1332.015,
+      "last_t": 1332.015,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "781B42",
+      "registration": "B-322U",
+      "flight": null,
+      "messages": 2,
+      "first_t": 588.624,
+      "last_t": 660.007,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "781CE3",
+      "registration": null,
+      "flight": "CCA420",
+      "messages": 1,
+      "first_t": 2026.146,
+      "last_t": 2026.146,
+      "last_freq_khz": 10027,
+      "position": {
+       "lat": 39.90448,
+       "lon": 95.878555,
+       "t": 2026.146
+      }
+     },
+     {
+      "icao": "781DE7",
+      "registration": "B-32AA",
+      "flight": null,
+      "messages": 2,
+      "first_t": 332.621,
+      "last_t": 460.622,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "781DE9",
+      "registration": null,
+      "flight": "CES653",
+      "messages": 2,
+      "first_t": 1528.918,
+      "last_t": 1548.584,
+      "last_freq_khz": 10027,
+      "position": {
+       "lat": 36.648401,
+       "lon": 120.415192,
+       "t": 1528.918
+      }
+     },
+     {
+      "icao": "781E13",
+      "registration": "B-32AS",
+      "flight": "CA0911",
+      "messages": 2,
+      "first_t": 1228.631,
+      "last_t": 1339.414,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "781F3A",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 428.621,
+      "last_t": 428.621,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "781F73",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 300.62,
+      "last_t": 300.62,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "782078",
+      "registration": null,
+      "flight": null,
+      "messages": 2,
+      "first_t": 204.619,
+      "last_t": 396.621,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "782159",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 588.624,
+      "last_t": 588.624,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "782184",
+      "registration": "B-32JH",
+      "flight": "3U6573",
+      "messages": 3,
+      "first_t": 588.624,
+      "last_t": 660.007,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "782198",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 940.628,
+      "last_t": 940.628,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "7821CE",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 1228.631,
+      "last_t": 1228.631,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "7822DD",
+      "registration": null,
+      "flight": "CCA122",
+      "messages": 1,
+      "first_t": 1095.725,
+      "last_t": 1095.725,
+      "last_freq_khz": 10027,
+      "position": {
+       "lat": 39.238432,
+       "lon": 109.146288,
+       "t": 1095.725
+      }
+     },
+     {
+      "icao": "782359",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 588.624,
+      "last_t": 588.624,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "78238F",
+      "registration": "B-32Q7",
+      "flight": null,
+      "messages": 2,
+      "first_t": 884.01,
+      "last_t": 940.628,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "7823D7",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 940.628,
+      "last_t": 940.628,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "7824BB",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 172.618,
+      "last_t": 172.618,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "78922F",
+      "registration": "B-LXI",
+      "flight": null,
+      "messages": 3,
+      "first_t": 716.625,
+      "last_t": 884.01,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "789230",
+      "registration": "B-LXJ",
+      "flight": null,
+      "messages": 3,
+      "first_t": 204.619,
+      "last_t": 492.623,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "80073D",
+      "registration": "VT-ANW",
+      "flight": null,
+      "messages": 3,
+      "first_t": 236.619,
+      "last_t": 332.621,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "84B83E",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 820.009,
+      "last_t": 820.009,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "84BD16",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 524.623,
+      "last_t": 524.623,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "86D96C",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 1533.806,
+      "last_t": 1533.806,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "86E866",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 428.621,
+      "last_t": 428.621,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "873006",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 332.621,
+      "last_t": 332.621,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "888139",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 108.618,
+      "last_t": 108.618,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "8990F4",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 1533.806,
+      "last_t": 1533.806,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "899125",
+      "registration": "B-18908",
+      "flight": null,
+      "messages": 2,
+      "first_t": 524.623,
+      "last_t": 780.626,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "899126",
+      "registration": "B-58551",
+      "flight": null,
+      "messages": 3,
+      "first_t": 172.618,
+      "last_t": 300.62,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "89912F",
+      "registration": "B-58554",
+      "flight": null,
+      "messages": 4,
+      "first_t": 236.619,
+      "last_t": 524.623,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "8991E1",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 780.626,
+      "last_t": 780.626,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "A254F7",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 492.623,
+      "last_t": 492.623,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "A2551D",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 588.624,
+      "last_t": 588.624,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "A2CB33",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 236.619,
+      "last_t": 236.619,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "A2F2FA",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 588.624,
+      "last_t": 588.624,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "A670A3",
+      "registration": "N514DN",
+      "flight": null,
+      "messages": 3,
+      "first_t": 108.618,
+      "last_t": 236.619,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "A690BF",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 76.617,
+      "last_t": 76.617,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "A6946B",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 436.004,
+      "last_t": 436.004,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "A69822",
+      "registration": "N524DN",
+      "flight": null,
+      "messages": 2,
+      "first_t": 340.003,
+      "last_t": 780.626,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "A748BC",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 204.619,
+      "last_t": 204.619,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "C0103A",
+      "registration": "C-FGDT",
+      "flight": null,
+      "messages": 2,
+      "first_t": 204.619,
+      "last_t": 780.626,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "C01040",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 748.625,
+      "last_t": 748.625,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "C023C8",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 716.625,
+      "last_t": 716.625,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "C0293E",
+      "registration": null,
+      "flight": null,
+      "messages": 2,
+      "first_t": 172.618,
+      "last_t": 396.621,
+      "last_freq_khz": 10027,
+      "position": null
+     },
+     {
+      "icao": "C038AC",
+      "registration": "C-FVLZ",
+      "flight": null,
+      "messages": 2,
+      "first_t": 884.01,
+      "last_t": 940.628,
+      "last_freq_khz": 10027,
+      "position": null
+     }
+    ]
+   },
+   "req": [
+    "AC-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z",
+   "source": "real-recording",
+   "description": "every message of parse/sequence.json's case of the same id, in order",
+   "input": {
+    "sequence_case": "rec-8902500Hz-20261125T095421Z"
+   },
+   "expected": {
+    "aircraft": [
+     {
+      "icao": null,
+      "registration": "A6-BLX",
+      "flight": null,
+      "messages": 2,
+      "first_t": 1252.131,
+      "last_t": 1323.514,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "A6-BMB",
+      "flight": "EY03XA",
+      "messages": 1,
+      "first_t": 9.102,
+      "last_t": 9.102,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "A6-BNI",
+      "flight": null,
+      "messages": 1,
+      "first_t": 252.782,
+      "last_t": 252.782,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "A6-EOL",
+      "flight": "EK08UW",
+      "messages": 3,
+      "first_t": 555.559,
+      "last_t": 636.78,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "A6-EUX",
+      "flight": "EK042X",
+      "messages": 2,
+      "first_t": 385.718,
+      "last_t": 444.781,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "A6-XWN",
+      "flight": null,
+      "messages": 1,
+      "first_t": 988.732,
+      "last_t": 988.732,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "A7-ANI",
+      "flight": "QR073V",
+      "messages": 1,
+      "first_t": 6.596,
+      "last_t": 6.596,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "A7-AOI",
+      "flight": null,
+      "messages": 1,
+      "first_t": 235.512,
+      "last_t": 235.512,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "B-32ED",
+      "flight": null,
+      "messages": 1,
+      "first_t": 1692.768,
+      "last_t": 1692.768,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "B-5961",
+      "flight": "MU0218",
+      "messages": 4,
+      "first_t": 604.78,
+      "last_t": 1884.767,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "B-7343",
+      "flight": "MU0229",
+      "messages": 2,
+      "first_t": 1473.704,
+      "last_t": 1596.769,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "C-FVND",
+      "flight": "AC0050",
+      "messages": 1,
+      "first_t": 267.56,
+      "last_t": 267.56,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "CS-TSH",
+      "flight": null,
+      "messages": 2,
+      "first_t": 476.781,
+      "last_t": 1596.769,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "CS-TSI",
+      "flight": null,
+      "messages": 1,
+      "first_t": 1372.77,
+      "last_t": 1372.77,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "EC-NXE",
+      "flight": null,
+      "messages": 1,
+      "first_t": 284.782,
+      "last_t": 284.782,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "EC-OND",
+      "flight": "2W7403",
+      "messages": 1,
+      "first_t": 489.098,
+      "last_t": 489.098,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "F-HTYM",
+      "flight": null,
+      "messages": 2,
+      "first_t": 1419.515,
+      "last_t": 1515.515,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "F-WTTN",
+      "flight": "4Y0301",
+      "messages": 3,
+      "first_t": 425.097,
+      "last_t": 508.78,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "G-TTNJ",
+      "flight": null,
+      "messages": 1,
+      "first_t": 956.778,
+      "last_t": 956.778,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "G-TUIO",
+      "flight": null,
+      "messages": 1,
+      "first_t": 267.512,
+      "last_t": 267.512,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "G-VUFO",
+      "flight": "VS005C",
+      "messages": 5,
+      "first_t": 341.351,
+      "last_t": 1397.355,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "N793AV",
+      "flight": null,
+      "messages": 2,
+      "first_t": 252.782,
+      "last_t": 284.782,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "N873FD",
+      "flight": "FX5184",
+      "messages": 2,
+      "first_t": 4.133,
+      "last_t": 11.511,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "N893FD",
+      "flight": "FX6418",
+      "messages": 1,
+      "first_t": 1313.756,
+      "last_t": 1313.756,
+      "last_freq_khz": 8912,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "PR-AHC",
+      "flight": null,
+      "messages": 1,
+      "first_t": 252.782,
+      "last_t": 252.782,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "RA73106",
+      "flight": "SU1563",
+      "messages": 2,
+      "first_t": 644.184,
+      "last_t": 668.779,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "TC-LGK",
+      "flight": null,
+      "messages": 1,
+      "first_t": 459.512,
+      "last_t": 459.512,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": null,
+      "registration": "XA-ADC",
+      "flight": null,
+      "messages": 3,
+      "first_t": 1884.767,
+      "last_t": 2236.764,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "0100A5",
+      "registration": "SU-GCH",
+      "flight": "MS5530",
+      "messages": 7,
+      "first_t": 1835.559,
+      "last_t": 2172.764,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 51.025755,
+       "lon": 3.834236,
+       "t": 1835.559
+      }
+     },
+     {
+      "icao": "01028A",
+      "registration": "SU-GGJ",
+      "flight": "MSR985",
+      "messages": 5,
+      "first_t": 348.782,
+      "last_t": 1670.636,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 41.016504,
+       "lon": -25.532619,
+       "t": 1670.636
+      }
+     },
+     {
+      "icao": "02005A",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 572.78,
+      "last_t": 572.78,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "02006F",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 924.779,
+      "last_t": 924.779,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "020072",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 508.78,
+      "last_t": 508.78,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "020073",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 11.511,
+      "last_t": 11.511,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "02007D",
+      "registration": "CN-ROR",
+      "flight": null,
+      "messages": 2,
+      "first_t": 2140.765,
+      "last_t": 2204.764,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "0200AF",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 2012.766,
+      "last_t": 2012.766,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "0200EA",
+      "registration": "CN-RGG",
+      "flight": null,
+      "messages": 3,
+      "first_t": 636.78,
+      "last_t": 1468.769,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "02019C",
+      "registration": "CN-NMS",
+      "flight": null,
+      "messages": 4,
+      "first_t": 1252.131,
+      "last_t": 1835.516,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "04C11C",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 2172.764,
+      "last_t": 2172.764,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "04C15B",
+      "registration": "5Y-KZJ",
+      "flight": "KQ0113",
+      "messages": 3,
+      "first_t": 1020.771,
+      "last_t": 1099.551,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "06A112",
+      "registration": "A7-AOD",
+      "flight": "QR061C",
+      "messages": 3,
+      "first_t": 1692.768,
+      "last_t": 1820.767,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "06A115",
+      "registration": null,
+      "flight": "QTR76W",
+      "messages": 1,
+      "first_t": 1818.325,
+      "last_t": 1818.325,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 41.673625,
+       "lon": 33.276965,
+       "t": 1818.325
+      }
+     },
+     {
+      "icao": "06A117",
+      "registration": null,
+      "flight": "QTR2T",
+      "messages": 2,
+      "first_t": 651.513,
+      "last_t": 890.303,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 51.128752,
+       "lon": 7.343001,
+       "t": 890.303
+      }
+     },
+     {
+      "icao": "06A125",
+      "registration": null,
+      "flight": "QTR73V",
+      "messages": 4,
+      "first_t": 1641.084,
+      "last_t": 2241.696,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 52.396302,
+       "lon": 16.286233,
+       "t": 2241.696
+      }
+     },
+     {
+      "icao": "06A126",
+      "registration": null,
+      "flight": "QTR70E",
+      "messages": 1,
+      "first_t": 1601.708,
+      "last_t": 1601.708,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 42.036861,
+       "lon": 28.02343,
+       "t": 1601.708
+      }
+     },
+     {
+      "icao": "06A12C",
+      "registration": null,
+      "flight": "QTR35P",
+      "messages": 3,
+      "first_t": 449.715,
+      "last_t": 919.866,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 50.328808,
+       "lon": 10.798551,
+       "t": 919.866
+      }
+     },
+     {
+      "icao": "06A12F",
+      "registration": "A7-ANS",
+      "flight": "QR058G",
+      "messages": 9,
+      "first_t": 521.102,
+      "last_t": 1788.767,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 47.078222,
+       "lon": 23.547179,
+       "t": 1562.319
+      }
+     },
+     {
+      "icao": "06A145",
+      "registration": null,
+      "flight": "QTR47A",
+      "messages": 2,
+      "first_t": 1594.323,
+      "last_t": 1628.768,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 42.795263,
+       "lon": 28.083168,
+       "t": 1594.323
+      }
+     },
+     {
+      "icao": "0D11ED",
+      "registration": "XA-AMQ",
+      "flight": null,
+      "messages": 3,
+      "first_t": 796.78,
+      "last_t": 1308.77,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "151D91",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 1104.482,
+      "last_t": 1104.482,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 43.754165,
+       "lon": 39.763374,
+       "t": 1104.482
+      }
+     },
+     {
+      "icao": "151DB8",
+      "registration": null,
+      "flight": "SU1731",
+      "messages": 3,
+      "first_t": 299.562,
+      "last_t": 939.559,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 56.415589,
+       "lon": 37.167506,
+       "t": 939.559
+      }
+     },
+     {
+      "icao": "151DC1",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 2140.765,
+      "last_t": 2140.765,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "151DD7",
+      "registration": "RA73175",
+      "flight": "SU1247",
+      "messages": 6,
+      "first_t": 282.295,
+      "last_t": 582.601,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "151DD9",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 2172.764,
+      "last_t": 2172.764,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "151FF8",
+      "registration": null,
+      "flight": "SU2142",
+      "messages": 1,
+      "first_t": 1483.554,
+      "last_t": 1483.554,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "151FFE",
+      "registration": "RA73726",
+      "flight": "SU1018",
+      "messages": 8,
+      "first_t": 279.828,
+      "last_t": 811.514,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "152020",
+      "registration": null,
+      "flight": "SU1419",
+      "messages": 4,
+      "first_t": 1146.319,
+      "last_t": 1596.769,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "152022",
+      "registration": "RA73762",
+      "flight": "SU1535",
+      "messages": 6,
+      "first_t": 700.779,
+      "last_t": 1525.393,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "15202A",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 444.781,
+      "last_t": 444.781,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "15202B",
+      "registration": null,
+      "flight": "SU1307",
+      "messages": 3,
+      "first_t": 1057.704,
+      "last_t": 2012.766,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "15202C",
+      "registration": null,
+      "flight": "SU1319",
+      "messages": 1,
+      "first_t": 2199.836,
+      "last_t": 2199.836,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "346057",
+      "registration": null,
+      "flight": null,
+      "messages": 2,
+      "first_t": 444.781,
+      "last_t": 1084.773,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "346114",
+      "registration": "EC-NBO",
+      "flight": null,
+      "messages": 5,
+      "first_t": 956.778,
+      "last_t": 1692.768,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "3461CB",
+      "registration": "EC-NCX",
+      "flight": null,
+      "messages": 3,
+      "first_t": 956.778,
+      "last_t": 1820.767,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "346310",
+      "registration": "EC-NFM",
+      "flight": null,
+      "messages": 5,
+      "first_t": 235.512,
+      "last_t": 2172.764,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "3465C5",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 1148.771,
+      "last_t": 1148.771,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "347245",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 796.78,
+      "last_t": 796.78,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "347343",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 555.513,
+      "last_t": 555.513,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "347387",
+      "registration": "EC-NXD",
+      "flight": "IBE030",
+      "messages": 4,
+      "first_t": 700.779,
+      "last_t": 2224.473,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 49.398402,
+       "lon": -28.939417,
+       "t": 2224.473
+      }
+     },
+     {
+      "icao": "3482D5",
+      "registration": null,
+      "flight": null,
+      "messages": 2,
+      "first_t": 604.78,
+      "last_t": 2012.766,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "348517",
+      "registration": "EC-OTU",
+      "flight": "WT0636",
+      "messages": 9,
+      "first_t": 651.513,
+      "last_t": 2219.517,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 40.013657,
+       "lon": -4.346818,
+       "t": 2106.297
+      }
+     },
+     {
+      "icao": "38E83B",
+      "registration": "F-WMIL",
+      "flight": "4Y01IL",
+      "messages": 17,
+      "first_t": 250.334,
+      "last_t": 2236.764,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 43.923424,
+       "lon": 3.495719,
+       "t": 1205.4
+      }
+     },
+     {
+      "icao": "39C426",
+      "registration": "F-HRBG",
+      "flight": "AF0756",
+      "messages": 5,
+      "first_t": 1547.526,
+      "last_t": 1675.516,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 49.009073,
+       "lon": 2.751737,
+       "t": 1547.526
+      }
+     },
+     {
+      "icao": "39C427",
+      "registration": "F-HRBH",
+      "flight": "AF0191",
+      "messages": 6,
+      "first_t": 316.782,
+      "last_t": 1468.769,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "39C429",
+      "registration": "F-HRBJ",
+      "flight": "AFR942",
+      "messages": 7,
+      "first_t": 380.782,
+      "last_t": 1298.906,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 4.595041,
+       "lon": 3.92762,
+       "t": 1298.906
+      }
+     },
+     {
+      "icao": "39C48D",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 1884.767,
+      "last_t": 1884.767,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "39C495",
+      "registration": "F-HREV",
+      "flight": "BF085A",
+      "messages": 6,
+      "first_t": 1195.514,
+      "last_t": 1919.233,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "39CF0C",
+      "registration": null,
+      "flight": null,
+      "messages": 2,
+      "first_t": 1788.767,
+      "last_t": 1852.767,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "39CF0D",
+      "registration": "F-HTYN",
+      "flight": "AF0412",
+      "messages": 5,
+      "first_t": 540.751,
+      "last_t": 823.829,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 48.99637,
+       "lon": 2.587629,
+       "t": 540.751
+      }
+     },
+     {
+      "icao": "39D2A6",
+      "registration": "F-HUVG",
+      "flight": "AF0484",
+      "messages": 5,
+      "first_t": 1030.638,
+      "last_t": 1397.355,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 49.003923,
+       "lon": 2.814565,
+       "t": 1030.638
+      }
+     },
+     {
+      "icao": "39D2AF",
+      "registration": "F-HUVP",
+      "flight": "AF0068",
+      "messages": 6,
+      "first_t": 1574.601,
+      "last_t": 1835.516,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 49.157389,
+       "lon": 3.006826,
+       "t": 1574.601
+      }
+     },
+     {
+      "icao": "39D2B0",
+      "registration": "F-HUVQ",
+      "flight": "AFR218",
+      "messages": 11,
+      "first_t": 619.513,
+      "last_t": 2229.391,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 48.613908,
+       "lon": 4.998446,
+       "t": 2229.391
+      }
+     },
+     {
+      "icao": "39D2B7",
+      "registration": "F-HUVX",
+      "flight": "AFR485",
+      "messages": 7,
+      "first_t": 567.829,
+      "last_t": 1877.37,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 49.002207,
+       "lon": 2.174267,
+       "t": 1877.37
+      }
+     },
+     {
+      "icao": "3C4A07",
+      "registration": null,
+      "flight": "DLH3LT",
+      "messages": 2,
+      "first_t": 954.327,
+      "last_t": 1052.771,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 50.025654,
+       "lon": 8.461549,
+       "t": 954.327
+      }
+     },
+     {
+      "icao": "3C4A15",
+      "registration": "D-ABPU",
+      "flight": "LH0492",
+      "messages": 4,
+      "first_t": 1929.097,
+      "last_t": 2044.766,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 52.086624,
+       "lon": 7.167563,
+       "t": 1929.097
+      }
+     },
+     {
+      "icao": "3F5407",
+      "registration": "1510",
+      "flight": "LH0730",
+      "messages": 6,
+      "first_t": 11.511,
+      "last_t": 1897.081,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 58.320004,
+       "lon": 14.458035,
+       "t": 1047.855
+      }
+     },
+     {
+      "icao": "4066AB",
+      "registration": "G-VRAY",
+      "flight": null,
+      "messages": 3,
+      "first_t": 267.512,
+      "last_t": 1323.514,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "4067F5",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 747.513,
+      "last_t": 747.513,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "40683E",
+      "registration": null,
+      "flight": "VS005C",
+      "messages": 4,
+      "first_t": 1690.336,
+      "last_t": 2209.717,
+      "last_freq_khz": 8912,
+      "position": {
+       "lat": 50.247441,
+       "lon": -5.688182,
+       "t": 2209.717
+      }
+     },
+     {
+      "icao": "406C39",
+      "registration": "G-VWHO",
+      "flight": "VIR20V",
+      "messages": 7,
+      "first_t": 439.867,
+      "last_t": 1904.469,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 51.619704,
+       "lon": -0.614549,
+       "t": 1904.469
+      }
+     },
+     {
+      "icao": "406ECD",
+      "registration": "G-VMAP",
+      "flight": "VS0317",
+      "messages": 9,
+      "first_t": 1793.699,
+      "last_t": 2091.516,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 51.66777,
+       "lon": 1.482127,
+       "t": 1946.313
+      }
+     },
+     {
+      "icao": "407371",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 732.78,
+      "last_t": 732.78,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "407698",
+      "registration": "G-VJAM",
+      "flight": "VS008Y",
+      "messages": 9,
+      "first_t": 1060.136,
+      "last_t": 1970.895,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 53.697498,
+       "lon": -5.908596,
+       "t": 1060.136
+      }
+     },
+     {
+      "icao": "40787A",
+      "registration": null,
+      "flight": "TOM204",
+      "messages": 7,
+      "first_t": 11.511,
+      "last_t": 1429.394,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 53.650462,
+       "lon": -5.018358,
+       "t": 1429.394
+      }
+     },
+     {
+      "icao": "40787B",
+      "registration": null,
+      "flight": "TOM265",
+      "messages": 4,
+      "first_t": 395.56,
+      "last_t": 2155.517,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 21.31798,
+       "lon": -65.980579,
+       "t": 1015.857
+      }
+     },
+     {
+      "icao": "40808B",
+      "registration": "G-VRIF",
+      "flight": null,
+      "messages": 3,
+      "first_t": 700.779,
+      "last_t": 828.778,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "44012F",
+      "registration": "OE-LPL",
+      "flight": "OS003A",
+      "messages": 7,
+      "first_t": 703.22,
+      "last_t": 2172.764,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 48.970964,
+       "lon": 15.546027,
+       "t": 1441.714
+      }
+     },
+     {
+      "icao": "440184",
+      "registration": "OE-LPM",
+      "flight": null,
+      "messages": 2,
+      "first_t": 1468.769,
+      "last_t": 1702.608,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "448606",
+      "registration": "OE-LZC",
+      "flight": "OS207V",
+      "messages": 8,
+      "first_t": 1739.515,
+      "last_t": 2214.601,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "44CDCB",
+      "registration": "OO-SNK",
+      "flight": "SN08CE",
+      "messages": 16,
+      "first_t": 555.513,
+      "last_t": 1867.516,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "4521BF",
+      "registration": "LZ-LAN",
+      "flight": "H60462",
+      "messages": 9,
+      "first_t": 1500.752,
+      "last_t": 2172.754,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 47.524543,
+       "lon": 17.467265,
+       "t": 2172.754
+      }
+     },
+     {
+      "icao": "45AC32",
+      "registration": "OY-KAR",
+      "flight": "SK058G",
+      "messages": 6,
+      "first_t": 855.862,
+      "last_t": 2076.765,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 60.672799,
+       "lon": 10.743963,
+       "t": 855.862
+      }
+     },
+     {
+      "icao": "4840C6",
+      "registration": null,
+      "flight": "KZR302",
+      "messages": 1,
+      "first_t": 2219.525,
+      "last_t": 2219.525,
+      "last_freq_khz": 8939,
+      "position": {
+       "lat": 43.286559,
+       "lon": 76.917833,
+       "t": 2219.525
+      }
+     },
+     {
+      "icao": "48506C",
+      "registration": "PH-TFL",
+      "flight": null,
+      "messages": 3,
+      "first_t": 1372.77,
+      "last_t": 2236.764,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "4850C7",
+      "registration": null,
+      "flight": "KZR278",
+      "messages": 3,
+      "first_t": 1097.1,
+      "last_t": 2071.864,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 46.389172,
+       "lon": 51.765617,
+       "t": 2071.864
+      }
+     },
+     {
+      "icao": "495171",
+      "registration": "CS-TKQ",
+      "flight": "S40151",
+      "messages": 8,
+      "first_t": 289.698,
+      "last_t": 2219.517,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 39.024199,
+       "lon": -22.059559,
+       "t": 594.917
+      }
+     },
+     {
+      "icao": "498421",
+      "registration": "3085",
+      "flight": "C2005V",
+      "messages": 24,
+      "first_t": 427.512,
+      "last_t": 2229.371,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 51.685623,
+       "lon": 2.475362,
+       "t": 1549.982
+      }
+     },
+     {
+      "icao": "4ACA65",
+      "registration": null,
+      "flight": "SAS936",
+      "messages": 1,
+      "first_t": 809.094,
+      "last_t": 809.094,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 60.266305,
+       "lon": 2.514844,
+       "t": 809.094
+      }
+     },
+     {
+      "icao": "4ACA66",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 2219.517,
+      "last_t": 2219.517,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "4ACA67",
+      "registration": null,
+      "flight": "SAS983",
+      "messages": 2,
+      "first_t": 2005.388,
+      "last_t": 2128.464,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 55.618049,
+       "lon": 12.828622,
+       "t": 2128.464
+      }
+     },
+     {
+      "icao": "4BB0F2",
+      "registration": null,
+      "flight": null,
+      "messages": 2,
+      "first_t": 348.782,
+      "last_t": 1148.771,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "4BB0FA",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 11.511,
+      "last_t": 11.511,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "4BB10B",
+      "registration": "TC-LHK",
+      "flight": "THY900",
+      "messages": 4,
+      "first_t": 764.779,
+      "last_t": 2160.47,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 44.999399,
+       "lon": 7.822281,
+       "t": 2160.47
+      }
+     },
+     {
+      "icao": "4BB721",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 363.511,
+      "last_t": 363.511,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "4CAC2C",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 2236.764,
+      "last_t": 2236.764,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "4D2318",
+      "registration": null,
+      "flight": "CSC900",
+      "messages": 1,
+      "first_t": 2187.542,
+      "last_t": 2187.542,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 60.31231,
+       "lon": 24.980555,
+       "t": 2187.542
+      }
+     },
+     {
+      "icao": "4D24BA",
+      "registration": "9H-NEE",
+      "flight": "KMM479",
+      "messages": 6,
+      "first_t": 1131.514,
+      "last_t": 1658.293,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "507C59",
+      "registration": null,
+      "flight": "UZB604",
+      "messages": 2,
+      "first_t": 513.721,
+      "last_t": 1284.141,
+      "last_freq_khz": 8939,
+      "position": {
+       "lat": 51.284621,
+       "lon": 52.68332,
+       "t": 1284.141
+      }
+     },
+     {
+      "icao": "6830ED",
+      "registration": null,
+      "flight": "BEC001",
+      "messages": 4,
+      "first_t": 636.78,
+      "last_t": 2155.552,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 55.453597,
+       "lon": 48.859041,
+       "t": 2155.552
+      }
+     },
+     {
+      "icao": "706071",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 2076.765,
+      "last_t": 2076.765,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "7380C4",
+      "registration": null,
+      "flight": "ELY009",
+      "messages": 3,
+      "first_t": 245.411,
+      "last_t": 996.179,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 46.120693,
+       "lon": 19.090841,
+       "t": 996.179
+      }
+     },
+     {
+      "icao": "7380C5",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 2140.765,
+      "last_t": 2140.765,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "740828",
+      "registration": null,
+      "flight": "RJA292",
+      "messages": 4,
+      "first_t": 708.13,
+      "last_t": 1933.994,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 59.696044,
+       "lon": -28.047119,
+       "t": 1933.994
+      }
+     },
+     {
+      "icao": "75044E",
+      "registration": "9M-MAG",
+      "flight": "MH0021",
+      "messages": 7,
+      "first_t": 1628.768,
+      "last_t": 2076.765,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "76CCE5",
+      "registration": null,
+      "flight": "SIA23",
+      "messages": 6,
+      "first_t": 617.099,
+      "last_t": 1771.546,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 48.190934,
+       "lon": 15.615379,
+       "t": 1771.546
+      }
+     },
+     {
+      "icao": "76CDA7",
+      "registration": "9V-SMG",
+      "flight": "SQ0305",
+      "messages": 14,
+      "first_t": 651.558,
+      "last_t": 1884.767,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 51.55619,
+       "lon": 9.359683,
+       "t": 1338.318
+      }
+     },
+     {
+      "icao": "76CDAC",
+      "registration": null,
+      "flight": "SIA309",
+      "messages": 4,
+      "first_t": 651.513,
+      "last_t": 1505.701,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 49.914074,
+       "lon": 6.507009,
+       "t": 1505.701
+      }
+     },
+     {
+      "icao": "780112",
+      "registration": null,
+      "flight": null,
+      "messages": 2,
+      "first_t": 235.512,
+      "last_t": 828.778,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "78026E",
+      "registration": null,
+      "flight": "CAO315",
+      "messages": 2,
+      "first_t": 843.566,
+      "last_t": 1094.646,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 59.468421,
+       "lon": 54.516667,
+       "t": 1094.646
+      }
+     },
+     {
+      "icao": "780450",
+      "registration": "B-6113",
+      "flight": "CAO119",
+      "messages": 6,
+      "first_t": 762.325,
+      "last_t": 2094.004,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 55.719673,
+       "lon": -0.483743,
+       "t": 2094.004
+      }
+     },
+     {
+      "icao": "780561",
+      "registration": null,
+      "flight": "CES551",
+      "messages": 2,
+      "first_t": 2121.088,
+      "last_t": 2219.561,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 58.71002,
+       "lon": 82.195401,
+       "t": 2219.561
+      }
+     },
+     {
+      "icao": "7809A9",
+      "registration": "B-2037",
+      "flight": "CA0931",
+      "messages": 4,
+      "first_t": 668.779,
+      "last_t": 777.112,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "7809EF",
+      "registration": null,
+      "flight": "WFL740",
+      "messages": 2,
+      "first_t": 1079.857,
+      "last_t": 1195.549,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 50.04076,
+       "lon": 15.139876,
+       "t": 1195.549
+      }
+     },
+     {
+      "icao": "780C80",
+      "registration": null,
+      "flight": "CXA813",
+      "messages": 2,
+      "first_t": 577.732,
+      "last_t": 604.78,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 56.018021,
+       "lon": 85.434657,
+       "t": 577.732
+      }
+     },
+     {
+      "icao": "780D22",
+      "registration": null,
+      "flight": "CES218",
+      "messages": 1,
+      "first_t": 506.332,
+      "last_t": 506.332,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 46.249783,
+       "lon": 6.12798,
+       "t": 506.332
+      }
+     },
+     {
+      "icao": "781343",
+      "registration": "B-1080",
+      "flight": "CA0935",
+      "messages": 8,
+      "first_t": 508.78,
+      "last_t": 1877.402,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 61.300738,
+       "lon": 63.403594,
+       "t": 1690.327
+      }
+     },
+     {
+      "icao": "7813C2",
+      "registration": null,
+      "flight": "CCA939",
+      "messages": 4,
+      "first_t": 1348.188,
+      "last_t": 1948.766,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 60.283814,
+       "lon": 70.10767,
+       "t": 1860.139
+      }
+     },
+     {
+      "icao": "78158A",
+      "registration": null,
+      "flight": "DKH160",
+      "messages": 3,
+      "first_t": 572.78,
+      "last_t": 1596.769,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 62.456708,
+       "lon": 29.973507,
+       "t": 1577.099
+      }
+     },
+     {
+      "icao": "781602",
+      "registration": "B-305X",
+      "flight": null,
+      "messages": 3,
+      "first_t": 651.513,
+      "last_t": 811.514,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "7817D0",
+      "registration": null,
+      "flight": "CES244",
+      "messages": 1,
+      "first_t": 1650.909,
+      "last_t": 1650.909,
+      "last_freq_khz": 8939,
+      "position": {
+       "lat": 35.374327,
+       "lon": 107.868782,
+       "t": 1650.909
+      }
+     },
+     {
+      "icao": "7817FB",
+      "registration": "B-20DT",
+      "flight": "HO1660",
+      "messages": 4,
+      "first_t": 2116.14,
+      "last_t": 2236.756,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 50.970823,
+       "lon": 4.564828,
+       "t": 2116.14
+      }
+     },
+     {
+      "icao": "78198D",
+      "registration": "B-20EW",
+      "flight": "CSN690",
+      "messages": 7,
+      "first_t": 432.483,
+      "last_t": 1911.851,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 52.608133,
+       "lon": 3.398558,
+       "t": 1911.851
+      }
+     },
+     {
+      "icao": "781E13",
+      "registration": "B-32AS",
+      "flight": "CA0911",
+      "messages": 3,
+      "first_t": 2170.329,
+      "last_t": 2217.098,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 58.713796,
+       "lon": 79.552497,
+       "t": 2170.329
+      }
+     },
+     {
+      "icao": "781EB7",
+      "registration": null,
+      "flight": "CES261",
+      "messages": 1,
+      "first_t": 1783.867,
+      "last_t": 1783.867,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 61.633762,
+       "lon": 71.513236,
+       "t": 1783.867
+      }
+     },
+     {
+      "icao": "781FF6",
+      "registration": "B-32FP",
+      "flight": "MU0232",
+      "messages": 8,
+      "first_t": 700.779,
+      "last_t": 1020.771,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "7821A9",
+      "registration": null,
+      "flight": "CES213",
+      "messages": 2,
+      "first_t": 1335.86,
+      "last_t": 2025.099,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 61.398585,
+       "lon": 40.491906,
+       "t": 2025.099
+      }
+     },
+     {
+      "icao": "7822DD",
+      "registration": null,
+      "flight": "CCA122",
+      "messages": 1,
+      "first_t": 1414.602,
+      "last_t": 1414.602,
+      "last_freq_khz": 8939,
+      "position": {
+       "lat": 39.260062,
+       "lon": 108.497064,
+       "t": 1414.602
+      }
+     },
+     {
+      "icao": "7823A9",
+      "registration": null,
+      "flight": "CCA422",
+      "messages": 1,
+      "first_t": 1660.758,
+      "last_t": 1660.758,
+      "last_freq_khz": 8939,
+      "position": {
+       "lat": 30.589086,
+       "lon": 103.952148,
+       "t": 1660.758
+      }
+     },
+     {
+      "icao": "78244F",
+      "registration": null,
+      "flight": "CAO100",
+      "messages": 3,
+      "first_t": 437.423,
+      "last_t": 1884.767,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 58.627622,
+       "lon": 81.579478,
+       "t": 437.423
+      }
+     },
+     {
+      "icao": "789231",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 1515.515,
+      "last_t": 1515.515,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "800626",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 444.781,
+      "last_t": 444.781,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "86D9D2",
+      "registration": null,
+      "flight": "ANA218",
+      "messages": 6,
+      "first_t": 848.481,
+      "last_t": 1993.086,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 46.078121,
+       "lon": 20.507051,
+       "t": 1993.086
+      }
+     },
+     {
+      "icao": "896187",
+      "registration": null,
+      "flight": "UAE30Y",
+      "messages": 2,
+      "first_t": 681.069,
+      "last_t": 708.13,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 64.33503,
+       "lon": -35.314589,
+       "t": 681.069
+      }
+     },
+     {
+      "icao": "89618D",
+      "registration": null,
+      "flight": "UAE9CL",
+      "messages": 1,
+      "first_t": 969.101,
+      "last_t": 969.101,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 43.375136,
+       "lon": 18.55869,
+       "t": 969.101
+      }
+     },
+     {
+      "icao": "8963E8",
+      "registration": "A6-EOK",
+      "flight": "UAE73",
+      "messages": 5,
+      "first_t": 560.461,
+      "last_t": 1020.771,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 46.299908,
+       "lon": 11.388381,
+       "t": 833.715
+      }
+     },
+     {
+      "icao": "8963E9",
+      "registration": null,
+      "flight": "UAE8UW",
+      "messages": 1,
+      "first_t": 523.559,
+      "last_t": 523.559,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 53.278987,
+       "lon": -1.855663,
+       "t": 523.559
+      }
+     },
+     {
+      "icao": "8963F2",
+      "registration": null,
+      "flight": "UAE1",
+      "messages": 2,
+      "first_t": 321.716,
+      "last_t": 732.78,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 46.411488,
+       "lon": 14.095486,
+       "t": 321.716
+      }
+     },
+     {
+      "icao": "8963F3",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 1970.895,
+      "last_t": 1970.895,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "8963F4",
+      "registration": "A6-EOW",
+      "flight": "UAE5RQ",
+      "messages": 6,
+      "first_t": 284.782,
+      "last_t": 1621.395,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 48.340623,
+       "lon": 4.371194,
+       "t": 1621.395
+      }
+     },
+     {
+      "icao": "896461",
+      "registration": "A6-APF",
+      "flight": null,
+      "messages": 4,
+      "first_t": 988.732,
+      "last_t": 1451.514,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "896475",
+      "registration": "A6-EUK",
+      "flight": "EK08ER",
+      "messages": 11,
+      "first_t": 1047.856,
+      "last_t": 2012.766,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 54.578466,
+       "lon": -39.749984,
+       "t": 1424.502
+      }
+     },
+     {
+      "icao": "8964B0",
+      "registration": "A6-EVB",
+      "flight": "UAE39",
+      "messages": 5,
+      "first_t": 1052.771,
+      "last_t": 1766.624,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 43.36724,
+       "lon": 13.993862,
+       "t": 1766.624
+      }
+     },
+     {
+      "icao": "8964BB",
+      "registration": "A6-BLK",
+      "flight": "ETD4EA",
+      "messages": 7,
+      "first_t": 619.513,
+      "last_t": 1446.626,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 50.955717,
+       "lon": 18.801763,
+       "t": 1446.626
+      }
+     },
+     {
+      "icao": "8964BC",
+      "registration": "A6-BLL",
+      "flight": "ETD3MB",
+      "messages": 8,
+      "first_t": 902.64,
+      "last_t": 2123.548,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 46.042072,
+       "lon": 24.771471,
+       "t": 2123.548
+      }
+     },
+     {
+      "icao": "8964FD",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 796.78,
+      "last_t": 796.78,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "896523",
+      "registration": "A6-EVM",
+      "flight": "EK02VL",
+      "messages": 12,
+      "first_t": 732.78,
+      "last_t": 2236.764,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 52.242493,
+       "lon": 5.765087,
+       "t": 1943.83
+      }
+     },
+     {
+      "icao": "896536",
+      "registration": null,
+      "flight": "ETD1QN",
+      "messages": 3,
+      "first_t": 1729.714,
+      "last_t": 2145.7,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 46.58624,
+       "lon": 21.205027,
+       "t": 2145.7
+      }
+     },
+     {
+      "icao": "89653B",
+      "registration": null,
+      "flight": "ETD99P",
+      "messages": 2,
+      "first_t": 1050.322,
+      "last_t": 1193.091,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 45.77943,
+       "lon": 22.908941,
+       "t": 1193.091
+      }
+     },
+     {
+      "icao": "89653E",
+      "registration": null,
+      "flight": "ETD8JZ",
+      "messages": 1,
+      "first_t": 1227.541,
+      "last_t": 1227.541,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 47.51802,
+       "lon": 20.034981,
+       "t": 1227.541
+      }
+     },
+     {
+      "icao": "896558",
+      "registration": null,
+      "flight": "ABY266",
+      "messages": 2,
+      "first_t": 1953.698,
+      "last_t": 2069.39,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 50.412579,
+       "lon": 6.746648,
+       "t": 2069.39
+      }
+     },
+     {
+      "icao": "89655A",
+      "registration": "A6-EVN",
+      "flight": "EK051N",
+      "messages": 6,
+      "first_t": 572.78,
+      "last_t": 1980.766,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "896598",
+      "registration": null,
+      "flight": "ETD11K",
+      "messages": 3,
+      "first_t": 422.638,
+      "last_t": 732.78,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 48.633477,
+       "lon": 13.14551,
+       "t": 442.33
+      }
+     },
+     {
+      "icao": "896620",
+      "registration": null,
+      "flight": "UAE102",
+      "messages": 3,
+      "first_t": 277.411,
+      "last_t": 1717.396,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 44.943094,
+       "lon": 12.727342,
+       "t": 1717.396
+      }
+     },
+     {
+      "icao": "89667B",
+      "registration": "A6-EXM",
+      "flight": "EK0167",
+      "messages": 6,
+      "first_t": 1257.099,
+      "last_t": 1404.77,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 49.383639,
+       "lon": 22.169079,
+       "t": 1257.099
+      }
+     },
+     {
+      "icao": "89667F",
+      "registration": null,
+      "flight": "UAE220",
+      "messages": 1,
+      "first_t": 535.875,
+      "last_t": 535.875,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 44.087876,
+       "lon": 12.777467,
+       "t": 535.875
+      }
+     },
+     {
+      "icao": "8966A8",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 2012.766,
+      "last_t": 2012.766,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "8966A9",
+      "registration": "A6-LRD",
+      "flight": "ETD9GL",
+      "messages": 6,
+      "first_t": 260.138,
+      "last_t": 1001.097,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 47.140021,
+       "lon": 12.610612,
+       "t": 1001.097
+      }
+     },
+     {
+      "icao": "8966D4",
+      "registration": "A6-XWL",
+      "flight": "EY0013",
+      "messages": 4,
+      "first_t": 730.338,
+      "last_t": 1596.769,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 44.122208,
+       "lon": 24.872064,
+       "t": 730.338
+      }
+     },
+     {
+      "icao": "8966F9",
+      "registration": "A6-EXV",
+      "flight": null,
+      "messages": 4,
+      "first_t": 444.781,
+      "last_t": 1308.77,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "89671C",
+      "registration": "A6-ARD",
+      "flight": "G90605",
+      "messages": 13,
+      "first_t": 420.175,
+      "last_t": 1596.769,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 51.936935,
+       "lon": 21.106493,
+       "t": 538.328
+      }
+     },
+     {
+      "icao": "89672A",
+      "registration": "A6-LRN",
+      "flight": "EY07YQ",
+      "messages": 10,
+      "first_t": 361.104,
+      "last_t": 1020.771,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 45.584766,
+       "lon": 19.866409,
+       "t": 875.541
+      }
+     },
+     {
+      "icao": "89672F",
+      "registration": null,
+      "flight": "ETD8NY",
+      "messages": 1,
+      "first_t": 622.024,
+      "last_t": 622.024,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 47.03359,
+       "lon": 11.885856,
+       "t": 622.024
+      }
+     },
+     {
+      "icao": "8990EC",
+      "registration": "B-18917",
+      "flight": "CI0068",
+      "messages": 5,
+      "first_t": 1687.832,
+      "last_t": 2106.313,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 49.970035,
+       "lon": 14.587812,
+       "t": 1978.314
+      }
+     },
+     {
+      "icao": "A05628",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 2236.764,
+      "last_t": 2236.764,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "A057EB",
+      "registration": null,
+      "flight": "FX5046",
+      "messages": 3,
+      "first_t": 1803.516,
+      "last_t": 2199.87,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 44.95408,
+       "lon": -61.824649,
+       "t": 2199.87
+      }
+     },
+     {
+      "icao": "A2A2E6",
+      "registration": "N26909",
+      "flight": "UAL769",
+      "messages": 5,
+      "first_t": 284.782,
+      "last_t": 1668.166,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 44.064873,
+       "lon": -8.286797,
+       "t": 1668.166
+      }
+     },
+     {
+      "icao": "A2A41E",
+      "registration": "N26996",
+      "flight": null,
+      "messages": 3,
+      "first_t": 1042.892,
+      "last_t": 1131.514,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "A2CA64",
+      "registration": null,
+      "flight": "UAL416",
+      "messages": 4,
+      "first_t": 1188.137,
+      "last_t": 1820.754,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 47.904602,
+       "lon": -2.305417,
+       "t": 1820.754
+      }
+     },
+     {
+      "icao": "A31A2D",
+      "registration": "N29961",
+      "flight": "UA0923",
+      "messages": 5,
+      "first_t": 1436.769,
+      "last_t": 2076.765,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "A596B1",
+      "registration": null,
+      "flight": "UAL18",
+      "messages": 5,
+      "first_t": 1308.77,
+      "last_t": 2204.764,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 53.065096,
+       "lon": -5.678226,
+       "t": 2177.713
+      }
+     },
+     {
+      "icao": "A77F26",
+      "registration": null,
+      "flight": "UPS121",
+      "messages": 3,
+      "first_t": 2096.485,
+      "last_t": 2236.764,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 38.373601,
+       "lon": -79.878998,
+       "t": 2096.485
+      }
+     },
+     {
+      "icao": "A7FF6A",
+      "registration": null,
+      "flight": null,
+      "messages": 2,
+      "first_t": 2044.766,
+      "last_t": 2140.765,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "AA1056",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 988.778,
+      "last_t": 988.778,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "AA1A1D",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 1980.766,
+      "last_t": 1980.766,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "AA98A4",
+      "registration": null,
+      "flight": "ASA100",
+      "messages": 4,
+      "first_t": 747.513,
+      "last_t": 1938.911,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 61.202547,
+       "lon": -10.797521,
+       "t": 1938.911
+      }
+     },
+     {
+      "icao": "AAC33E",
+      "registration": null,
+      "flight": "ETD112",
+      "messages": 2,
+      "first_t": 1845.376,
+      "last_t": 1867.516,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 40.71026,
+       "lon": 7.222495,
+       "t": 1845.376
+      }
+     },
+     {
+      "icao": "AB0FAD",
+      "registration": null,
+      "flight": "UAL930",
+      "messages": 1,
+      "first_t": 1291.549,
+      "last_t": 1291.549,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 53.674838,
+       "lon": -3.818786,
+       "t": 1291.549
+      }
+     },
+     {
+      "icao": "ABBA6C",
+      "registration": null,
+      "flight": "FDX521",
+      "messages": 3,
+      "first_t": 1165.987,
+      "last_t": 1781.373,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 58.601873,
+       "lon": -14.844274,
+       "t": 1781.373
+      }
+     },
+     {
+      "icao": "AC50FA",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 476.781,
+      "last_t": 476.781,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "ACED2B",
+      "registration": "N932AV",
+      "flight": null,
+      "messages": 2,
+      "first_t": 1404.77,
+      "last_t": 1628.768,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "AD675F",
+      "registration": null,
+      "flight": null,
+      "messages": 4,
+      "first_t": 604.78,
+      "last_t": 2076.765,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "AE0578",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 779.514,
+      "last_t": 779.514,
+      "last_freq_khz": 8942,
+      "position": null
+     },
+     {
+      "icao": "C01732",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 2012.766,
+      "last_t": 2012.766,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "C01753",
+      "registration": null,
+      "flight": "AC0858",
+      "messages": 4,
+      "first_t": 11.511,
+      "last_t": 932.133,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 52.00457,
+       "lon": -5.748607,
+       "t": 932.133
+      }
+     },
+     {
+      "icao": "C02EE9",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 1820.767,
+      "last_t": 1820.767,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "C038CA",
+      "registration": null,
+      "flight": null,
+      "messages": 3,
+      "first_t": 459.512,
+      "last_t": 1820.767,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "E48BB3",
+      "registration": null,
+      "flight": "AUA204",
+      "messages": 2,
+      "first_t": 331.561,
+      "last_t": 649.098,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 49.641818,
+       "lon": 12.66829,
+       "t": 649.098
+      }
+     },
+     {
+      "icao": "E48E6C",
+      "registration": null,
+      "flight": "AUA761",
+      "messages": 3,
+      "first_t": 279.872,
+      "last_t": 587.564,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 43.57186,
+       "lon": 20.169564,
+       "t": 587.564
+      }
+     },
+     {
+      "icao": "E48E6D",
+      "registration": "OE-LZF",
+      "flight": "OS045M",
+      "messages": 7,
+      "first_t": 284.782,
+      "last_t": 1323.514,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 45.961391,
+       "lon": 5.148135,
+       "t": 442.331
+      }
+     },
+     {
+      "icao": "E8040E",
+      "registration": "CC-BBA",
+      "flight": "LA0532",
+      "messages": 3,
+      "first_t": 1461.434,
+      "last_t": 1545.126,
+      "last_freq_khz": 8977,
+      "position": {
+       "lat": 20.06382,
+       "lon": -79.146689,
+       "t": 1461.434
+      }
+     },
+     {
+      "icao": "E80421",
+      "registration": "CC-BDB",
+      "flight": "UC1513",
+      "messages": 5,
+      "first_t": 1466.292,
+      "last_t": 1594.293,
+      "last_freq_khz": 8942,
+      "position": {
+       "lat": 49.987888,
+       "lon": 8.52678,
+       "t": 1466.292
+      }
+     },
+     {
+      "icao": "E8046C",
+      "registration": "CC-BGQ",
+      "flight": null,
+      "messages": 3,
+      "first_t": 444.781,
+      "last_t": 1084.773,
+      "last_freq_khz": 8977,
+      "position": null
+     },
+     {
+      "icao": "E80470",
+      "registration": null,
+      "flight": null,
+      "messages": 1,
+      "first_t": 796.78,
+      "last_t": 796.78,
+      "last_freq_khz": 8977,
+      "position": null
+     }
+    ]
+   },
+   "req": [
+    "AC-01"
+   ]
+  }
+ ]
+}

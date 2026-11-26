@@ -1,0 +1,387 @@
+{
+ "suite": "ndjson-write",
+ "normative": true,
+ "description": "A message -> its day-file record; the listed keys and values must be in the written object.",
+ "compare": {
+  "method": "subset"
+ },
+ "cases": [
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#0",
+   "input": {
+    "message": {
+     "lpdu": {
+      "err": false,
+      "src": {
+       "type": "Aircraft",
+       "id": 221
+      },
+      "dst": {
+       "type": "Ground station",
+       "id": 7
+      },
+      "type": {
+       "id": 29,
+       "name": "Unnumbered ack'ed data"
+      },
+      "hfnpdu": {
+       "err": false,
+       "type": {
+        "id": 255,
+        "name": "Enveloped data"
+       },
+       "acars": {
+        "err": false,
+        "crc_ok": true,
+        "more": false,
+        "reassembly": "skipped",
+        "reg": ".N873FD",
+        "mode": "2",
+        "label": "SA",
+        "blk_id": "7",
+        "ack": "!",
+        "flight": "FX5184",
+        "msg_num": "S74",
+        "msg_num_seq": "A",
+        "msg_text": "0EH0953332HS",
+        "media-adv": {
+         "err": false,
+         "version": 0,
+         "current_link": {
+          "code": "H",
+          "descr": "HF",
+          "established": true,
+          "time": {
+           "hour": 9,
+           "min": 53,
+           "sec": 33
+          }
+         },
+         "links_avail": [
+          {
+           "code": "2",
+           "descr": "VDL2"
+          },
+          {
+           "code": "H",
+           "descr": "HF"
+          },
+          {
+           "code": "S",
+           "descr": "Default SATCOM"
+          }
+         ]
+        }
+       }
+      }
+     }
+    },
+    "utc_epoch": 1795600689,
+    "utc_offset": 0,
+    "time_source": "filename",
+    "freq_khz": 8942
+   },
+   "expected": {
+    "record_contains": {
+     "v": 1,
+     "kind": "lpdu",
+     "utc": "2026-11-25T09:58:09Z",
+     "off": "+00:00",
+     "tsrc": "filename",
+     "freq": 8942,
+     "class": "media",
+     "sev": "link"
+    }
+   },
+   "req": [
+    "STO-02",
+    "TIM-04"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#1",
+   "input": {
+    "message": {
+     "lpdu": {
+      "err": false,
+      "src": {
+       "type": "Aircraft",
+       "id": 220
+      },
+      "dst": {
+       "type": "Ground station",
+       "id": 7
+      },
+      "type": {
+       "id": 29,
+       "name": "Unnumbered ack'ed data"
+      },
+      "hfnpdu": {
+       "err": false,
+       "type": {
+        "id": 255,
+        "name": "Enveloped data"
+       },
+       "acars": {
+        "err": false,
+        "crc_ok": true,
+        "more": false,
+        "reassembly": "skipped",
+        "reg": ".A7-ANI",
+        "mode": "2",
+        "label": "Q0",
+        "blk_id": "5",
+        "ack": "!",
+        "flight": "QR073V",
+        "msg_num": "S14",
+        "msg_num_seq": "A",
+        "msg_text": ""
+       }
+      }
+     }
+    },
+    "utc_epoch": 1795600689,
+    "utc_offset": 0,
+    "time_source": "filename",
+    "freq_khz": 8942
+   },
+   "expected": {
+    "record_contains": {
+     "v": 1,
+     "kind": "lpdu",
+     "utc": "2026-11-25T09:58:09Z",
+     "off": "+00:00",
+     "tsrc": "filename",
+     "freq": 8942,
+     "class": "acars",
+     "sev": "link"
+    }
+   },
+   "req": [
+    "STO-02",
+    "TIM-04"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#3",
+   "input": {
+    "message": {
+     "lpdu": {
+      "err": false,
+      "src": {
+       "type": "Ground station",
+       "id": 7
+      },
+      "dst": {
+       "type": "Aircraft",
+       "id": 255
+      },
+      "type": {
+       "id": 63,
+       "name": "Logoff request"
+      },
+      "ac_info": {
+       "icao": "020073"
+      },
+      "reason": {
+       "code": 6,
+       "descr": "Other"
+      }
+     }
+    },
+    "utc_epoch": 1795600689,
+    "utc_offset": 0,
+    "time_source": "filename",
+    "freq_khz": 8942
+   },
+   "expected": {
+    "record_contains": {
+     "v": 1,
+     "kind": "lpdu",
+     "utc": "2026-11-25T09:58:09Z",
+     "off": "+00:00",
+     "tsrc": "filename",
+     "freq": 8942,
+     "class": "logoff",
+     "sev": "link"
+    }
+   },
+   "req": [
+    "STO-02",
+    "TIM-04"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#6",
+   "input": {
+    "message": {
+     "lpdu": {
+      "err": false,
+      "src": {
+       "type": "Ground station",
+       "id": 7
+      },
+      "dst": {
+       "type": "Aircraft",
+       "id": 255
+      },
+      "type": {
+       "id": 159,
+       "name": "Logon confirm"
+      },
+      "ac_info": {
+       "icao": "40787A"
+      },
+      "assigned_ac_id": 224
+     }
+    },
+    "utc_epoch": 1795600689,
+    "utc_offset": 0,
+    "time_source": "filename",
+    "freq_khz": 8942
+   },
+   "expected": {
+    "record_contains": {
+     "v": 1,
+     "kind": "lpdu",
+     "utc": "2026-11-25T09:58:09Z",
+     "off": "+00:00",
+     "tsrc": "filename",
+     "freq": 8942,
+     "class": "logon_confirm",
+     "sev": "link"
+    }
+   },
+   "req": [
+    "STO-02",
+    "TIM-04"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#8",
+   "input": {
+    "message": {
+     "lpdu": {
+      "err": false,
+      "src": {
+       "type": "Ground station",
+       "id": 7
+      },
+      "dst": {
+       "type": "Aircraft",
+       "id": 223
+      },
+      "type": {
+       "id": 13,
+       "name": "Unnumbered data"
+      },
+      "hfnpdu": {
+       "err": false,
+       "type": {
+        "id": 255,
+        "name": "Enveloped data"
+       },
+       "acars": {
+        "err": false,
+        "crc_ok": true,
+        "more": false,
+        "reassembly": "skipped",
+        "reg": ".G-VRAY",
+        "mode": "2",
+        "label": "_d",
+        "blk_id": "L",
+        "ack": "4",
+        "msg_text": ""
+       }
+      }
+     }
+    },
+    "utc_epoch": 1795600689,
+    "utc_offset": 0,
+    "time_source": "filename",
+    "freq_khz": 8942
+   },
+   "expected": {
+    "record_contains": {
+     "v": 1,
+     "kind": "lpdu",
+     "utc": "2026-11-25T09:58:09Z",
+     "off": "+00:00",
+     "tsrc": "filename",
+     "freq": 8942,
+     "class": "acars",
+     "sev": "link"
+    }
+   },
+   "req": [
+    "STO-02",
+    "TIM-04"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#10",
+   "input": {
+    "message": {
+     "lpdu": {
+      "err": false,
+      "src": {
+       "type": "Aircraft",
+       "id": 210
+      },
+      "dst": {
+       "type": "Ground station",
+       "id": 3
+      },
+      "type": {
+       "id": 29,
+       "name": "Unnumbered ack'ed data"
+      },
+      "hfnpdu": {
+       "err": false,
+       "type": {
+        "id": 255,
+        "name": "Enveloped data"
+       },
+       "acars": {
+        "err": false,
+        "crc_ok": true,
+        "more": false,
+        "reassembly": "skipped",
+        "reg": ".A6-ARD",
+        "mode": "2",
+        "label": "H1",
+        "blk_id": "9",
+        "ack": "!",
+        "flight": "G90605",
+        "msg_num": "C07",
+        "msg_num_seq": "A",
+        "sublabel": "CF",
+        "msg_text": "WRN/PNRC12860AA08/WN26112508100031390006ELT\r "
+       }
+      }
+     }
+    },
+    "utc_epoch": 1795600689,
+    "utc_offset": 0,
+    "time_source": "filename",
+    "freq_khz": 8977
+   },
+   "expected": {
+    "record_contains": {
+     "v": 1,
+     "kind": "lpdu",
+     "utc": "2026-11-25T09:58:09Z",
+     "off": "+00:00",
+     "tsrc": "filename",
+     "freq": 8977,
+     "class": "acars",
+     "sev": "routine"
+    }
+   },
+   "req": [
+    "STO-02",
+    "TIM-04"
+   ]
+  }
+ ]
+}

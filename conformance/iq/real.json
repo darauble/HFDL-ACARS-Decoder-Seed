@@ -1,0 +1,907 @@
+{
+ "suite": "iq-decode",
+ "normative": true,
+ "description": "Excerpts of real recordings -> the frames found (README.md rule 5: required frames must be found).",
+ "compare": {
+  "method": "README.md rule 5",
+  "time_tolerance_s": 0.5
+ },
+ "cases": [
+  {
+   "id": "20261125T095809_iq50k_8961000Hz",
+   "source": "real-recording",
+   "description": "five channels; ADS-C (A6), ARINC 622 (AA), H1 warnings, media advisories",
+   "input": {
+    "file": "20261125T095809_iq50k_8961000Hz.wav",
+    "kind": "iq",
+    "sample_rate": 50000,
+    "center_hz": 8961000,
+    "channel_khz": null,
+    "channels_khz": [
+     8939,
+     8942,
+     8948,
+     8957,
+     8977
+    ],
+    "start_utc_epoch": 1795600689,
+    "time_zone": "UTC"
+   },
+   "expected": {
+    "frames": [
+     {
+      "freq_khz": 8942,
+      "t": 7.51,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "a187ff1609ff1306a815153a8d9f2cc608e500000036ef3f1e804806c5fd0dffff0132aec137adc14f49b9df7f4383c5617fc98f",
+      "required": false,
+      "snr_db": 4.1
+     },
+     {
+      "freq_khz": 8977,
+      "t": 7.56,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "07830b0003002a67641dffff013252c137b337b63215d3c1b302d33134c1d3d531b5b3b5b045c8b0b9b538b037c88315547f4277",
+      "required": true,
+      "snr_db": 16.4
+     },
+     {
+      "freq_khz": 8977,
+      "t": 14.95,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "1083620400a01dee03000b010000f01ffa0100fff11f000000ff011200000000f01f004070005012fe0000fee1f8fefefefefefe0034800400864400706800009284",
+      "required": true,
+      "snr_db": 11.9
+     },
+     {
+      "freq_khz": 8977,
+      "t": 17.41,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff0001003858554fce0123ffd5454c593030396bff517c0e1e46830800f00700820000f0ff008f0000d00700840000f00700900000f00300860000700700e0fe",
+      "required": false,
+      "snr_db": 5.2
+     },
+     {
+      "freq_khz": 8977,
+      "t": 19.87,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703d9000400312daa0dffd1554145333354740cf2f40ad040128d83044200a0005c28fc7800000722000001001f0006000001020000010222b821",
+      "required": true,
+      "snr_db": 13.8
+     },
+     {
+      "freq_khz": 8977,
+      "t": 22.34,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff000200383cba4f1c17dcffd5414942303149daf7314f012146830000000400860000500400910100f000008501005000008f020060000084200000030066e8",
+      "required": true,
+      "snr_db": 9.4
+     },
+     {
+      "freq_khz": 8977,
+      "t": 24.78,
+      "bit_rate": 300,
+      "slot": "D",
+      "pdu": "3183ff13062013152a153f251315fc253fce01230670d20dffff0132aed052adc1c84332df7fc48312407fc98f0dffff0132aec1b6adc2ce4915c1b651022f5245cb43c1d9c1aec1c4d3aec1b6adc2ce49b037b043b0c2b0b0b0c4b031b046b031b53431b60d8a83e8107fc8590dffff0132aece37b9b3c1d6b0df7f588314647fc98f",
+      "required": true,
+      "snr_db": 12.2
+     },
+     {
+      "freq_khz": 8942,
+      "t": 29.67,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "00876264def11f00f01f000000000000d0831a00701c00000000301e000000ff0100000000000000fe0000fe4d69fefe9dadb3d1003440000081060020084a008d86",
+      "required": false,
+      "snr_db": 4.2
+     },
+     {
+      "freq_khz": 8942,
+      "t": 32.14,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0707ff00010038f4454f916695ffd545544439474c611ba242072646870400600000830800800400910000f000008400000003008f0200600000880000500000c394",
+      "required": true,
+      "snr_db": 18.7
+     },
+     {
+      "freq_khz": 8977,
+      "t": 32.18,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703e10002003105f20dffd155414c3930201c37f247fc264692938304000003001c03980900000028000000022600000001000000010000270538",
+      "required": true,
+      "snr_db": 8.2
+     },
+     {
+      "freq_khz": 8977,
+      "t": 37.06,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff0001003858554f2771b6ffd541554134354d290d02f2032846830800f00700820000f0ff008f0200f00f00840000f00700900000f00700880000500800b8f2",
+      "required": false,
+      "snr_db": 6.8
+     },
+     {
+      "freq_khz": 8942,
+      "t": 39.51,
+      "bit_rate": 300,
+      "slot": "D",
+      "pdu": "3187ff1609ff1509c71515e3161570819f0266d5e6000000d82c9f916695db0000003db10dffff0132aeaeaeb3b038b532df7fcb839de27fc98f0dffff0132aec7ad54d5494fb3df7f4383668c7fc98f",
+      "required": false,
+      "snr_db": 5.4
+     },
+     {
+      "freq_khz": 8977,
+      "t": 39.56,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "07030400010020db111dffff0132ae43ad46d6cec41551b0b502d3b3b9c1c143b0b0b5b08361c27f5bef",
+      "required": true,
+      "snr_db": 12.1
+     },
+     {
+      "freq_khz": 8977,
+      "t": 42.03,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff0001003858554f91c62fffd5554145355251332e32e6ff2b46830800b00100828000107e008f0200f00f00843000b00700900000f0070086000050a706ab36",
+      "required": false,
+      "snr_db": 13.1
+     },
+     {
+      "freq_khz": 8977,
+      "t": 49.41,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff00040038e56cbf916604ffd555414531303232080235062f468340006006008f1e00e00100864500500600884500500500910900b0000085050070000024bd",
+      "required": true,
+      "snr_db": 11.2
+     },
+     {
+      "freq_khz": 8942,
+      "t": 51.83,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0787ff0002003832afbfa8f87fffd5535531303138fffff7ff7f2946010000e00f00028000c0fb00030800e00700040000c00600050000e00300060000400600b68e",
+      "required": true,
+      "snr_db": 20.9
+     },
+     {
+      "freq_khz": 8977,
+      "t": 51.87,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff0001003858554f277136ffd54155413736317ef6b1f30d3046830000700700820000e0df00840000f007008f0600f00f00900400f00700880000f00f0020b2",
+      "required": true,
+      "snr_db": 18.0
+     },
+     {
+      "freq_khz": 8942,
+      "t": 54.3,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0787ff0002003832afbfa8b8ebffd5535531323436fffff7ff7fea45010000e0090002000040c700030000600700040000400600050000e00200060000c00700f7d4",
+      "required": true,
+      "snr_db": 22.4
+     },
+     {
+      "freq_khz": 8977,
+      "t": 54.34,
+      "bit_rate": 600,
+      "slot": "S",
+      "pdu": "0703d2000200511e581dffff0132aec1b6adc152c415c831b90243b037c1c7b9b0b6b0b5234346c25752ce2fd0ce5243313238b6b0c1c1b0382f57ce32b6313132b5b03831b0b0b0b331b3b9b0b0b0b6454c540d2083abed7f05d2",
+      "required": true,
+      "snr_db": 28.1
+     },
+     {
+      "freq_khz": 8942,
+      "t": 56.75,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "07079d00040031b3560dffd15649523335392a4822980232468ce0870368019600ffffd42500000249000000034d00020000010400000104070d11",
+      "required": true,
+      "snr_db": 8.9
+     },
+     {
+      "freq_khz": 8977,
+      "t": 56.78,
+      "bit_rate": 300,
+      "slot": "D",
+      "pdu": "6183ff1309ff1509ff1609ff1309ff1609221337251315b3ae9f1c17dcce000000f5e59f2771b6f300000010f09f4545672d0000001b169f91c62f2e000000af3a9f9166042f000000ab810dffff0132ae4543adce584515c1c151022fd3cdc143c1d9c1aec15431ae4543adce584532323237384531c4b0b0b9b5c1b683c1f07f26550dffff0132aece37b9b3c1d631df7fd98311707fc98f",
+      "required": true,
+      "snr_db": 13.4
+     }
+    ]
+   },
+   "provenance": {
+    "recording": "20261125-095421_baseband_8902500Hz-HFDL.wav",
+    "t0_s": 228,
+    "dur_s": 62,
+    "decimation": 5
+   },
+   "req": [
+    "DEC-01",
+    "DEC-04",
+    "DEC-05",
+    "DEC-06"
+   ]
+  },
+  {
+   "id": "20261125T100503_iq12k5_8979000Hz",
+   "source": "real-recording",
+   "description": "600 bit/s double slot: ACARS 27 position report",
+   "input": {
+    "file": "20261125T100503_iq12k5_8979000Hz.wav",
+    "kind": "iq",
+    "sample_rate": 12500,
+    "center_hz": 8979000,
+    "channel_khz": null,
+    "channels_khz": [
+     8977
+    ],
+    "start_utc_epoch": 1795601103,
+    "time_zone": "UTC"
+   },
+   "expected": {
+    "frames": [
+     {
+      "freq_khz": 8977,
+      "t": 2.19,
+      "bit_rate": 600,
+      "slot": "D",
+      "pdu": "0703bb000400a620fd1dffff013252c137b331b0b61532373402cdb938c1d3d531b5b6b3d04fd3b031c1464c31b5b6b32020202f323432b531b0b034d5494949d5d54545202020200d8a46d5454c20202038370d8a5445cdd0adadadad0d8a57c4495232b5b932b50d8a57d3d0c42020b5320d8a4cc154ce20b6b0ae3432b60d8a4c4fce4520b631ae31b9310d8a4554c1313231370d8a54d5520d8ac14c54b3b6b0b0b00d8a0d8a0d8a8352317f94e9",
+      "required": false,
+      "snr_db": -2.9
+     },
+     {
+      "freq_khz": 8977,
+      "t": 7.1,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff00030038e0e0bf27d1cdffd5415541323034d034320209e846830000700700820000e0df008f0600f00f00840000d00700900400d00700860000f0070072d9",
+      "required": true,
+      "snr_db": 14.7
+     },
+     {
+      "freq_khz": 8977,
+      "t": 9.56,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff010300385bfc4f6eb3e5ffd55349413330351a4eb2db04ea46830800c00400828000405e008f0200e009008600005006008800005001008a0000c003009832",
+      "required": true,
+      "snr_db": 18.0
+     },
+     {
+      "freq_khz": 8977,
+      "t": 16.94,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "10836f0400f018bbf11f00000000901000000035d11300801300e013ff010000201dbb0100d30100fe0000fe7481fefeb0cfe7fe0034c0000081060020084a001c75",
+      "required": true,
+      "snr_db": 10.4
+     }
+    ]
+   },
+   "provenance": {
+    "recording": "20261125-095421_baseband_8902500Hz-HFDL.wav",
+    "t0_s": 642,
+    "dur_s": 20,
+    "decimation": 20
+   },
+   "req": [
+    "DEC-01",
+    "DEC-04",
+    "DEC-05",
+    "DEC-06"
+   ]
+  },
+  {
+   "id": "20261125T102321_iq12k5_8979000Hz",
+   "source": "real-recording",
+   "description": "1200 bit/s; MIAM (MA); a block being joined",
+   "input": {
+    "file": "20261125T102321_iq12k5_8979000Hz.wav",
+    "kind": "iq",
+    "sample_rate": 12500,
+    "center_hz": 8979000,
+    "channel_khz": null,
+    "channels_khz": [
+     8977
+    ],
+    "start_utc_epoch": 1795602201,
+    "time_zone": "UTC"
+   },
+   "expected": {
+    "frames": [
+     {
+      "freq_khz": 8977,
+      "t": 4.45,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "a183ff1509ff1609711515ca309f91263d5000000073ee9f91a65a790000008e0c0dffff0132aec137adc1ced3b3df7fc883dd327fc98f",
+      "required": true,
+      "snr_db": 10.7
+     },
+     {
+      "freq_khz": 8977,
+      "t": 6.93,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "1083910400000000301aff01000070160000000000000000005f0100ff511027f11f540300780100fe1737fe4057fefe5d5e8fa10034c000008a1800b00801009869",
+      "required": true,
+      "snr_db": 10.2
+     },
+     {
+      "freq_khz": 8977,
+      "t": 11.86,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "070367000300201c181dffff0132aeb9d6add3cdc71551b03202d33738c1d351b0b3b0b5833f6a7f5bef",
+      "required": true,
+      "snr_db": 20.3
+     },
+     {
+      "freq_khz": 8977,
+      "t": 14.32,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff0001003858554f619b4bffd5414e41323138d30f02050e1049830400700700900000f00300840000f007008f0200f00700880000f00f008b0000f00300e4f9",
+      "required": true,
+      "snr_db": 12.0
+     },
+     {
+      "freq_khz": 8977,
+      "t": 21.71,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "07037700010020e4191dffff0132aec137adc14fc41551b03402d33432c15152b0b6314383a2437f5bef",
+      "required": false,
+      "snr_db": 7.6
+     },
+     {
+      "freq_khz": 8977,
+      "t": 26.63,
+      "bit_rate": 1200,
+      "slot": "S",
+      "pdu": "97035700010031313131311b8b0dffd1554145333920e2bf817c0d6f3e12c49102ee006a009c253e2c000000e4000000010100010000000100000000222a7a0dffd155414533392001e411a90ac14212c48304ee009a009c253e2c0000000200000000020000000000010000000026fb770dffd15541453339206ced81f309d54312c49101ee009a009c253e2c00000005000000000200020000000200000002227e750d9b526c63feab2a204ef9016209f14412c48304ee009a009c253e2c0000000300000000030000000000010000000026c8a80dffd15541453339208b09928c08714612c48304ee009a009c253e2c0000000600000000060000000000030000000021e6b7",
+      "required": false,
+      "snr_db": 16.0
+     },
+     {
+      "freq_khz": 8977,
+      "t": 29.09,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff0001003858554f91662bffd54554443133204d09f2df101849830400700200820000105e008f0400d00000840000500200860000500600880000500500700a",
+      "required": true,
+      "snr_db": 16.6
+     },
+     {
+      "freq_khz": 8977,
+      "t": 31.55,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff0001003858554f6e33a7ffd55349413233204e24b21a0b19498304006004008f0200b00000840000d003008600005004008800005001008a0000b00300a28e",
+      "required": true,
+      "snr_db": 17.1
+     },
+     {
+      "freq_khz": 8977,
+      "t": 34.02,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "07035d00040031680d0dffd1414d583032352a4112aadef4461230830700000a0062055c000000001f000000002d00020000000200000002241e04",
+      "required": false,
+      "snr_db": 3.1
+     },
+     {
+      "freq_khz": 8977,
+      "t": 38.93,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "108392040000005f0100ff511027f11f540300780100000000ff1117000000007017007075ff5117fe0000feaeb4fefebccae4fe0034c000008d0c00e0880000f55a",
+      "required": true,
+      "snr_db": 8.2
+     },
+     {
+      "freq_khz": 8977,
+      "t": 43.87,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff00030038e0e04f1e78edffd543455332363141bd92da322049830c00c00200828000405a008604005006008a00009001008f060060010089000000200007d7",
+      "required": false,
+      "snr_db": 2.6
+     },
+     {
+      "freq_khz": 8977,
+      "t": 46.32,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703790002002038971dffff0132aec1b6ad45d6ce1551b03802d33234c145cbb0b531ce83e0b57f5bef",
+      "required": true,
+      "snr_db": 10.0
+     },
+     {
+      "freq_khz": 8977,
+      "t": 48.77,
+      "bit_rate": 300,
+      "slot": "D",
+      "pdu": "c183ff13066715155f15317816157113153c843f9cf3300665b80dffff0132aeb9d6add3cdc732df7fc283a6757fc98f0dffff0132ae46ad57cd494c15cdc1520254aeb026c8c4e5462f6bae45efb968c1a4377aba3e64eca47c0d8a837a287f42e00dffff0132aec2ad31b038b0b9df7f4983eb627fc98f0dffff0132aec137adc1ced334df7f4983401d7fc98f",
+      "required": true,
+      "snr_db": 16.0
+     },
+     {
+      "freq_khz": 8977,
+      "t": 53.7,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff00040038e56c4f0276b3ffd5564952333137494bf260012449830c00f00700820000f0ff008f0200f00f00842000f00700900000f00700880000d00f00c414",
+      "required": true,
+      "snr_db": 8.7
+     },
+     {
+      "freq_khz": 8977,
+      "t": 58.63,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703b400010031574e0dffd1414652323832271522880b27490c7783040000000000000000000001520000010350000200000105000001040759cb",
+      "required": true,
+      "snr_db": 11.4
+     },
+     {
+      "freq_khz": 8977,
+      "t": 63.56,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703780003002ccc0c1dffff0132aec2ad31b038b015d3c1b002d33231c143c1b0b9b3b5b045c831b0323431b5d3c82f839ced7fc63c",
+      "required": false,
+      "snr_db": 5.6
+     },
+     {
+      "freq_khz": 8977,
+      "t": 70.93,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "10839304000000ff1117000000007017007075ff51175de17500000079010000f01f00401bff8117fe0000fe353ffefe4e5afefe0034c000008f06000099010096dd",
+      "required": true,
+      "snr_db": 16.5
+     },
+     {
+      "freq_khz": 8977,
+      "t": 75.85,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff000200383cba4ffc2ae0ffd547414637333094a752240b3049830c00f00700828000f0ff00840000d002008f0600f00400900400d00300860000700700a749",
+      "required": true,
+      "snr_db": 14.8
+     },
+     {
+      "freq_khz": 8977,
+      "t": 78.33,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff0001003858554f6085a8ffd551545237365727dae1a9173149830c00f00200820000105e008f0200b001008400009001009000009000008600005006005bae",
+      "required": false,
+      "snr_db": 6.7
+     },
+     {
+      "freq_khz": 8977,
+      "t": 80.77,
+      "bit_rate": 300,
+      "slot": "D",
+      "pdu": "f183ff1306ff1309ff1306ff1509771515751315791515781615c1913f2c86d3066da39f0276b3630000007ab73f031c530608e89f0374977c000000201c0dffff0132aec137adc14fc434df7f438399a77fc98f0dffff0132aeb9cdadcdc1c7b6df7f4a8312857fc98f0dffff0132aec1b6ad45d6ce38df7f4f8307717fc98f0dffff0132aec2ad31b038b0b0df7f4a83e7197fc98f",
+      "required": true,
+      "snr_db": 14.7
+     },
+     {
+      "freq_khz": 8977,
+      "t": 93.08,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff00030038e0e04f6085a4ffd5515452373356715c62d20a3849830c00e00400820000405e008f0600f00000840000500300860000500400880000500000332a",
+      "required": true,
+      "snr_db": 30.1
+     },
+     {
+      "freq_khz": 8977,
+      "t": 95.56,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff0001003858554f8000a5ffd54d53523535338f4402ba023a49830400700300820000f0ff008f0000700f00840000f00700900000f00700860000f007008eb4",
+      "required": true,
+      "snr_db": 12.1
+     },
+     {
+      "freq_khz": 8977,
+      "t": 102.93,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "108394045de17500000079010000f01f00401bff811700a01ce4f11fff010000f01f35030075f11ffe0000fefefefefefefefefe0034c0000091050010680000b979",
+      "required": true,
+      "snr_db": 17.6
+     },
+     {
+      "freq_khz": 8977,
+      "t": 105.39,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703630004002009b91dffff0132aec7add6cdc1d01551b0b002d3b532c1d6d3b0b3313783cc227f5bef",
+      "required": false,
+      "snr_db": 9.1
+     },
+     {
+      "freq_khz": 8977,
+      "t": 107.86,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "07036b0003002dc9b41dffff0132ae4f45ad4cd0cd15d3c13402d337b9c14fd3b0b03152b045c831b03232343732d3c82f8310de7f02ab",
+      "required": false,
+      "snr_db": 11.7
+     },
+     {
+      "freq_khz": 8977,
+      "t": 112.77,
+      "bit_rate": 300,
+      "slot": "D",
+      "pdu": "5183ff1609ff1309ff1309ff15095f153175131560b09ffc2ae07d000000d2d29f9cf3307e0000001dcc9f619b4b7f0000004e9d9f8000a51a000000d9f70dffff0132ae46ad57cd494c15cdc1520254aeb026c8c4e5462f6bae45efb968c1a4377aba3e64eca47c0d8a837a287f42e00dffff0132aeb9cdadcdc1c7b6df7fcb8306107fc98f",
+      "required": true,
+      "snr_db": 15.7
+     },
+     {
+      "freq_khz": 8977,
+      "t": 127.54,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "07037d00030020f4e01dffff0132aeaeae31b531b01551b0b002d3b037c14cc8b037b3b083747e7f5bef",
+      "required": true,
+      "snr_db": 25.6
+     },
+     {
+      "freq_khz": 8977,
+      "t": 132.47,
+      "bit_rate": 600,
+      "slot": "S",
+      "pdu": "0b0367000200202db3f71dffff0132aeb9d6add3cdc71551b03202d33738c1d351b0b3b0b5833f6a7f5bef1dffff0132aeb9d6add3cdc715d3c1b302d338b0c1d351b0b3b0b5b045c831b0323431b5d6d3c82f83c4c37f02ab",
+      "required": true,
+      "snr_db": 23.8
+     },
+     {
+      "freq_khz": 8977,
+      "t": 134.93,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "1083950400a01ce4f11fff010000f01f35030075f11f0000005d01003a010000f015000000000000fe0000fe1113fefe17383d3e0034c0000082a00440080300415d",
+      "required": true,
+      "snr_db": 17.4
+     },
+     {
+      "freq_khz": 8977,
+      "t": 137.4,
+      "bit_rate": 1200,
+      "slot": "S",
+      "pdu": "070378000300f23f331dffff0132aec2ad31b038b015cdc13102d534b0c143c1b0b9b3b5543232a1bcbc2c542feadfad45b0cbbae3bca1a773ae31b6f13731c86e6ddfd9a27c5126e0dae6cbae6dea2949eac83240c4b0bf523b5b51d6d3f46ed054f16bbaeacee5d337bfc1babcf264d6c42f405231cea2402aa823504fb052435dabc1374a54f2324c54a86157e5ead3a246f1c4d02fe63e3bc7295b292549292c5e5ba16ed557c1dce926674623a2c823b5a2bf6131f44652c12334da52bcf4a7405437d6ae58d5ec3e705ed5b5e6daae4f4a64b651dac4dc5457dabccb5b52e538bcf1f42ca8cb3e6de525cd3d735868345167349725ce7f1632",
+      "required": false,
+      "snr_db": 7.2
+     },
+     {
+      "freq_khz": 8977,
+      "t": 139.86,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703750003002d31611dffff0132aeb9cdadcdc1c715d3c13702d3b034c1cdc8b0b03231b045c831b032b531b9d6d3c82f8336a77f02ab",
+      "required": true,
+      "snr_db": 13.3
+     },
+     {
+      "freq_khz": 8977,
+      "t": 144.77,
+      "bit_rate": 300,
+      "slot": "D",
+      "pdu": "c183ff1306ff13065d16153a16156723151551a53f1e24f2066d563f9c23b1067ea20dffff0132ae58c1adc1c443b5df7f4c8371237fc98f0dffff0132aec2adb5b9b631b3df7f5283fe097fc98f0dffff0132aeb9d6add3cdc732df7f4383b2e07fc98f0dffff0132aeb9d6add3cdc7b3df7fc48367a07fc98f",
+      "required": true,
+      "snr_db": 16.8
+     }
+    ]
+   },
+   "provenance": {
+    "recording": "20261125-095421_baseband_8902500Hz-HFDL.wav",
+    "t0_s": 1740,
+    "dur_s": 150,
+    "decimation": 20
+   },
+   "req": [
+    "DEC-01",
+    "DEC-04",
+    "DEC-05",
+    "DEC-06"
+   ]
+  },
+  {
+   "id": "20261125T101949_iq12k5_8944000Hz",
+   "source": "real-recording",
+   "description": "Shannon 8942 kHz, several strong frames",
+   "input": {
+    "file": "20261125T101949_iq12k5_8944000Hz.wav",
+    "kind": "iq",
+    "sample_rate": 12500,
+    "center_hz": 8944000,
+    "channel_khz": null,
+    "channels_khz": [
+     8942
+    ],
+    "start_utc_epoch": 1795601989,
+    "time_zone": "UTC"
+   },
+   "expected": {
+    "frames": [
+     {
+      "freq_khz": 8942,
+      "t": 4.75,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "070706000200209bf81dffff0132ae4343adc2c4c21551b03202d33832c1d54331b531b38328c37f5bef",
+      "required": true,
+      "snr_db": 13.9
+     },
+     {
+      "freq_khz": 8942,
+      "t": 9.68,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "00878a64005010003010000000000000ff0100000000ff0100000000000000000000ef0700000000fefefefefefefefefefefefe003440000086440080580000d794",
+      "required": true,
+      "snr_db": 11.0
+     },
+     {
+      "freq_khz": 8942,
+      "t": 12.14,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0787ff000100385640bf22b3d3ffd5534e30384345fffff7ff7f9a48010000800000020000400000030800800000060000400400070000400000100000400200a644",
+      "required": true,
+      "snr_db": 19.6
+     },
+     {
+      "freq_khz": 8942,
+      "t": 19.53,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0707ff00010038f445bf9c2364ffd54146523735369d2df2f401a948870400700300830800b0030082000030fe00843000f007008f8600f00f00900400f0070037d9",
+      "required": false,
+      "snr_db": 5.0
+     },
+     {
+      "freq_khz": 8942,
+      "t": 21.98,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0787ff000400148592bf922184ffd5433230303556114ca2c201aa481861",
+      "required": true,
+      "snr_db": 14.0
+     },
+     {
+      "freq_khz": 8942,
+      "t": 29.37,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0787ff000300202769bfa284fdffd5483630343632ee3572940aaa480700004000000f0000400000d5a7",
+      "required": true,
+      "snr_db": 23.6
+     }
+    ]
+   },
+   "provenance": {
+    "recording": "20261125-095421_baseband_8902500Hz-HFDL.wav",
+    "t0_s": 1528,
+    "dur_s": 35,
+    "decimation": 20
+   },
+   "req": [
+    "DEC-01",
+    "DEC-04",
+    "DEC-05",
+    "DEC-06"
+   ]
+  },
+  {
+   "id": "20261125T101102_iq12k5_10029000Hz",
+   "source": "real-recording",
+   "description": "10 MHz band, Molokai",
+   "input": {
+    "file": "20261125T101102_iq12k5_10029000Hz.wav",
+    "kind": "iq",
+    "sample_rate": 12500,
+    "center_hz": 10029000,
+    "channel_khz": null,
+    "channels_khz": [
+     10027
+    ],
+    "start_utc_epoch": 1795601462,
+    "time_zone": "UTC"
+   },
+   "expected": {
+    "frames": [
+     {
+      "freq_khz": 10027,
+      "t": 36.79,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "10827ab4ff0100000000000000000000c7b7fc25411211f11fffe11100000000000025f11f266110fe0000feccd1fefefefefefe0034004a008e0800f06800003c52",
+      "required": true,
+      "snr_db": 17.0
+     },
+     {
+      "freq_khz": 10027,
+      "t": 41.73,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0702ff0001003873514f1e38c7ffd577eb093432308bbc81a945ae47828000b0fb00830000f007008f0600f00f00900400f00700840000f00700870000e005002ab4",
+      "required": true,
+      "snr_db": 20.8
+     }
+    ]
+   },
+   "provenance": {
+    "recording": "20261125-095504_baseband_10058500Hz-HFDL.wav",
+    "t0_s": 958,
+    "dur_s": 45,
+    "decimation": 20
+   },
+   "req": [
+    "DEC-01",
+    "DEC-04",
+    "DEC-05",
+    "DEC-06"
+   ]
+  },
+  {
+   "id": "20261125T095809_usb12k5_8977kHz",
+   "source": "real-recording",
+   "description": "USB audio of 8977 kHz (the signal at 1440 Hz), from the first excerpt",
+   "input": {
+    "file": "20261125T095809_usb12k5_8977kHz.wav",
+    "kind": "audio",
+    "sample_rate": 12500,
+    "center_hz": null,
+    "channel_khz": 8977,
+    "channels_khz": [
+     8977
+    ],
+    "start_utc_epoch": 1795600689,
+    "time_zone": "UTC"
+   },
+   "expected": {
+    "frames": [
+     {
+      "freq_khz": 8977,
+      "t": 14.95,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "1083620400a01dee03000b010000f01ffa0100fff11f000000ff011200000000f01f004070005012fe0000fee1f8fefefefefefe0034800400864400706800009284",
+      "required": true,
+      "snr_db": 14.0
+     },
+     {
+      "freq_khz": 8977,
+      "t": 17.41,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff0001003858554fce0123ffd5454c593030396bff517c0e1e46830800f00700820000f0ff008f0000d00700840000f00700900000f00300860000700700e0fe",
+      "required": false,
+      "snr_db": 6.6
+     },
+     {
+      "freq_khz": 8977,
+      "t": 19.87,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703d9000400312daa0dffd1554145333354740cf2f40ad040128d83044200a0005c28fc7800000722000001001f0006000001020000010222b821",
+      "required": true,
+      "snr_db": 15.8
+     },
+     {
+      "freq_khz": 8977,
+      "t": 22.34,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff000200383cba4f1c17dcffd5414942303149daf7314f012146830000000400860000500400910100f000008501005000008f020060000084200000030066e8",
+      "required": true,
+      "snr_db": 11.4
+     },
+     {
+      "freq_khz": 8977,
+      "t": 24.78,
+      "bit_rate": 300,
+      "slot": "D",
+      "pdu": "3183ff13062013152a153f251315fc253fce01230670d20dffff0132aed052adc1c84332df7fc48312407fc98f0dffff0132aec1b6adc2ce4915c1b651022f5245cb43c1d9c1aec1c4d3aec1b6adc2ce49b037b043b0c2b0b0b0c4b031b046b031b53431b60d8a83e8107fc8590dffff0132aece37b9b3c1d6b0df7f588314647fc98f",
+      "required": true,
+      "snr_db": 14.3
+     },
+     {
+      "freq_khz": 8977,
+      "t": 32.18,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703e10002003105f20dffd155414c3930201c37f247fc264692938304000003001c03980900000028000000022600000001000000010000270538",
+      "required": false,
+      "snr_db": 10.4
+     },
+     {
+      "freq_khz": 8977,
+      "t": 37.06,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff0001003858554f2771b6ffd541554134354d290d02f2032846830800f00700820000f0ff008f0200f00f00840000f00700900000f00700880000500800b8f2",
+      "required": true,
+      "snr_db": 8.9
+     },
+     {
+      "freq_khz": 8977,
+      "t": 39.56,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "07030400010020db111dffff0132ae43ad46d6cec41551b0b502d3b3b9c1c143b0b0b5b08361c27f5bef",
+      "required": true,
+      "snr_db": 14.4
+     },
+     {
+      "freq_khz": 8977,
+      "t": 42.03,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff0001003858554f91c62fffd5554145355251332e32e6ff2b46830800b001008280159f12008f0200f00f00843000b00700900000f00700860000500700ab36",
+      "required": false,
+      "snr_db": 15.7
+     },
+     {
+      "freq_khz": 8977,
+      "t": 51.87,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff0001003858554f277136ffd54155413736317ef6b1f30d3046830000700700820000e0df00840000f007008f0600f00f00900400f00700880000f00f0020b2",
+      "required": true,
+      "snr_db": 20.3
+     },
+     {
+      "freq_khz": 8977,
+      "t": 54.34,
+      "bit_rate": 600,
+      "slot": "S",
+      "pdu": "0703d2000200511e581dffff0132aec1b6adc152c415c831b90243b037c1c7b9b0b6b0b5234346c25752ce2fd0ce5243313238b6b0c1c1b0382f57ce32b6313132b5b03831b0b0b0b331b3b9b0b0b0b6454c540d2083abed7f05d2",
+      "required": true,
+      "snr_db": 30.8
+     },
+     {
+      "freq_khz": 8977,
+      "t": 56.78,
+      "bit_rate": 300,
+      "slot": "D",
+      "pdu": "6183ff1309ff1509ff1609ff1309ff1609221337251315b3ae9f1c17dcce000000f5e59f2771b6f300000010f09f4545672d0000001b169f91c62f2e000000af3a9f9166042f000000ab810dffff0132ae4543adce584515c1c151022fd3cdc143c1d9c1aec15431ae4543adce584532323237384531c4b0b0b9b5c1b683c1f07f26550dffff0132aece37b9b3c1d631df7fd98311707fc98f",
+      "required": true,
+      "snr_db": 15.7
+     }
+    ]
+   },
+   "provenance": {
+    "recording": "20261125-095421_baseband_8902500Hz-HFDL.wav",
+    "t0_s": 228,
+    "dur_s": 62,
+    "decimation": 20
+   },
+   "req": [
+    "DEC-01",
+    "DEC-04",
+    "DEC-05",
+    "DEC-06",
+    "DEC-03"
+   ]
+  }
+ ]
+}

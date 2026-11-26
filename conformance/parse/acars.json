@@ -1,0 +1,1098 @@
+{
+ "suite": "parse-acars",
+ "normative": true,
+ "description": "ACARS blocks (the octets after SOH, as in an enveloped-data HFNPDU) parsed in order with reassembly (spec/03-domain/acars.md), t in seconds -> each block's result, in libacars' JSON vocabulary (F-H19).",
+ "compare": {
+  "method": "every key of expected present with an equal value; keys not in expected ignored",
+  "non_normative_keys": [
+   "descr",
+   "name",
+   "msg_type"
+  ],
+  "float_abs_tolerance": 1e-05
+ },
+ "cases": [
+  {
+   "id": "single-h1-sublabel-mfi",
+   "source": "synthetic",
+   "description": "one downlink H1 block with sublabel CF and MFI 5Z: final, skipped",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "downlink",
+      "octets": "3252c137b337b53215c831b602c4b031c1d3d531b0b0b3234346c22fb5da2045cec720312046495245204c4f4fd020c22046c1d54c5483d0f07f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": false,
+       "reassembly": "skipped",
+       "reg": "RA73752",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "6",
+       "ack": "!",
+       "flight": "SU1003",
+       "msg_num": "D01",
+       "msg_num_seq": "A",
+       "sublabel": "CF",
+       "mfi": "5Z",
+       "msg_text": "ENG 1 FIRE LOOP B FAULT"
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "uplink-general-response",
+   "source": "synthetic",
+   "description": "an uplink _d without text",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "uplink",
+      "octets": "32ae58c1adc1c44338df7fce832c6a7f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": false,
+       "reassembly": "skipped",
+       "reg": ".XA-ADC",
+       "mode": "2",
+       "label": "_d",
+       "blk_id": "N",
+       "ack": "8",
+       "msg_text": ""
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "downlink-without-text",
+   "source": "synthetic",
+   "description": "a downlink block without text: an error",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "downlink",
+      "octets": "3252c137b337b53215df7fb38322a47f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": true
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "bad-crc",
+   "source": "synthetic",
+   "description": "a downlink block with a bad CRC: parsed, CRC flagged",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "downlink",
+      "octets": "3252c137b337b53215c831b602c4b031c1d3d531b0b0b354455854832e4c7f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": false,
+       "more": false,
+       "reassembly": "skipped",
+       "reg": "RA73752",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "6",
+       "ack": "!",
+       "flight": "SU1003",
+       "msg_num": "D01",
+       "msg_num_seq": "A",
+       "msg_text": "TEXT"
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "too-short",
+   "source": "synthetic",
+   "description": "12 octets: an error",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "downlink",
+      "octets": "3252c137b337b53215c831b6"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": true
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "no-del",
+   "source": "synthetic",
+   "description": "the last octet is not DEL: an error",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "downlink",
+      "octets": "3252c137b337b53215c831b602c4b031c1d3d531b0b0b354455854832f4c00"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": true
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "nul-in-text",
+   "source": "synthetic",
+   "description": "a NUL in the text is shown as a dot",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "downlink",
+      "octets": "3252c137b337b53215c831b602c4b031c1d3d531b0b0b3c1c28043c48368997f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": false,
+       "reassembly": "skipped",
+       "reg": "RA73752",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "6",
+       "ack": "!",
+       "flight": "SU1003",
+       "msg_num": "D01",
+       "msg_num_seq": "A",
+       "msg_text": "AB.CD"
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "ack-character",
+   "source": "synthetic",
+   "description": "technical acknowledgement ACK (0x06) shown as ^",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "uplink",
+      "octets": "32ae4549ad46cec886d351c102544558548394897f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": false,
+       "reassembly": "skipped",
+       "reg": ".EI-FNH",
+       "mode": "2",
+       "label": "SQ",
+       "blk_id": "A",
+       "ack": "^",
+       "msg_text": "TEXT"
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "downlink-three-blocks",
+   "source": "synthetic",
+   "description": "downlink in three blocks A, B, C: in progress, in progress, complete with the joined text",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "downlink",
+      "octets": "32aec7add6da49c715c8313102c4b032c1d6495234b031464952d35420c24c4f43cb204f4620c1204c4fcec720cd45d3d3c1c74520975d707f"
+     },
+     {
+      "t": 30,
+      "direction": "downlink",
+      "octets": "32aec7add6da49c715c8313202c4b032c2d6495234b031d345434fcec420c24c4f43cb20976f577f"
+     },
+     {
+      "t": 60,
+      "direction": "downlink",
+      "octets": "32aec7add6da49c715c831b302c4b03243d6495234b0314cc1d35483ef577f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": true,
+       "reassembly": "in progress",
+       "reg": ".G-VZIG",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "1",
+       "ack": "!",
+       "flight": "VIR401",
+       "msg_num": "D02",
+       "msg_num_seq": "A",
+       "msg_text": "FIRST BLOCK OF A LONG MESSAGE "
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": true,
+       "reassembly": "in progress",
+       "reg": ".G-VZIG",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "2",
+       "ack": "!",
+       "flight": "VIR401",
+       "msg_num": "D02",
+       "msg_num_seq": "B",
+       "msg_text": "SECOND BLOCK "
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": false,
+       "reassembly": "complete",
+       "reg": ".G-VZIG",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "3",
+       "ack": "!",
+       "flight": "VIR401",
+       "msg_num": "D02",
+       "msg_num_seq": "C",
+       "msg_text": "FIRST BLOCK OF A LONG MESSAGE SECOND BLOCK LAST"
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "downlink-duplicate",
+   "source": "synthetic",
+   "description": "block B received twice: the second is a duplicate",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "downlink",
+      "octets": "32aec7add6da49c715c8313102c4b0b3c1d6495234b031464952d35420c24c4f43cb204f4620c1204c4fcec720cd45d3d3c1c7452097d76f7f"
+     },
+     {
+      "t": 30,
+      "direction": "downlink",
+      "octets": "32aec7add6da49c715c8313202c4b0b3c2d6495234b031d345434fcec420c24c4f43cb209784e57f"
+     },
+     {
+      "t": 40,
+      "direction": "downlink",
+      "octets": "32aec7add6da49c715c8313202c4b0b3c2d6495234b031d345434fcec420c24c4f43cb209784e57f"
+     },
+     {
+      "t": 60,
+      "direction": "downlink",
+      "octets": "32aec7add6da49c715c831b302c4b0b343d6495234b0314cc1d35483e0947f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": true,
+       "reassembly": "in progress",
+       "reg": ".G-VZIG",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "1",
+       "ack": "!",
+       "flight": "VIR401",
+       "msg_num": "D03",
+       "msg_num_seq": "A",
+       "msg_text": "FIRST BLOCK OF A LONG MESSAGE "
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": true,
+       "reassembly": "in progress",
+       "reg": ".G-VZIG",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "2",
+       "ack": "!",
+       "flight": "VIR401",
+       "msg_num": "D03",
+       "msg_num_seq": "B",
+       "msg_text": "SECOND BLOCK "
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": true,
+       "reassembly": "duplicate",
+       "reg": ".G-VZIG",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "2",
+       "ack": "!",
+       "flight": "VIR401",
+       "msg_num": "D03",
+       "msg_num_seq": "B",
+       "msg_text": "SECOND BLOCK "
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": false,
+       "reassembly": "complete",
+       "reg": ".G-VZIG",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "3",
+       "ack": "!",
+       "flight": "VIR401",
+       "msg_num": "D03",
+       "msg_num_seq": "C",
+       "msg_text": "FIRST BLOCK OF A LONG MESSAGE SECOND BLOCK LAST"
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "downlink-gap",
+   "source": "synthetic",
+   "description": "blocks A then C: out of sequence, the joining is abandoned",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "downlink",
+      "octets": "32aec7add6da49c715c8313102c4b034c1d6495234b031464952d35420c24c4f43cb204f4620c1204c4fcec720cd45d3d3c1c745209728c67f"
+     },
+     {
+      "t": 60,
+      "direction": "downlink",
+      "octets": "32aec7add6da49c715c831b302c4b03443d6495234b0314cc1d35483014a7f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": true,
+       "reassembly": "in progress",
+       "reg": ".G-VZIG",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "1",
+       "ack": "!",
+       "flight": "VIR401",
+       "msg_num": "D04",
+       "msg_num_seq": "A",
+       "msg_text": "FIRST BLOCK OF A LONG MESSAGE "
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": false,
+       "reassembly": "out of sequence",
+       "reg": ".G-VZIG",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "3",
+       "ack": "!",
+       "flight": "VIR401",
+       "msg_num": "D04",
+       "msg_num_seq": "C",
+       "msg_text": "LAST"
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "downlink-first-lost",
+   "source": "synthetic",
+   "description": "only block B (final) arrives: out of sequence",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "downlink",
+      "octets": "32aec7add6da49c715c8313202c4b0b5c2d6495234b0314cc1d354839cf57f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": false,
+       "reassembly": "out of sequence",
+       "reg": ".G-VZIG",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "2",
+       "ack": "!",
+       "flight": "VIR401",
+       "msg_num": "D05",
+       "msg_num_seq": "B",
+       "msg_text": "LAST"
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "downlink-timeout",
+   "source": "synthetic",
+   "description": "block B 1300 s after A (downlink timeout 1260 s): starts anew, and is out of sequence",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "downlink",
+      "octets": "32aec7add6da49c715c8313102c4b0b6c1d6495234b031464952d35420c24c4f43cb204f4620c1204c4fcec720cd45d3d3c1c745209790067f"
+     },
+     {
+      "t": 1300,
+      "direction": "downlink",
+      "octets": "32aec7add6da49c715c8313202c4b0b6c2d6495234b0314cc1d354836bfb7f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": true,
+       "reassembly": "in progress",
+       "reg": ".G-VZIG",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "1",
+       "ack": "!",
+       "flight": "VIR401",
+       "msg_num": "D06",
+       "msg_num_seq": "A",
+       "msg_text": "FIRST BLOCK OF A LONG MESSAGE "
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": false,
+       "reassembly": "out of sequence",
+       "reg": ".G-VZIG",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "2",
+       "ack": "!",
+       "flight": "VIR401",
+       "msg_num": "D06",
+       "msg_num_seq": "B",
+       "msg_text": "LAST"
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "downlink-just-in-time",
+   "source": "synthetic",
+   "description": "block B 1250 s after A: joined",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "downlink",
+      "octets": "32aec7add6da49c715c8313102c4b037c1d6495234b031464952d35420c24c4f43cb204f4620c1204c4fcec720cd45d3d3c1c74520971a197f"
+     },
+     {
+      "t": 1250,
+      "direction": "downlink",
+      "octets": "32aec7add6da49c715c8313202c4b037c2d6495234b0314cc1d3548364387f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": true,
+       "reassembly": "in progress",
+       "reg": ".G-VZIG",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "1",
+       "ack": "!",
+       "flight": "VIR401",
+       "msg_num": "D07",
+       "msg_num_seq": "A",
+       "msg_text": "FIRST BLOCK OF A LONG MESSAGE "
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": false,
+       "reassembly": "complete",
+       "reg": ".G-VZIG",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "2",
+       "ack": "!",
+       "flight": "VIR401",
+       "msg_num": "D07",
+       "msg_num_seq": "B",
+       "msg_text": "FIRST BLOCK OF A LONG MESSAGE LAST"
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "uplink-wrap",
+   "source": "synthetic",
+   "description": "uplink blocks V, W, A: the block ID wraps after W; complete",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "uplink",
+      "octets": "32aec1b6adc152c4154331d602d5d04c49cecb20d0c15254204fce45209778667f"
+     },
+     {
+      "t": 10,
+      "direction": "uplink",
+      "octets": "32aec1b6adc152c41543315702d0c152542054574f20977d5e7f"
+     },
+     {
+      "t": 20,
+      "direction": "uplink",
+      "octets": "32aec1b6adc152c4154331c102d0c152542054c8524545838fd37f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": true,
+       "reassembly": "in progress",
+       "reg": ".A6-ARD",
+       "mode": "2",
+       "label": "C1",
+       "blk_id": "V",
+       "ack": "!",
+       "msg_text": "UPLINK PART ONE "
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": true,
+       "reassembly": "in progress",
+       "reg": ".A6-ARD",
+       "mode": "2",
+       "label": "C1",
+       "blk_id": "W",
+       "ack": "!",
+       "msg_text": "PART TWO "
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": false,
+       "reassembly": "complete",
+       "reg": ".A6-ARD",
+       "mode": "2",
+       "label": "C1",
+       "blk_id": "A",
+       "ack": "!",
+       "msg_text": "UPLINK PART ONE PART TWO PART THREE"
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "uplink-timeout",
+   "source": "synthetic",
+   "description": "uplink block B 400 s after A (uplink timeout 370 s): starts anew, final: skipped",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "uplink",
+      "octets": "32aec1b6adc152c4154331c102d0c15254204fce452097d2757f"
+     },
+     {
+      "t": 400,
+      "direction": "uplink",
+      "octets": "32aec1b6adc152c4154331c202d0c152542054574f8300e77f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": true,
+       "reassembly": "in progress",
+       "reg": ".A6-ARD",
+       "mode": "2",
+       "label": "C1",
+       "blk_id": "A",
+       "ack": "!",
+       "msg_text": "PART ONE "
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": false,
+       "reassembly": "skipped",
+       "reg": ".A6-ARD",
+       "mode": "2",
+       "label": "C1",
+       "blk_id": "B",
+       "ack": "!",
+       "msg_text": "PART TWO"
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "interleaved-keys",
+   "source": "synthetic",
+   "description": "two downlink messages interleaved (different message numbers): both complete",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "downlink",
+      "octets": "32aec4adc1c2d95415c8313102c431b0c1c44cc834b0b04fce45adc120977ede7f"
+     },
+     {
+      "t": 5,
+      "direction": "downlink",
+      "octets": "32aec4adc1c2d95415c8313202c43131c1c44cc834b0b054574fadc1209769f97f"
+     },
+     {
+      "t": 10,
+      "direction": "downlink",
+      "octets": "32aec4adc1c2d95415c831b302c431b0c2c44cc834b0b04fce45adc28311757f"
+     },
+     {
+      "t": 15,
+      "direction": "downlink",
+      "octets": "32aec4adc1c2d95415c8313402c43131c2c44cc834b0b054574fadc283f7277f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": true,
+       "reassembly": "in progress",
+       "reg": ".D-ABYT",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "1",
+       "ack": "!",
+       "flight": "DLH400",
+       "msg_num": "D10",
+       "msg_num_seq": "A",
+       "msg_text": "ONE-A "
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": true,
+       "reassembly": "in progress",
+       "reg": ".D-ABYT",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "2",
+       "ack": "!",
+       "flight": "DLH400",
+       "msg_num": "D11",
+       "msg_num_seq": "A",
+       "msg_text": "TWO-A "
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": false,
+       "reassembly": "complete",
+       "reg": ".D-ABYT",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "3",
+       "ack": "!",
+       "flight": "DLH400",
+       "msg_num": "D10",
+       "msg_num_seq": "B",
+       "msg_text": "ONE-A ONE-B"
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": false,
+       "reassembly": "complete",
+       "reg": ".D-ABYT",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "4",
+       "ack": "!",
+       "flight": "DLH400",
+       "msg_num": "D11",
+       "msg_num_seq": "B",
+       "msg_text": "TWO-A TWO-B"
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "joined-application",
+   "source": "synthetic",
+   "description": "an ADS-C message split over two H1 blocks: decoded once, on the completing block",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "downlink",
+      "octets": "32aec1b6adc2ce4915c8313102cdb031c1d5c14531312023cd31c22f5245cb43c1d9c1aec1c4d3aec1b6adc2ce49b03732c4b9b5313738b3b69747817f"
+     },
+     {
+      "t": 20,
+      "direction": "downlink",
+      "octets": "32aec1b6adc2ce4915c8313202cdb031c2d5c145313120b943b93437314332b03146b045b6b0b0b046b0b0b0b0b0383738b38307877f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": true,
+       "reassembly": "in progress",
+       "reg": ".A6-BNI",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "1",
+       "ack": "!",
+       "flight": "UAE11 ",
+       "msg_num": "M01",
+       "msg_num_seq": "A",
+       "sublabel": "M1",
+       "msg_text": "/REKCAYA.ADS.A6-BNI072D9517836"
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": false,
+       "reassembly": "complete",
+       "reg": ".A6-BNI",
+       "mode": "2",
+       "label": "H1",
+       "blk_id": "2",
+       "ack": "!",
+       "flight": "UAE11 ",
+       "msg_num": "M01",
+       "msg_num_seq": "B",
+       "msg_text": "/REKCAYA.ADS.A6-BNI072D95178369C9471C201F0E6000F000008783",
+       "arinc622": {
+        "msg_type": "adsc_msg",
+        "crc_ok": true,
+        "gs_addr": "REKCAYA",
+        "air_addr": ".A6-BNI",
+        "adsc": {
+         "tags": [
+          {
+           "basic_report": {
+            "lat": 64.100075,
+            "lon": -21.900043,
+            "alt": 38000,
+            "ts_sec": 1800.0,
+            "pos_accuracy_nm": 0.05,
+            "nav_redundancy": true,
+            "tcas_avail": true
+           }
+          },
+          {
+           "earth_ref_data": {
+            "true_trk_deg": 270.0,
+            "true_trk_valid": true,
+            "gnd_spd_kts": 480.0,
+            "vspd_ftmin": 0
+           }
+          }
+         ],
+         "err": false
+        }
+       }
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  },
+  {
+   "id": "uplink-no-wrap-after-x",
+   "source": "synthetic",
+   "description": "uplink blocks W, X, A: X follows W, but A does not follow X (the wrap is after W): out of sequence",
+   "input": {
+    "blocks": [
+     {
+      "t": 0,
+      "direction": "uplink",
+      "octets": "32aec1b6adc152c41543325702d0c15254204fce452097f0c77f"
+     },
+     {
+      "t": 10,
+      "direction": "uplink",
+      "octets": "32aec1b6adc152c41543325802d0c152542054574f2097fed87f"
+     },
+     {
+      "t": 20,
+      "direction": "uplink",
+      "octets": "32aec1b6adc152c4154332c102d0c152542054c852454583b1507f"
+     }
+    ]
+   },
+   "expected": {
+    "blocks": [
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": true,
+       "reassembly": "in progress",
+       "reg": ".A6-ARD",
+       "mode": "2",
+       "label": "C2",
+       "blk_id": "W",
+       "ack": "!",
+       "msg_text": "PART ONE "
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": true,
+       "reassembly": "in progress",
+       "reg": ".A6-ARD",
+       "mode": "2",
+       "label": "C2",
+       "blk_id": "X",
+       "ack": "!",
+       "msg_text": "PART TWO "
+      }
+     },
+     {
+      "acars": {
+       "err": false,
+       "crc_ok": true,
+       "more": false,
+       "reassembly": "out of sequence",
+       "reg": ".A6-ARD",
+       "mode": "2",
+       "label": "C2",
+       "blk_id": "A",
+       "ack": "!",
+       "msg_text": "PART THREE"
+      }
+     }
+    ]
+   },
+   "req": [
+    "PAR-01",
+    "PAR-04"
+   ]
+  }
+ ]
+}

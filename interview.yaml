@@ -1,0 +1,207 @@
+# The interview: the questions the agent asks before it plans anything.
+#
+# The agent asks them in order (skipping those whose depends_on is not met),
+# a few at a time, shows `why` and the default, and records the answers in
+# `answers.yaml` in the build's repository (format at the end). The person may
+# answer "default" to any question. Nothing else in the seed changes with the
+# answers: they only choose among the options the specification allows.
+#
+# Fields: id, prompt, why, type (choice | multi | text | bool), options,
+# default (null = must be answered), depends_on, constraints, affects.
+
+version: 1
+
+questions:
+
+  - id: host
+    prompt: Is this a program of its own, or a decoder kind inside a program that hosts several (e.g. DSQrust with DSC, or ShellSDR)?
+    why: >
+      spec/02-architecture.md §5. Inside a host, the HFDL session is one decoder
+      kind among others: it shares the front end, the settings file and the
+      user's location, and keeps its own message directory, views and vectors.
+      The questions below about language, front end and platforms then take the
+      host's answers, and the agent reads the host's own documentation first.
+    type: choice
+    options:
+      - {value: standalone, label: "A program of its own"}
+      - {value: hosted,     label: "A decoder kind inside an existing program (name it and its repository)"}
+    default: standalone
+    affects: [NFR-08, spec/02-architecture.md §5]
+
+  - id: project_name
+    prompt: What should the project and its program be called (or, hosted, the host's name)?
+    why: >
+      The repository, package and binary name, and the program's subdirectory in
+      the per-user config and data directories. Before a name is accepted, check
+      that no other program on this computer already uses those directories.
+    type: text
+    default: null
+    affects: [CFG-01, STO-06, EXP-01]
+
+  - id: language
+    prompt: Which programming language?
+    why: >
+      Everything is written in it, including the conformance runner. The
+      receiver filters every channel of a band at 5400 samples per second after
+      a channelizer over the whole band (250 to 2000 kS/s), and decodes 8-PSK
+      with a Viterbi decoder: an interpreted language needs vectorised numerics
+      or a compiled module (DEC-10). CPDLC needs an ASN.1 PER (unaligned)
+      decoder, generated from spec/03-domain/cpdlc-fans1a.asn1 or written by
+      hand; check what the language offers.
+    type: choice
+    options:
+      - {value: rust,   label: Rust}
+      - {value: go,     label: Go}
+      - {value: cpp,    label: "C++ (C++17 or later)"}
+      - {value: csharp, label: "C# (.NET 8 or later)"}
+      - {value: java,   label: "Java or Kotlin (JVM)"}
+      - {value: python, label: "Python 3.11 or later", notes: "NumPy for the DSP; check DEC-10 early"}
+      - {value: other,  label: "Other (name it)"}
+    default: null
+    affects: [DEC-10, NFR-01, NFR-06]
+
+  - id: platforms
+    prompt: Which operating systems must it run on?
+    why: Chooses the SDR and audio backends, the config and data directories, the clipboard and notifications, and the CI matrix.
+    type: multi
+    options:
+      - {value: linux,   label: Linux, notes: "including the Raspberry Pi (DEC-10)"}
+      - {value: macos,   label: macOS}
+      - {value: windows, label: Windows}
+    default: [linux]
+    affects: [CFG-01, STO-06, CH-01, ALR-04, EXP-02]
+
+  - id: front_end
+    prompt: What kind of user interface?
+    why: spec/07-ui/ says what every front end must show; this chooses the kind. Mockups of a desktop GUI and a terminal Work Area are in spec/07-ui/mockups/.
+    type: choice
+    options:
+      - {value: tui, label: "Terminal UI (full screen, keyboard)", notes: "works over SSH"}
+      - {value: gui, label: "Desktop GUI"}
+      - {value: web, label: "Web UI (a local server and a browser page)", notes: "localhost only unless asked otherwise"}
+    default: tui
+    depends_on: {host: [standalone]}
+    affects: [VIEW-*, AC-*, ALR-02, spec/07-ui]
+
+  - id: gui_toolkit
+    prompt: Which GUI toolkit or web framework, if you have a preference?
+    why: Only to respect a preference; otherwise the agent picks a maintained one and says why.
+    type: text
+    default: "agent's choice"
+    depends_on: {front_end: [gui, web]}
+    affects: [spec/07-ui]
+
+  - id: feature_groups
+    prompt: Which optional feature groups should be built?
+    why: >
+      core (decode recordings, parse, store, view messages, aircraft and ground
+      stations, on-screen alerts) is always built. A built group meets all its
+      MUST requirements; a group not built is left out entirely.
+    type: multi
+    options:
+      - {value: live,   label: "live: decode an SDR's I/Q or an audio input live, several channels at once", notes: "CH-01..CH-04, CH-07"}
+      - {value: enrich, label: "enrich: your location, distances; aircraft, airline and airport files", notes: "ENR-01..ENR-04"}
+      - {value: lookup, label: "lookup: online aircraft and route lookups (hexdb.io, adsbdb.com; no key)", notes: "LKP-01..LKP-05; the only network access (NFR-04); needs enrich"}
+      - {value: notify, label: "notify: alert sound and desktop notifications", notes: "ALR-03, ALR-04"}
+      - {value: export, label: "export: save a message as text, copy to clipboard", notes: "EXP-01, EXP-02"}
+    default: [live, enrich, lookup, notify, export]
+    constraints:
+      - "lookup requires enrich"
+    affects: [spec/01-requirements.md "Feature groups"]
+
+  - id: sdr_backend
+    prompt: How should live I/Q be read from an SDR?
+    why: >
+      HFDL is decoded best from an SDR's I/Q covering a whole band (CH-01, CH-02).
+      SoapySDR covers most devices (SDRplay, RTL-SDR, Airspy, …) through one API;
+      a device's own library is an alternative for one device family.
+    type: choice
+    options:
+      - {value: soapysdr, label: "SoapySDR"}
+      - {value: native,   label: "A device family's own library (name it)"}
+      - {value: none,     label: "No SDR: live input is audio only"}
+    default: soapysdr
+    depends_on: {feature_groups: [live]}
+    affects: [CH-01, CH-02, spec/02-architecture.md "Capture"]
+
+  - id: audio_backend
+    prompt: How should live audio be captured (one channel from an SSB receiver)?
+    why: As in the DSC seed - inputs and monitor (loopback) sources, so that another program's audio can be decoded (CH-01).
+    type: choice
+    options:
+      - {value: native,   label: "The platform's own API (PipeWire/PulseAudio, Core Audio, WASAPI)"}
+      - {value: portable, label: "A portable library (PortAudio, miniaudio, cpal, …)"}
+      - {value: none,     label: "No live audio"}
+      - {value: agent,    label: "Agent's choice, explained in the plan"}
+    default: agent
+    depends_on: {feature_groups: [live]}
+    affects: [CH-01]
+
+  - id: library_split
+    prompt: Should the decoder and data logic be a separate library that other front ends can use?
+    why: NFR-05 (SHOULD). Hosted, the host decides.
+    type: bool
+    default: true
+    affects: [NFR-05]
+
+  - id: packaging
+    prompt: How will it be installed?
+    why: Decides the build files, the CI artefacts and the install docs.
+    type: multi
+    options:
+      - {value: source,     label: "Build from source"}
+      - {value: binary,     label: "Release binaries per platform"}
+      - {value: distro,     label: "Distribution package"}
+      - {value: container,  label: "Container image"}
+    default: [source]
+    affects: [AGENTS.md "Definition of done"]
+
+  - id: license
+    prompt: Under which licence will the code be published?
+    why: >
+      The seed's physical and PDU layers were taken from dumphfdl (GPL-3.0-or-later),
+      its ACARS layers from libacars (MIT). Whether code built from the seed's
+      description must carry the GPL is a legal question the agent does not answer.
+      GPL-3.0-or-later avoids it. The About view credits dumphfdl and libacars either way.
+    type: choice
+    options:
+      - {value: GPL-3.0-or-later, label: "GPL-3.0-or-later"}
+      - {value: other,            label: "Other (give the SPDX identifier)"}
+    default: GPL-3.0-or-later
+    affects: [spec/07-ui "about"]
+
+  - id: ui_language
+    prompt: In which language should the user interface speak?
+    why: Display texts may be translated; the search terms (spec/07-ui/search-terms.md) are normative and stay as they are.
+    type: text
+    default: en
+    affects: [spec/07-ui]
+
+  - id: extras
+    prompt: Anything else the build must do or must not do?
+    why: Checked against the specification; a wish that contradicts a MUST is recorded as a finding instead.
+    type: text
+    default: ""
+    affects: []
+
+# answers.yaml, written by the agent in the build's repository and committed
+# with the plan:
+#
+#   seed: HFDL-ACARS-Decoder-Seed
+#   seed_version: <git commit>
+#   answered: <ISO 8601 date>
+#   host: standalone
+#   project_name: …
+#   language: rust
+#   platforms: [linux]
+#   front_end: tui
+#   feature_groups: [live, enrich, lookup, notify, export]
+#   sdr_backend: soapysdr
+#   audio_backend: agent
+#   library_split: true
+#   packaging: [source]
+#   license: GPL-3.0-or-later
+#   ui_language: en
+#   extras: ""
+#   notes:
+#     - "…"

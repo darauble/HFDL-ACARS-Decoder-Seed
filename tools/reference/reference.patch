@@ -1,0 +1,117 @@
+diff --git a/src/hfdl.c b/src/hfdl.c
+index a5719b2..7c060d9 100644
+--- a/src/hfdl.c
++++ b/src/hfdl.c
+@@ -10,6 +10,7 @@
+ #include <pthread.h>                // pthread_mutex_*
+ #endif
+ #include <string.h>                 // memcpy
++#include <stdlib.h>                 // getenv, atof
+ #include <sys/time.h>               // struct timeval
+ #include <liquid/liquid.h>
+ #include "config.h"                 // *_DEBUG
+@@ -806,6 +807,14 @@ static void *hfdl_decoder_thread(void *ctx) {
+ 						// of the prekey and two A sequences, so that the timestamp
+ 						// points at the start of the frame.
+ 						gettimeofday(&c->pdu_timestamp, NULL);
++						// seed reference build: time from the sample count when HFDL_SAMPLE_CLOCK_BASE
++						// (epoch seconds of the recording's first sample) is set
++						char const *base_env = getenv("HFDL_SAMPLE_CLOCK_BASE");
++						if(base_env != NULL) {
++							double t = atof(base_env) + (double)c->sample_cnt / (double)(HFDL_SYMBOL_RATE * SPS);
++							c->pdu_timestamp.tv_sec = (time_t)t;
++							c->pdu_timestamp.tv_usec = (suseconds_t)((t - (double)(time_t)t) * 1e6);
++						}
+ 						timersub(&c->pdu_timestamp, &ts_correction, &c->pdu_timestamp);
+ 						chan_debug("A2 sequence found at sample %" PRIu64 " (corr=%f retry=%d costas_dphi=%f)\n",
+ 								c->sample_cnt, corr_A2, c->search_retries, c->loop->dphi);
+diff --git a/src/lpdu.c b/src/lpdu.c
+index d077eec..977fe98 100644
+--- a/src/lpdu.c
++++ b/src/lpdu.c
+@@ -82,6 +82,17 @@ la_dict const logon_denied_reason_codes[] = {
+ };
+ 
+ // Forward declarations
++
++// seed reference build: the PDU's octets as lowercase hex
++static void seed_append_hex(la_vstring *vstr, char const *key, uint8_t const *buf, size_t len) {
++	char *hex = XCALLOC(2 * len + 1, sizeof(char));
++	for(size_t i = 0; i < len; i++) {
++		snprintf(hex + 2 * i, 3, "%02x", buf[i]);
++	}
++	la_json_append_string(vstr, key, hex);
++	XFREE(hex);
++}
++
+ la_type_descriptor const proto_DEF_hfdl_lpdu;
+ 
+ static int32_t logon_confirm_parse(uint8_t *buf, uint32_t len, struct lpdu_logon_confirm *result) {
+@@ -266,6 +277,7 @@ static void lpdu_format_json(la_vstring *vstr, void const *data) {
+ 	ASSERT(data);
+ 
+ 	struct hfdl_lpdu const *lpdu = data;
++	seed_append_hex(vstr, "raw", lpdu->pdu->buf, lpdu->pdu->len);
+ 	la_json_append_bool(vstr, "err", lpdu->err);
+ 	if(lpdu->err) {
+ 		return;
+diff --git a/src/mpdu.c b/src/mpdu.c
+index 0aa0644..dd8fe59 100644
+--- a/src/mpdu.c
++++ b/src/mpdu.c
+@@ -22,6 +22,17 @@ struct mpdu_dst {
+ };
+ 
+ // Forward declarations
++
++// seed reference build: the PDU's octets as lowercase hex
++static void seed_append_hex(la_vstring *vstr, char const *key, uint8_t const *buf, size_t len) {
++	char *hex = XCALLOC(2 * len + 1, sizeof(char));
++	for(size_t i = 0; i < len; i++) {
++		snprintf(hex + 2 * i, 3, "%02x", buf[i]);
++	}
++	la_json_append_string(vstr, key, hex);
++	XFREE(hex);
++}
++
+ la_type_descriptor const proto_DEF_hfdl_mpdu;
+ static int32_t parse_lpdu_list(uint8_t *lpdu_len_ptr, uint8_t *data_ptr,
+ 		uint8_t *endptr, uint32_t lpdu_cnt, la_list **lpdu_list,
+@@ -195,6 +206,7 @@ static void mpdu_format_json(la_vstring *vstr, void const *data) {
+ 	ASSERT(data);
+ 
+ 	struct hfdl_mpdu const *mpdu = data;
++	seed_append_hex(vstr, "raw", mpdu->pdu->buf, mpdu->pdu->len);
+ 	la_json_append_bool(vstr, "err", !mpdu->header.crc_ok);
+ 	if(!mpdu->header.crc_ok) {
+ 		return;
+diff --git a/src/spdu.c b/src/spdu.c
+index 4ab1114..b3bf3e6 100644
+--- a/src/spdu.c
++++ b/src/spdu.c
+@@ -33,6 +33,17 @@ struct hfdl_spdu {
+ };
+ 
+ // Forward declarations
++
++// seed reference build: the PDU's octets as lowercase hex
++static void seed_append_hex(la_vstring *vstr, char const *key, uint8_t const *buf, size_t len) {
++	char *hex = XCALLOC(2 * len + 1, sizeof(char));
++	for(size_t i = 0; i < len; i++) {
++		snprintf(hex + 2 * i, 3, "%02x", buf[i]);
++	}
++	la_json_append_string(vstr, key, hex);
++	XFREE(hex);
++}
++
+ la_type_descriptor const proto_DEF_hfdl_spdu;
+ static void gs_status_format_text(la_vstring *vstr, int32_t indent, struct gs_status const *gs);
+ static void gs_status_format_json(la_vstring *vstr, struct gs_status const *gs);
+@@ -154,6 +165,7 @@ static void spdu_format_json(la_vstring *vstr, void const *data) {
+ 	ASSERT(data);
+ 
+ 	struct hfdl_spdu const *spdu = data;
++	seed_append_hex(vstr, "raw", spdu->pdu->buf, spdu->pdu->len);
+ 	la_json_append_bool(vstr, "err", !spdu->header.crc_ok);
+ 	if(!spdu->header.crc_ok) {
+ 		return;

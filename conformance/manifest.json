@@ -1,0 +1,125 @@
+{
+  "conformance_format": 1,
+  "suites": [
+    {
+      "file": "aircraft/aircraft.json",
+      "suite": "aircraft",
+      "normative": true,
+      "cases": 2
+    },
+    {
+      "file": "alerts/alerts.json",
+      "suite": "alerts",
+      "normative": true,
+      "cases": 34
+    },
+    {
+      "file": "config/merge.json",
+      "suite": "config-merge",
+      "normative": true,
+      "cases": 6
+    },
+    {
+      "file": "frame/decode.json",
+      "suite": "frame-decode",
+      "normative": true,
+      "cases": 11
+    },
+    {
+      "file": "geo/distance.json",
+      "suite": "distance",
+      "normative": true,
+      "cases": 6
+    },
+    {
+      "file": "geo/parse_location.json",
+      "suite": "parse-location",
+      "normative": true,
+      "cases": 17
+    },
+    {
+      "file": "iq/real.json",
+      "suite": "iq-decode",
+      "normative": true,
+      "cases": 6
+    },
+    {
+      "file": "iq/synthetic.json",
+      "suite": "iq-decode",
+      "normative": true,
+      "cases": 5
+    },
+    {
+      "file": "ndjson/day_file.json",
+      "suite": "day-file",
+      "normative": true,
+      "cases": 6
+    },
+    {
+      "file": "ndjson/read.json",
+      "suite": "ndjson-read",
+      "normative": true,
+      "cases": 9
+    },
+    {
+      "file": "ndjson/write.json",
+      "suite": "ndjson-write",
+      "normative": true,
+      "cases": 6
+    },
+    {
+      "file": "parse/acars.json",
+      "suite": "parse-acars",
+      "normative": true,
+      "cases": 19
+    },
+    {
+      "file": "parse/apps.json",
+      "suite": "parse-apps",
+      "normative": true,
+      "cases": 52
+    },
+    {
+      "file": "parse/classify.json",
+      "suite": "parse-classify",
+      "normative": true,
+      "cases": 31
+    },
+    {
+      "file": "parse/sequence.json",
+      "suite": "parse-sequence",
+      "normative": true,
+      "cases": 2
+    },
+    {
+      "file": "presentation/search.json",
+      "suite": "search",
+      "normative": true,
+      "cases": 18
+    },
+    {
+      "file": "presentation/search_terms.json",
+      "suite": "search-terms",
+      "normative": true,
+      "cases": 31
+    },
+    {
+      "file": "time/center.json",
+      "suite": "file-center",
+      "normative": true,
+      "cases": 7
+    },
+    {
+      "file": "time/file_name.json",
+      "suite": "file-name-time",
+      "normative": true,
+      "cases": 16
+    },
+    {
+      "file": "time/iso8601.json",
+      "suite": "iso8601",
+      "normative": true,
+      "cases": 7
+    }
+  ]
+}

@@ -1,0 +1,698 @@
+{
+ "suite": "config-merge",
+ "normative": true,
+ "description": "Three-way merge of the settings (04-support.md \u00a74.8): per setting (lists and the location are units), keep mine where it differs from base, else take disk.",
+ "compare": {
+  "method": "exact"
+ },
+ "cases": [
+  {
+   "id": "nothing-changed",
+   "description": "no changes",
+   "input": {
+    "base": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    },
+    "mine": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    },
+    "disk": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    }
+   },
+   "expected": {
+    "saved": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    }
+   },
+   "req": [
+    "CFG-02"
+   ]
+  },
+  {
+   "id": "mine-watch-theirs-keywords",
+   "description": "I changed the watch list, the other copy the caution keywords: both kept",
+   "input": {
+    "base": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    },
+    "mine": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824",
+       "G-VZIG"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    },
+    "disk": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE",
+       "BLEED"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    }
+   },
+   "expected": {
+    "saved": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824",
+       "G-VZIG"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE",
+       "BLEED"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    }
+   },
+   "req": [
+    "CFG-02"
+   ]
+  },
+  {
+   "id": "both-watch-mine-wins",
+   "description": "both changed the watch list (one unit): mine wins whole",
+   "input": {
+    "base": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    },
+    "mine": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "G-VZIG"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    },
+    "disk": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824",
+       "D-ABYT"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    }
+   },
+   "expected": {
+    "saved": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "G-VZIG"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    }
+   },
+   "req": [
+    "CFG-02"
+   ]
+  },
+  {
+   "id": "location-unit",
+   "description": "I changed only the latitude, the other copy the longitude: my location whole",
+   "input": {
+    "base": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    },
+    "mine": {
+     "location": {
+      "lat": 55.0,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    },
+    "disk": {
+     "location": {
+      "lat": 54.84,
+      "lon": 24.0
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    }
+   },
+   "expected": {
+    "saved": {
+     "location": {
+      "lat": 55.0,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    }
+   },
+   "req": [
+    "CFG-02"
+   ]
+  },
+  {
+   "id": "their-lookup",
+   "description": "the other copy switched hexdb on: kept",
+   "input": {
+    "base": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    },
+    "mine": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    },
+    "disk": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": true,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    }
+   },
+   "expected": {
+    "saved": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": true,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    }
+   },
+   "req": [
+    "CFG-02"
+   ]
+  },
+  {
+   "id": "sources-unit",
+   "description": "both changed the sources list: mine whole",
+   "input": {
+    "base": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 8902.5,
+        "rate": 250000
+       }
+      ]
+     }
+    },
+    "mine": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 11287.0,
+        "rate": 250000
+       }
+      ]
+     }
+    },
+    "disk": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": []
+     }
+    }
+   },
+   "expected": {
+    "saved": {
+     "location": {
+      "lat": 54.84,
+      "lon": 23.83
+     },
+     "hfdl": {
+      "message_dir": "/home/u/.local/share/app/hfdl",
+      "alert_on_caution": true,
+      "watch": [
+       "RA73824"
+      ],
+      "keywords_caution": [
+       "FIRE",
+       "SMOKE"
+      ],
+      "lookup_hexdb": false,
+      "sources": [
+       {
+        "label": "RSPduo",
+        "kind": "iq",
+        "center_khz": 11287.0,
+        "rate": 250000
+       }
+      ]
+     }
+    }
+   },
+   "req": [
+    "CFG-02"
+   ]
+  }
+ ]
+}

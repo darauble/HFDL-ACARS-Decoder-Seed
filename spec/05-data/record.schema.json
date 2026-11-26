@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hfdl-seed/record.schema.json",
+  "title": "HFDL message record: one line of a day file (YYYY-MM-DD.ndjson)",
+  "description": "Schema version 1. One record per message (an SPDU or an LPDU, spec/04-algorithms/03-parser.md). A writer MUST write the keys in `x-writer-required` and every other key whose value is present, and MUST NOT write a key for an absent value. A reader needs only `kind`, `pdu` and the `x-stored` keys: it re-parses the octets with the stored context and ignores keys marked `x-informational` (they are for people and other tools). Unknown keys are ignored; a known key of the wrong type counts as absent. Vectors: ndjson/write.json, ndjson/read.json.",
+  "type": "object",
+  "required": ["kind", "pdu", "freq"],
+  "x-writer-required": ["v", "kind", "utc", "off", "tsrc", "freq", "class", "sev", "pdu"],
+  "properties": {
+    "v":     { "x-stored": true, "const": 1, "description": "Schema version." },
+    "kind":  { "x-stored": true, "enum": ["squitter", "lpdu"] },
+    "utc":   { "x-stored": true, "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,3})?Z$", "description": "The frame's time (physical-layer.md §9), UTC, optionally with milliseconds." },
+    "off":   { "x-stored": true, "type": "string", "pattern": "^[+-]\\d{2}:\\d{2}$", "description": "Local offset at reception." },
+    "tsrc":  { "x-stored": true, "enum": ["filename", "mtime", "wallclock"] },
+    "src":   { "x-stored": true, "type": "string", "description": "Source label (device or recording)." },
+    "file":  { "x-stored": true, "type": "string", "description": "Recording the message was decoded from." },
+    "freq":  { "x-stored": true, "type": "number", "description": "Channel: assigned frequency, kHz (e.g. 8942)." },
+    "m1":    { "x-stored": true, "type": "integer", "minimum": 0, "maximum": 7, "description": "The frame's M1 mode; bit rate and slots follow from it." },
+    "lvl":   { "x-stored": true, "type": "number", "description": "Signal level, dBFS, 1 decimal." },
+    "noise": { "x-stored": true, "type": "number", "description": "Noise floor, dBFS, 1 decimal." },
+    "ferr":  { "x-stored": true, "type": "number", "description": "Frequency error, Hz, 1 decimal." },
+
+    "dir":   { "x-stored": true, "enum": ["up", "down"], "description": "LPDU: from the MPDU. Squitter: always up." },
+    "gs":    { "x-stored": true, "type": "integer", "minimum": 0, "maximum": 127, "description": "LPDU: the MPDU's ground station (source of an uplink, destination of a downlink)." },
+    "ac":    { "x-stored": true, "type": "integer", "minimum": 0, "maximum": 255, "description": "LPDU: the MPDU's aircraft (source of a downlink, destination of an uplink)." },
+    "icao":  { "x-stored": true, "type": "string", "pattern": "^[0-9A-F]{6}$", "description": "The resolved ICAO address (03-parser.md §3.3)." },
+    "icao_src": { "x-stored": true, "enum": ["lpdu", "table", "adsc"] },
+    "reasm": { "x-stored": true, "enum": ["skipped", "in_progress", "complete", "duplicate", "out_of_sequence"] },
+    "joined":   { "x-stored": true, "type": "string", "description": "The joined ACARS text, on the block that completed a message." },
+    "joined_app": { "x-stored": true, "type": "string", "description": "The joined MIAM file or OHMA message, on the message that completed it." },
+    "systable": { "x-stored": true, "type": "string", "pattern": "^([0-9a-f]{2})*$", "description": "Octets of a complete system table (hex), on the message that completed it, with its version in `systable_v`." },
+    "systable_v": { "x-stored": true, "type": "integer", "minimum": 0, "maximum": 4095 },
+
+    "class": { "x-informational": true, "enum": ["squitter", "cpdlc", "adsc", "miam", "media", "ohma", "acars", "systable", "perf", "freq", "echo", "systable_req", "logon", "logon_confirm", "logoff", "logon_denied", "logon_resume", "other"] },
+    "sev":   { "x-informational": true, "enum": ["emergency", "caution", "routine", "link"] },
+    "kw":    { "x-informational": true, "type": "array", "items": { "type": "string" }, "description": "Matched keywords." },
+    "reg":   { "x-informational": true, "type": "string", "description": "ACARS registration, dots trimmed." },
+    "flight":{ "x-informational": true, "type": "string" },
+    "label": { "x-informational": true, "type": "string" },
+    "text":  { "x-informational": true, "type": "string", "description": "The ACARS text (joined when complete)." },
+    "pos":   { "x-informational": true, "$ref": "#/$defs/position" },
+
+    "rx":    { "x-stored": true, "type": "object", "description": "The user's location at reception.", "required": ["lat", "lon"],
+               "properties": { "lat": { "$ref": "#/$defs/coord" }, "lon": { "$ref": "#/$defs/coord" } } },
+    "pos_km":{ "x-stored": true, "type": "number", "description": "Distance rx -> reported position, km, 3 decimals." },
+    "gs_st": { "x-stored": true, "type": "object", "description": "The ground station at reception.",
+               "properties": { "name": { "type": "string" }, "lat": { "$ref": "#/$defs/coord" }, "lon": { "$ref": "#/$defs/coord" }, "km": { "type": "number" } } },
+    "acft":  { "x-stored": true, "type": "object", "description": "The aircraft at reception (04-support.md §4.10).",
+               "properties": { "reg": { "type": "string" }, "icao_type": { "type": "string" }, "type": { "type": "string" }, "operator": { "type": "string" }, "airline": { "type": "string" }, "src": { "enum": ["file", "hexdb", "adsbdb"] } } },
+    "route": { "x-stored": true, "type": "object", "properties": { "src": { "enum": ["hexdb", "adsbdb", "cpdlc"] }, "orig": { "$ref": "#/$defs/airport" }, "dest": { "$ref": "#/$defs/airport" } } },
+
+    "pdu":   { "x-stored": true, "type": "string", "pattern": "^([0-9a-f]{2})+$", "description": "The SPDU (66 octets) or the LPDU (with its FCS), lowercase hex. Written last by convention. A line without it, or with an odd or non-hex value, is rejected." }
+  },
+  "$defs": {
+    "coord": { "type": "number", "description": "Decimal degrees, 7 decimals." },
+    "position": { "type": "object", "required": ["lat", "lon", "src"],
+                  "properties": { "lat": { "$ref": "#/$defs/coord" }, "lon": { "$ref": "#/$defs/coord" }, "src": { "enum": ["perf", "freq", "adsc"] }, "time": { "type": "string", "description": "hh:mm:ss UTC as reported" } } },
+    "airport": { "type": "object", "properties": { "icao": { "type": "string" }, "iata": { "type": "string" }, "name": { "type": "string" }, "lat": { "$ref": "#/$defs/coord" }, "lon": { "$ref": "#/$defs/coord" }, "km": { "type": "number" } } }
+  }
+}

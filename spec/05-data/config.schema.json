@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hfdl-seed/config.schema.json",
+  "title": "Settings: <config>/<project_name>/config.json",
+  "description": "Unknown keys are kept on save (another program version or another decoder kind may use them). A missing or wrong-typed key takes its default. Saved by the three-way merge (04-support.md §4.8). In a program hosting several decoder kinds (02-architecture.md §5), `location` is shared at the top level and the HFDL settings are under the key `hfdl`; a standalone HFDL program uses the same layout.",
+  "type": "object",
+  "properties": {
+    "location": { "type": "object", "description": "The user's location; absent: none. One merge unit.",
+                  "required": ["lat", "lon"], "properties": { "lat": { "type": "number" }, "lon": { "type": "number" } } },
+    "hfdl": {
+      "type": "object",
+      "properties": {
+        "message_dir":   { "type": "string", "description": "Default: <data>/<project_name>/hfdl." },
+        "sources":       { "type": "array", "description": "Staged live sources, one merge unit.",
+                           "items": { "type": "object", "properties": {
+                             "label": { "type": "string" },
+                             "kind": { "enum": ["iq", "audio"] },
+                             "device": { "type": "string" },
+                             "center_khz": { "type": "number" },
+                             "rate": { "type": "integer" },
+                             "channels_khz": { "type": "array", "items": { "type": "number" }, "description": "Empty or absent: every channel the band covers." },
+                             "channel_khz": { "type": "number", "description": "Audio source: its channel." } } } },
+        "alert_sound":   { "type": "boolean", "default": true },
+        "alert_on_caution": { "type": "boolean", "default": true },
+        "watch_alerts":  { "type": "boolean", "default": true },
+        "notifications": { "type": "boolean", "default": true },
+        "keywords_emergency": { "type": "array", "items": { "type": "string" }, "description": "Default: 03-parser.md §3.6. One merge unit." },
+        "keywords_caution":   { "type": "array", "items": { "type": "string" }, "description": "Default: 03-parser.md §3.6. One merge unit." },
+        "watch":         { "type": "array", "items": { "type": "string" }, "description": "ICAO addresses, registrations, flights. One merge unit." },
+        "filter_link":   { "type": "boolean", "default": true },
+        "filter_joined": { "type": "boolean", "default": true },
+        "aircraft_file": { "type": "string" },
+        "airlines_file": { "type": "string" },
+        "airports_file": { "type": "string" },
+        "lookup_hexdb":  { "type": "boolean", "default": false },
+        "lookup_adsbdb": { "type": "boolean", "default": false },
+        "hexdb_aircraft_url":  { "type": "string", "default": "https://hexdb.io/api/v2/aircraft/{icao}" },
+        "hexdb_route_url":     { "type": "string", "default": "https://hexdb.io/api/v2/routes/{callsign}" },
+        "adsbdb_aircraft_url": { "type": "string", "default": "https://api.adsbdb.com/v0/aircraft/{icao}" },
+        "adsbdb_route_url":    { "type": "string", "default": "https://api.adsbdb.com/v0/callsign/{callsign}" },
+        "save_dir":      { "type": "string", "description": "Last directory a message was saved to." }
+      }
+    }
+  }
+}

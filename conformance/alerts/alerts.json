@@ -1,0 +1,2935 @@
+{
+ "suite": "alerts",
+ "normative": true,
+ "description": "Messages in order with their times (s) and the settings -> the alert kind each raises (04-support.md \u00a74.7), or null.",
+ "compare": {
+  "method": "exact"
+ },
+ "cases": [
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#0",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 221
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".N873FD",
+          "mode": "2",
+          "label": "SA",
+          "blk_id": "7",
+          "ack": "!",
+          "flight": "FX5184",
+          "msg_num": "S74",
+          "msg_num_seq": "A",
+          "msg_text": "0EH0953332HS",
+          "media-adv": {
+           "err": false,
+           "version": 0,
+           "current_link": {
+            "code": "H",
+            "descr": "HF",
+            "established": true,
+            "time": {
+             "hour": 9,
+             "min": 53,
+             "sec": 33
+            }
+           },
+           "links_avail": [
+            {
+             "code": "2",
+             "descr": "VDL2"
+            },
+            {
+             "code": "H",
+             "descr": "HF"
+            },
+            {
+             "code": "S",
+             "descr": "Default SATCOM"
+            }
+           ]
+          }
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#1",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 220
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".A7-ANI",
+          "mode": "2",
+          "label": "Q0",
+          "blk_id": "5",
+          "ack": "!",
+          "flight": "QR073V",
+          "msg_num": "S14",
+          "msg_num_seq": "A",
+          "msg_text": ""
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#3",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "dst": {
+         "type": "Aircraft",
+         "id": 255
+        },
+        "type": {
+         "id": 63,
+         "name": "Logoff request"
+        },
+        "ac_info": {
+         "icao": "020073"
+        },
+        "reason": {
+         "code": 6,
+         "descr": "Other"
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#6",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "dst": {
+         "type": "Aircraft",
+         "id": 255
+        },
+        "type": {
+         "id": 159,
+         "name": "Logon confirm"
+        },
+        "ac_info": {
+         "icao": "40787A"
+        },
+        "assigned_ac_id": 224
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#8",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "dst": {
+         "type": "Aircraft",
+         "id": 223
+        },
+        "type": {
+         "id": 13,
+         "name": "Unnumbered data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".G-VRAY",
+          "mode": "2",
+          "label": "_d",
+          "blk_id": "L",
+          "ack": "4",
+          "msg_text": ""
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#10",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 210
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 3
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".A6-ARD",
+          "mode": "2",
+          "label": "H1",
+          "blk_id": "9",
+          "ack": "!",
+          "flight": "G90605",
+          "msg_num": "C07",
+          "msg_num_seq": "A",
+          "sublabel": "CF",
+          "msg_text": "WRN/PNRC12860AA08/WN26112508100031390006ELT\r "
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#15",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "spdu": {
+        "err": false,
+        "src": {
+         "type": "Ground station",
+         "id": 3
+        },
+        "spdu_version": 0,
+        "rls": false,
+        "iso": false,
+        "change_note": "None",
+        "frame_index": 1122,
+        "frame_offset": 0,
+        "min_priority": 0,
+        "systable_version": 52,
+        "gs_status": [
+         {
+          "gs": {
+           "type": "Ground station",
+           "id": 3
+          },
+          "utc_sync": true,
+          "freqs": [
+           {
+            "id": 3
+           },
+           {
+            "id": 6
+           }
+          ]
+         },
+         {
+          "gs": {
+           "type": "Ground station",
+           "id": 6
+          },
+          "utc_sync": true,
+          "freqs": [
+           {
+            "id": 2
+           },
+           {
+            "id": 6
+           }
+          ]
+         },
+         {
+          "gs": {
+           "type": "Ground station",
+           "id": 7
+          },
+          "utc_sync": true,
+          "freqs": [
+           {
+            "id": 1
+           },
+           {
+            "id": 2
+           }
+          ]
+         }
+        ]
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#16",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 255
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 3
+        },
+        "type": {
+         "id": 79,
+         "name": "Logon resume"
+        },
+        "ac_info": {
+         "icao": "7380C4"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 213,
+          "name": "Frequency data"
+         },
+         "flight_id": "ELY009",
+         "pos": {
+          "lat": 44.948931,
+          "lon": 20.370408
+         },
+         "utc_time": {
+          "hour": 9,
+          "min": 58,
+          "sec": 20
+         },
+         "freq_data": [
+          {
+           "gs": {
+            "type": "Ground station",
+            "id": 3
+           },
+           "listening_on_freqs": [
+            {
+             "id": 0
+            },
+            {
+             "id": 1
+            },
+            {
+             "id": 2
+            },
+            {
+             "id": 3
+            },
+            {
+             "id": 4
+            },
+            {
+             "id": 5
+            },
+            {
+             "id": 6
+            }
+           ],
+           "heard_on_freqs": [
+            {
+             "id": 3
+            }
+           ]
+          },
+          {
+           "gs": {
+            "type": "Ground station",
+            "id": 2
+           },
+           "listening_on_freqs": [
+            {
+             "id": 0
+            },
+            {
+             "id": 1
+            },
+            {
+             "id": 2
+            },
+            {
+             "id": 3
+            },
+            {
+             "id": 4
+            },
+            {
+             "id": 5
+            },
+            {
+             "id": 6
+            },
+            {
+             "id": 7
+            },
+            {
+             "id": 8
+            },
+            {
+             "id": 9
+            },
+            {
+             "id": 10
+            },
+            {
+             "id": 11
+            }
+           ],
+           "heard_on_freqs": []
+          },
+          {
+           "gs": {
+            "type": "Ground station",
+            "id": 15
+           },
+           "listening_on_freqs": [
+            {
+             "id": 0
+            },
+            {
+             "id": 2
+            },
+            {
+             "id": 3
+            },
+            {
+             "id": 4
+            },
+            {
+             "id": 5
+            },
+            {
+             "id": 6
+            }
+           ],
+           "heard_on_freqs": []
+          },
+          {
+           "gs": {
+            "type": "Ground station",
+            "id": 4
+           },
+           "listening_on_freqs": [
+            {
+             "id": 0
+            },
+            {
+             "id": 1
+            },
+            {
+             "id": 2
+            },
+            {
+             "id": 3
+            },
+            {
+             "id": 4
+            },
+            {
+             "id": 5
+            },
+            {
+             "id": 6
+            }
+           ],
+           "heard_on_freqs": []
+          },
+          {
+           "gs": {
+            "type": "Ground station",
+            "id": 16
+           },
+           "listening_on_freqs": [
+            {
+             "id": 0
+            },
+            {
+             "id": 1
+            },
+            {
+             "id": 2
+            },
+            {
+             "id": 3
+            },
+            {
+             "id": 4
+            },
+            {
+             "id": 5
+            }
+           ],
+           "heard_on_freqs": []
+          },
+          {
+           "gs": {
+            "type": "Ground station",
+            "id": 6
+           },
+           "listening_on_freqs": [
+            {
+             "id": 0
+            },
+            {
+             "id": 1
+            },
+            {
+             "id": 2
+            },
+            {
+             "id": 4
+            },
+            {
+             "id": 5
+            },
+            {
+             "id": 6
+            }
+           ],
+           "heard_on_freqs": []
+          }
+         ]
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#17",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 217
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 3
+        },
+        "type": {
+         "id": 13,
+         "name": "Unnumbered data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 209,
+          "name": "Performance data"
+         },
+         "version": 18,
+         "flight_id": "UAE33T",
+         "pos": {
+          "lat": 46.094601,
+          "lon": 15.408011
+         },
+         "time": {
+          "hour": 9,
+          "min": 13,
+          "sec": 4
+         },
+         "flight_leg_num": 141,
+         "gs": {
+          "type": "Ground station",
+          "id": 3
+         },
+         "frequency": {
+          "id": 16
+         },
+         "freq_search_cnt": {
+          "cur_leg": 160,
+          "prev_leg": 66
+         },
+         "hfdl_disabled_duration": {
+          "this_leg": 30972,
+          "prev_leg": 10332
+         },
+         "pdu_stats": {
+          "mpdus_rx_ok_cnt": {
+           "300bps": 34,
+           "600bps": 7,
+           "1200bps": 0,
+           "1800bps": 0
+          },
+          "mpdus_rx_err_cnt": {
+           "300bps": 0,
+           "600bps": 1,
+           "1200bps": 0,
+           "1800bps": 0
+          },
+          "mpdus_tx_cnt": {
+           "300bps": 2,
+           "600bps": 1,
+           "1200bps": 0,
+           "1800bps": 0
+          },
+          "mpdus_delivered_cnt": {
+           "300bps": 2,
+           "600bps": 1,
+           "1200bps": 0,
+           "1800bps": 0
+          },
+          "spdus_rx_ok_cnt": 31,
+          "spdus_missed_cnt": 6
+         },
+         "last_freq_change_cause": {
+          "code": 2,
+          "descr": "SPDUs no longer received"
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#21",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Ground station",
+         "id": 3
+        },
+        "dst": {
+         "type": "Aircraft",
+         "id": 42
+        },
+        "type": {
+         "id": 13,
+         "name": "Unnumbered data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".A6-BNI",
+          "mode": "2",
+          "label": "A6",
+          "blk_id": "Q",
+          "ack": "!",
+          "msg_text": "/REKCAYA.ADS.A6-BNI070C0B000D010F015416\r\n",
+          "arinc622": {
+           "msg_type": "adsc_msg",
+           "crc_ok": true,
+           "gs_addr": "REKCAYA",
+           "air_addr": ".A6-BNI",
+           "adsc": {
+            "tags": [
+             {
+              "periodic_contract_req": {
+               "contract_num": 12,
+               "groups": [
+                {
+                 "report_interval": {
+                  "interval_secs": 0
+                 }
+                },
+                {
+                 "predicted_route": {
+                  "modulus": 1
+                 }
+                },
+                {
+                 "air_ref_data": {
+                  "modulus": 1
+                 }
+                }
+               ]
+              }
+             }
+            ],
+            "err": false
+           }
+          }
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#31",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 255
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 3
+        },
+        "type": {
+         "id": 191,
+         "name": "Logon request (DLS)"
+        },
+        "ac_info": {
+         "icao": "896620"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 213,
+          "name": "Frequency data"
+         },
+         "flight_id": "UAE102",
+         "pos": {
+          "lat": 45.720378,
+          "lon": 8.728654
+         },
+         "utc_time": {
+          "hour": 9,
+          "min": 58,
+          "sec": 54
+         },
+         "freq_data": [
+          {
+           "gs": {
+            "type": "Ground station",
+            "id": 3
+           },
+           "listening_on_freqs": [
+            {
+             "id": 1
+            },
+            {
+             "id": 2
+            },
+            {
+             "id": 5
+            },
+            {
+             "id": 6
+            }
+           ],
+           "heard_on_freqs": [
+            {
+             "id": 6
+            }
+           ]
+          },
+          {
+           "gs": {
+            "type": "Ground station",
+            "id": 15
+           },
+           "listening_on_freqs": [
+            {
+             "id": 1
+            },
+            {
+             "id": 2
+            },
+            {
+             "id": 3
+            },
+            {
+             "id": 4
+            }
+           ],
+           "heard_on_freqs": [
+            {
+             "id": 1
+            },
+            {
+             "id": 2
+            },
+            {
+             "id": 3
+            },
+            {
+             "id": 4
+            }
+           ]
+          },
+          {
+           "gs": {
+            "type": "Ground station",
+            "id": 6
+           },
+           "listening_on_freqs": [
+            {
+             "id": 0
+            },
+            {
+             "id": 2
+            },
+            {
+             "id": 5
+            },
+            {
+             "id": 6
+            }
+           ],
+           "heard_on_freqs": [
+            {
+             "id": 0
+            },
+            {
+             "id": 2
+            },
+            {
+             "id": 6
+            }
+           ]
+          },
+          {
+           "gs": {
+            "type": "Ground station",
+            "id": 8
+           },
+           "listening_on_freqs": [
+            {
+             "id": 0
+            },
+            {
+             "id": 2
+            },
+            {
+             "id": 4
+            },
+            {
+             "id": 6
+            }
+           ],
+           "heard_on_freqs": [
+            {
+             "id": 0
+            },
+            {
+             "id": 2
+            },
+            {
+             "id": 6
+            }
+           ]
+          },
+          {
+           "gs": {
+            "type": "Ground station",
+            "id": 17
+           },
+           "listening_on_freqs": [
+            {
+             "id": 0
+            },
+            {
+             "id": 1
+            },
+            {
+             "id": 3
+            }
+           ],
+           "heard_on_freqs": [
+            {
+             "id": 0
+            },
+            {
+             "id": 3
+            }
+           ]
+          },
+          {
+           "gs": {
+            "type": "Ground station",
+            "id": 5
+           },
+           "listening_on_freqs": [
+            {
+             "id": 0
+            },
+            {
+             "id": 1
+            },
+            {
+             "id": 2
+            }
+           ],
+           "heard_on_freqs": [
+            {
+             "id": 0
+            },
+            {
+             "id": 2
+            }
+           ]
+          }
+         ]
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#42",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Ground station",
+         "id": 3
+        },
+        "dst": {
+         "type": "Aircraft",
+         "id": 34
+        },
+        "type": {
+         "id": 13,
+         "name": "Unnumbered data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".EC-NXE",
+          "mode": "2",
+          "label": "AA",
+          "blk_id": "Q",
+          "ack": "!",
+          "msg_text": "/SMACAYA.AT1.EC-NXE22278E1D0095A6",
+          "arinc622": {
+           "msg_type": "fans1a_cpdlc_msg",
+           "crc_ok": true,
+           "gs_addr": "SMACAYA",
+           "air_addr": ".EC-NXE",
+           "cpdlc": {
+            "err": false,
+            "atc_uplink_msg": {
+             "header": {
+              "msg_id": 4,
+              "timestamp": {
+               "hour": 9,
+               "min": 56,
+               "sec": 56
+              }
+             },
+             "atc_uplink_msg_element_id": {
+              "choice_label": "RESUME NORMAL SPEED",
+              "choice": "uM116NULL",
+              "data": {}
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#234",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 187
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 3
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": "RA73106",
+          "mode": "2",
+          "label": "27",
+          "blk_id": "4",
+          "ack": "!",
+          "flight": "SU1563",
+          "msg_num": "M98",
+          "msg_num_seq": "A",
+          "msg_text": "POS01AFL1563   /24251004UIIIUUEE    \r\nFUEL   87\r\nTEMP----\r\nWDIR25925\r\nWSPD  52\r\nLATN 60.426\r\nLONE 61.191\r\nETA1217\r\nTUR\r\nALT36000\r\n\r\n\r\n"
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#729",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Ground station",
+         "id": 3
+        },
+        "dst": {
+         "type": "Aircraft",
+         "id": 95,
+         "ac_info": {
+          "icao": "38E83B"
+         }
+        },
+        "type": {
+         "id": 13,
+         "name": "Unnumbered data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".F-WMIL",
+          "mode": "2",
+          "label": "H1",
+          "blk_id": "Q",
+          "ack": "!",
+          "sublabel": "MD",
+          "msg_text": "REQPOS037B\r\n"
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#774",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Ground station",
+         "id": 3
+        },
+        "dst": {
+         "type": "Aircraft",
+         "id": 95,
+         "ac_info": {
+          "icao": "38E83B"
+         }
+        },
+        "type": {
+         "id": 13,
+         "name": "Unnumbered data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".F-WMIL",
+          "mode": "2",
+          "label": "MA",
+          "blk_id": "R",
+          "ack": "!",
+          "msg_text": "T.0&HDeF/k.Eo9hA$7z:>dl$|\r\n",
+          "miam": {
+           "single_transfer": {
+            "miam_core": {
+             "version": 1,
+             "pdu_type": 1,
+             "ack": {
+              "pdu_len": 20,
+              "aircraft_id": ".F-WMIL",
+              "msg_ack_num": 68,
+              "ack_xfer_result": 0
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#823",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 120,
+         "ac_info": {
+          "icao": "781343"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 3
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": true,
+          "reassembly": "in progress",
+          "reg": ".B-1080",
+          "mode": "2",
+          "label": "MA",
+          "blk_id": "1",
+          "ack": "!",
+          "flight": "CA0935",
+          "msg_num": "U40",
+          "msg_num_seq": "A",
+          "msg_text": "T22!<<,T/j_-E0K:c<!'s.16q71Hnm_Y\"|Q&`ZfK.mj)IjH2@D0?R;[QVStnPTqk:jNeS7?A:<rdVD/@R1N\"@*(#WO0RC]+A7JTr2LT(aWejS\"FqDP/f>;G)[)%I),^[!nUWA\\i&gF#\"H#5\"?a1tFRA#4ZR<t'@T7V.XUl>p^U5fZ.OJd6QZD\\TWZ<K[Re8<qt,(K>me%M=sXh4Qg4"
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#985",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "dst": {
+         "type": "Aircraft",
+         "id": 12,
+         "ac_info": {
+          "icao": "448606"
+         }
+        },
+        "type": {
+         "id": 13,
+         "name": "Unnumbered data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": true,
+          "reassembly": "in progress",
+          "reg": ".OE-LZC",
+          "mode": "2",
+          "label": "3L",
+          "blk_id": "T",
+          "ack": "!",
+          "msg_text": "56300003PC632ZConnex Info,002,07I/5(6Q.LJA5AABW5/IB516JA5AAB80KBB516JAJA,:/GPABMIK/B85EBW5/IBI/MBB:/08B5DDM,JAIGO37BB:TEBBBB6BPQ9BB66..B666UBBBBO6JA:2Q97BBMTKBBBB6B5LUBB61QQB666UBBBB19JAD53LLBB8ISBBBB6BP7UBB616.B661UBBBB"
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "rec-8902500Hz-20261125T095421Z#988",
+   "source": "real-recording",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 12,
+         "ac_info": {
+          "icao": "448606"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".OE-LZC",
+          "mode": "2",
+          "label": "_d",
+          "blk_id": "9",
+          "ack": "T",
+          "flight": "OS207V",
+          "msg_num": "S33",
+          "msg_num_seq": "A",
+          "msg_text": ""
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "fire-loop",
+   "source": "synthetic",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "H1",
+          "blk_id": "4",
+          "ack": "!",
+          "msg_text": "MPF/DBN /ANRA73824/FISVR2903 /DM221012063700/DAUSSS/DSUCFO/WN22101206370026000002ENG 1 FIRE LOOP B FAULT  (3)",
+          "flight": "U62905",
+          "msg_num": "C00",
+          "msg_num_seq": "A"
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     "caution"
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "firewall-no-match",
+   "source": "synthetic",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "H1",
+          "blk_id": "4",
+          "ack": "!",
+          "msg_text": "CHECK FIREWALL SEAL",
+          "flight": "U62905",
+          "msg_num": "C00",
+          "msg_num_seq": "A"
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "mayday-text",
+   "source": "synthetic",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "5Z",
+          "blk_id": "4",
+          "ack": "!",
+          "msg_text": "MAYDAY MAYDAY ENG 2 FAILURE",
+          "flight": "U62905",
+          "msg_num": "C00",
+          "msg_num_seq": "A"
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     "emergency"
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "pan-pan-spaces",
+   "source": "synthetic",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "5Z",
+          "blk_id": "4",
+          "ack": "!",
+          "msg_text": "PAN   PAN MEDICAL",
+          "flight": "U62905",
+          "msg_num": "C00",
+          "msg_num_seq": "A"
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     "emergency"
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "smoke-lowercase",
+   "source": "synthetic",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "H1",
+          "blk_id": "4",
+          "ack": "!",
+          "msg_text": "smoke in cabin aft",
+          "flight": "U62905",
+          "msg_num": "C00",
+          "msg_num_seq": "A"
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     "caution"
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "uplink-divert",
+   "source": "synthetic",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "dst": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "C1",
+          "blk_id": "A",
+          "ack": "!",
+          "msg_text": "PLEASE DIVERT TO EINN"
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     "caution"
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "plain-text",
+   "source": "synthetic",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "H1",
+          "blk_id": "4",
+          "ack": "!",
+          "msg_text": "REQPOS037B",
+          "flight": "U62905",
+          "msg_num": "C00",
+          "msg_num_seq": "A"
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "empty-ack",
+   "source": "synthetic",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "dst": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "_d",
+          "blk_id": "A",
+          "ack": "!",
+          "msg_text": ""
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "cpdlc-mayday",
+   "source": "synthetic",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "BA",
+          "blk_id": "4",
+          "ack": "!",
+          "msg_text": "/REKCAYA.AT1.N784AV839C072278AD4235",
+          "flight": "U62905",
+          "msg_num": "C00",
+          "msg_num_seq": "A",
+          "arinc622": {
+           "msg_type": "fans1a_cpdlc_msg",
+           "crc_ok": true,
+           "gs_addr": "REKCAYA",
+           "air_addr": ".N784AV",
+           "cpdlc": {
+            "err": false,
+            "atc_downlink_msg": {
+             "header": {
+              "msg_id": 7
+             },
+             "atc_downlink_msg_element_id": {
+              "choice_label": "MAYDAY MAYDAY MAYDAY",
+              "choice": "dM56NULL",
+              "data": {}
+             },
+             "atc_downlink_msg_element_id_seq": [
+              {
+               "atc_downlink_msg_element_id": {
+                "choice_label": "[remainingfuel] OF FUEL REMAINING AND [remainingsouls] SOULS ON BOARD",
+                "choice": "dM57RemainingFuelRemainingSouls",
+                "data": {
+                 "rem_fuel_persons_onboard": {
+                  "rem_fuel_time": {
+                   "hour": 2,
+                   "min": 30
+                  },
+                  "persons_onboard": 174
+                 }
+                }
+               }
+              }
+             ]
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     "emergency"
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "cpdlc-panpan",
+   "source": "synthetic",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "BA",
+          "blk_id": "4",
+          "ack": "!",
+          "msg_text": "/REKCAYA.AT1.N784AV841B87B84620D5",
+          "flight": "U62905",
+          "msg_num": "C00",
+          "msg_num_seq": "A",
+          "arinc622": {
+           "msg_type": "fans1a_cpdlc_msg",
+           "crc_ok": true,
+           "gs_addr": "REKCAYA",
+           "air_addr": ".N784AV",
+           "cpdlc": {
+            "err": false,
+            "atc_downlink_msg": {
+             "header": {
+              "msg_id": 8
+             },
+             "atc_downlink_msg_element_id": {
+              "choice_label": "PAN PAN PAN",
+              "choice": "dM55NULL",
+              "data": {}
+             },
+             "atc_downlink_msg_element_id_seq": [
+              {
+               "atc_downlink_msg_element_id": {
+                "choice_label": "DESCENDING TO [altitude]",
+                "choice": "dM61Altitude",
+                "data": {
+                 "alt": {
+                  "choice": "altitudeFlightLevel",
+                  "data": {
+                   "flight_level": 100
+                  }
+                 }
+                }
+               }
+              }
+             ]
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     "emergency"
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "cpdlc-free-text-medical",
+   "source": "synthetic",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "BA",
+          "blk_id": "4",
+          "ack": "!",
+          "msg_text": "/REKCAYA.AT1.N784AV04A18CCD8B124C383310459B169478B3A1D9413E720853E0D288DCBC",
+          "flight": "U62905",
+          "msg_num": "C00",
+          "msg_num_seq": "A",
+          "arinc622": {
+           "msg_type": "fans1a_cpdlc_msg",
+           "crc_ok": true,
+           "gs_addr": "REKCAYA",
+           "air_addr": ".N784AV",
+           "cpdlc": {
+            "err": false,
+            "atc_downlink_msg": {
+             "header": {
+              "msg_id": 9
+             },
+             "atc_downlink_msg_element_id": {
+              "choice_label": "[freetext]",
+              "choice": "dM67FreeText",
+              "data": {
+               "free_text": "MEDICAL EMERGENCY ON BOARD"
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     "emergency"
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "adsc-emergency",
+   "source": "synthetic",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "B6",
+          "blk_id": "4",
+          "ack": "!",
+          "msg_text": "/PAOFAYA.ADS.N784AV09F738ACA7D287918008071037B57E7EEC14",
+          "flight": "U62905",
+          "msg_num": "C00",
+          "msg_num_seq": "A",
+          "arinc622": {
+           "msg_type": "adsc_msg",
+           "crc_ok": true,
+           "gs_addr": "PAOFAYA",
+           "air_addr": ".N784AV",
+           "adsc": {
+            "tags": [
+             {
+              "emerg_basic_report": {
+               "lat": -12.345028,
+               "lon": -150.499992,
+               "alt": 31000,
+               "ts_sec": 2.0,
+               "pos_accuracy_nm": 8.0,
+               "nav_redundancy": true,
+               "tcas_avail": false
+              }
+             },
+             {
+              "meteo_data": {
+               "wind_spd_kts": 55.5,
+               "wind_dir_true_deg": 300.234375,
+               "wind_dir_valid": true,
+               "temp_c": -48.25
+              }
+             }
+            ],
+            "err": false
+           }
+          }
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     "emergency"
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "cpdlc-uplink-climb",
+   "source": "synthetic",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "dst": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "AA",
+          "blk_id": "A",
+          "ack": "!",
+          "msg_text": "/REKCAYA.AT1.A6-BNI22A7A1C53280F165",
+          "arinc622": {
+           "msg_type": "fans1a_cpdlc_msg",
+           "crc_ok": true,
+           "gs_addr": "REKCAYA",
+           "air_addr": ".A6-BNI",
+           "cpdlc": {
+            "err": false,
+            "atc_uplink_msg": {
+             "header": {
+              "msg_id": 5,
+              "timestamp": {
+               "hour": 9,
+               "min": 58,
+               "sec": 7
+              }
+             },
+             "atc_uplink_msg_element_id": {
+              "choice_label": "CLIMB TO AND MAINTAIN [altitude]",
+              "choice": "uM20Altitude",
+              "data": {
+               "alt": {
+                "choice": "altitudeFlightLevel",
+                "data": {
+                 "flight_level": 350
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "caution-off",
+   "source": "synthetic",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "H1",
+          "blk_id": "4",
+          "ack": "!",
+          "msg_text": "MPF/DBN /ANRA73824/FISVR2903 /DM221012063700/DAUSSS/DSUCFO/WN22101206370026000002ENG 1 FIRE LOOP B FAULT  (3)",
+          "flight": "U62905",
+          "msg_num": "C00",
+          "msg_num_seq": "A"
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": false,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     null
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "once-per-message-30-min",
+   "source": "synthetic",
+   "description": "the same ACARS message key three times: alert, none (10 min later), alert (40 min later)",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "H1",
+          "blk_id": "4",
+          "ack": "!",
+          "msg_text": "MPF/DBN /ANRA73824/FISVR2903 /DM221012063700/DAUSSS/DSUCFO/WN22101206370026000002ENG 1 FIRE LOOP B FAULT  (3)",
+          "flight": "U62905",
+          "msg_num": "C00",
+          "msg_num_seq": "A"
+         }
+        }
+       }
+      },
+      "t": 0
+     },
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "H1",
+          "blk_id": "4",
+          "ack": "!",
+          "msg_text": "MPF/DBN /ANRA73824/FISVR2903 /DM221012063700/DAUSSS/DSUCFO/WN22101206370026000002ENG 1 FIRE LOOP B FAULT  (3)",
+          "flight": "U62905",
+          "msg_num": "C00",
+          "msg_num_seq": "A"
+         }
+        }
+       }
+      },
+      "t": 600
+     },
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "H1",
+          "blk_id": "4",
+          "ack": "!",
+          "msg_text": "MPF/DBN /ANRA73824/FISVR2903 /DM221012063700/DAUSSS/DSUCFO/WN22101206370026000002ENG 1 FIRE LOOP B FAULT  (3)",
+          "flight": "U62905",
+          "msg_num": "C00",
+          "msg_num_seq": "A"
+         }
+        }
+       }
+      },
+      "t": 2400
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": []
+    }
+   },
+   "expected": {
+    "alerts": [
+     "caution",
+     null,
+     "caution"
+    ]
+   },
+   "req": [
+    "ALR-01"
+   ]
+  },
+  {
+   "id": "watched-registration",
+   "source": "synthetic",
+   "input": {
+    "messages": [
+     {
+      "message": {
+       "lpdu": {
+        "err": false,
+        "src": {
+         "type": "Aircraft",
+         "id": 23,
+         "ac_info": {
+          "icao": "152060"
+         }
+        },
+        "dst": {
+         "type": "Ground station",
+         "id": 7
+        },
+        "type": {
+         "id": 29,
+         "name": "Unnumbered ack'ed data"
+        },
+        "hfnpdu": {
+         "err": false,
+         "type": {
+          "id": 255,
+          "name": "Enveloped data"
+         },
+         "acars": {
+          "err": false,
+          "crc_ok": true,
+          "more": false,
+          "reassembly": "skipped",
+          "reg": ".RA73824",
+          "mode": "2",
+          "label": "H1",
+          "blk_id": "4",
+          "ack": "!",
+          "msg_text": "REQPOS037B",
+          "flight": "U62905",
+          "msg_num": "C00",
+          "msg_num_seq": "A"
+         }
+        }
+       }
+      },
+      "t": 0
+     }
+    ],
+    "settings": {
+     "alert_on_caution": true,
+     "watch_alerts": true,
+     "watch": [
+      "ra73824"
+     ]
+    }
+   },
+   "expected": {
+    "alerts": [
+     "watch"
+    ]
+   },
+   "req": [
+    "ALR-01",
+    "AC-04"
+   ]
+  }
+ ]
+}

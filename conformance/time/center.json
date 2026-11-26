@@ -1,0 +1,111 @@
+{
+ "suite": "file-center",
+ "normative": true,
+ "description": "An I/Q recording's center frequency (and, from metadata, its start) from its file name and its RIFF comment (04-support.md \u00a74.1).",
+ "compare": {
+  "method": "exact; null: none found"
+ },
+ "cases": [
+  {
+   "id": "shellsdr-hz",
+   "input": {
+    "file_name": "20261125-095421_baseband_8902500Hz-HFDL.wav",
+    "riff_comment": null
+   },
+   "expected": {
+    "center_hz": 8902500
+   },
+   "req": [
+    "DEC-07",
+    "TIM-02"
+   ]
+  },
+  {
+   "id": "khz-decimal",
+   "input": {
+    "file_name": "rec_8902.5kHz_2026.wav",
+    "riff_comment": null
+   },
+   "expected": {
+    "center_hz": 8902500
+   },
+   "req": [
+    "DEC-07",
+    "TIM-02"
+   ]
+  },
+  {
+   "id": "mhz",
+   "input": {
+    "file_name": "hfdl 8.9025MHz.wav",
+    "riff_comment": null
+   },
+   "expected": {
+    "center_hz": 8902500
+   },
+   "req": [
+    "DEC-07",
+    "TIM-02"
+   ]
+  },
+  {
+   "id": "lowercase-unit",
+   "input": {
+    "file_name": "x_10058500hz.wav",
+    "riff_comment": null
+   },
+   "expected": {
+    "center_hz": 10058500
+   },
+   "req": [
+    "DEC-07",
+    "TIM-02"
+   ]
+  },
+  {
+   "id": "first-match",
+   "input": {
+    "file_name": "a_5587500Hz_copy_of_8902500Hz.wav",
+    "riff_comment": null
+   },
+   "expected": {
+    "center_hz": 5587500
+   },
+   "req": [
+    "DEC-07",
+    "TIM-02"
+   ]
+  },
+  {
+   "id": "none",
+   "input": {
+    "file_name": "recording.wav",
+    "riff_comment": null
+   },
+   "expected": {
+    "center_hz": null
+   },
+   "req": [
+    "DEC-07",
+    "TIM-02"
+   ]
+  },
+  {
+   "id": "metadata-wins",
+   "input": {
+    "file_name": "20261125-095421_baseband_8902500Hz-HFDL.wav",
+    "riff_comment": "format_version=2\nrec_type=baseband\ncenter_freq=8902000\nstart_time=2026-11-25T09:54:21Z\ntimezone=UTC\n"
+   },
+   "expected": {
+    "center_hz": 8902000,
+    "start": {
+     "utc_iso": "2026-11-25T09:54:21Z"
+    }
+   },
+   "req": [
+    "DEC-07",
+    "TIM-02"
+   ]
+  }
+ ]
+}

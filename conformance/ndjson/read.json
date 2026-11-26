@@ -1,0 +1,127 @@
+{
+ "suite": "ndjson-read",
+ "normative": true,
+ "description": "One day-file line -> accepted or rejected (spec/05-data/README.md).",
+ "compare": {
+  "method": "exact"
+ },
+ "cases": [
+  {
+   "id": "valid",
+   "input": {
+    "line": "{\"v\": 1, \"kind\": \"squitter\", \"utc\": \"2026-11-25T09:58:09Z\", \"off\": \"+00:00\", \"tsrc\": \"filename\", \"freq\": 8942, \"class\": \"squitter\", \"sev\": \"link\", \"pdu\": \"000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\"}"
+   },
+   "expected": {
+    "accepted": true
+   },
+   "req": [
+    "STO-04",
+    "STO-05"
+   ]
+  },
+  {
+   "id": "no-pdu",
+   "input": {
+    "line": "{\"v\": 1, \"kind\": \"squitter\", \"utc\": \"2026-11-25T09:58:09Z\", \"off\": \"+00:00\", \"tsrc\": \"filename\", \"freq\": 8942, \"class\": \"squitter\", \"sev\": \"link\"}"
+   },
+   "expected": {
+    "accepted": false
+   },
+   "req": [
+    "STO-04",
+    "STO-05"
+   ]
+  },
+  {
+   "id": "odd-hex",
+   "input": {
+    "line": "{\"v\": 1, \"kind\": \"squitter\", \"utc\": \"2026-11-25T09:58:09Z\", \"off\": \"+00:00\", \"tsrc\": \"filename\", \"freq\": 8942, \"class\": \"squitter\", \"sev\": \"link\", \"pdu\": \"abc\"}"
+   },
+   "expected": {
+    "accepted": false
+   },
+   "req": [
+    "STO-04",
+    "STO-05"
+   ]
+  },
+  {
+   "id": "uppercase-hex",
+   "input": {
+    "line": "{\"v\": 1, \"kind\": \"squitter\", \"utc\": \"2026-11-25T09:58:09Z\", \"off\": \"+00:00\", \"tsrc\": \"filename\", \"freq\": 8942, \"class\": \"squitter\", \"sev\": \"link\", \"pdu\": \"ABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABAB\"}"
+   },
+   "expected": {
+    "accepted": false
+   },
+   "req": [
+    "STO-04",
+    "STO-05"
+   ]
+  },
+  {
+   "id": "no-kind",
+   "input": {
+    "line": "{\"v\": 1, \"utc\": \"2026-11-25T09:58:09Z\", \"off\": \"+00:00\", \"tsrc\": \"filename\", \"freq\": 8942, \"class\": \"squitter\", \"sev\": \"link\", \"pdu\": \"000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\"}"
+   },
+   "expected": {
+    "accepted": false
+   },
+   "req": [
+    "STO-04",
+    "STO-05"
+   ]
+  },
+  {
+   "id": "not-json",
+   "input": {
+    "line": "{\"v\":1,"
+   },
+   "expected": {
+    "accepted": false
+   },
+   "req": [
+    "STO-04",
+    "STO-05"
+   ]
+  },
+  {
+   "id": "array",
+   "input": {
+    "line": "[1,2]"
+   },
+   "expected": {
+    "accepted": false
+   },
+   "req": [
+    "STO-04",
+    "STO-05"
+   ]
+  },
+  {
+   "id": "unknown-keys-ignored",
+   "input": {
+    "line": "{\"v\": 1, \"kind\": \"squitter\", \"utc\": \"2026-11-25T09:58:09Z\", \"off\": \"+00:00\", \"tsrc\": \"filename\", \"freq\": 8942, \"class\": \"squitter\", \"sev\": \"link\", \"pdu\": \"000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\", \"extra\": {\"a\": 1}}"
+   },
+   "expected": {
+    "accepted": true
+   },
+   "req": [
+    "STO-04",
+    "STO-05"
+   ]
+  },
+  {
+   "id": "wrong-type-tsrc",
+   "input": {
+    "line": "{\"v\": 1, \"kind\": \"squitter\", \"utc\": \"2026-11-25T09:58:09Z\", \"off\": \"+00:00\", \"tsrc\": 5, \"freq\": 8942, \"class\": \"squitter\", \"sev\": \"link\", \"pdu\": \"000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\"}"
+   },
+   "expected": {
+    "accepted": true
+   },
+   "req": [
+    "STO-04",
+    "STO-05"
+   ]
+  }
+ ]
+}

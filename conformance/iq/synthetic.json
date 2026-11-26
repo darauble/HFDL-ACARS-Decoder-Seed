@@ -1,0 +1,263 @@
+{
+ "suite": "iq-decode",
+ "normative": true,
+ "description": "Synthetic recordings (tools/hfdl_tx.py) -> the frames sent; every frame required.",
+ "compare": {
+  "method": "README.md rule 5",
+  "time_tolerance_s": 0.5
+ },
+ "cases": [
+  {
+   "id": "synth-all-modes",
+   "source": "synthetic",
+   "description": "one frame in each of the eight modes on 8942 kHz, strong",
+   "input": {
+    "file": "20261125T120000_synth-all-modes_8935000Hz.wav",
+    "kind": "iq",
+    "sample_rate": 48000,
+    "center_hz": 8935000,
+    "channels_khz": [
+     8942
+    ],
+    "start_utc_epoch": 1795608000,
+    "time_zone": "UTC"
+   },
+   "expected": {
+    "frames": [
+     {
+      "freq_khz": 8942,
+      "t": 1.0,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0087d3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000033700000830200b0880000cd13",
+      "required": true
+     },
+     {
+      "freq_khz": 8942,
+      "t": 3.6,
+      "bit_rate": 600,
+      "slot": "S",
+      "pdu": "0703ff000000204d93bfa8b8b5ffd553553137333576c402c922224d030700100000070300000000994d",
+      "required": true
+     },
+     {
+      "freq_khz": 8942,
+      "t": 6.2,
+      "bit_rate": 1200,
+      "slot": "S",
+      "pdu": "01832e1009e0d79fa8b8b52e000000c223",
+      "required": true
+     },
+     {
+      "freq_khz": 8942,
+      "t": 8.8,
+      "bit_rate": 1800,
+      "slot": "S",
+      "pdu": "07032e0000003136660dffd15355313030332e7302db1a4e390101030100000000000000000000000000000000000000000000000000000007ca3d",
+      "required": true
+     },
+     {
+      "freq_khz": 8942,
+      "t": 11.4,
+      "bit_rate": 300,
+      "slot": "D",
+      "pdu": "0707170000003f511a1dffff013252c137b338323415c831340243b0b0c1d5b632b9b0b5234346c2cdd0462f45cec720312046495245204c4f4fd020c22046c1d54c5483e3657fbf98",
+      "required": true
+     },
+     {
+      "freq_khz": 8942,
+      "t": 16.4,
+      "bit_rate": 600,
+      "slot": "D",
+      "pdu": "01877310157d030dffff0132ae58c1adc1c44338df7fce832c6a7fc98f",
+      "required": true
+     },
+     {
+      "freq_khz": 8942,
+      "t": 21.4,
+      "bit_rate": 1200,
+      "slot": "D",
+      "pdu": "07032e0000003136660dffd15355313030332e7302db1a4e390101030100000000000000000000000000000000000000000000000000000007ca3d",
+      "required": true
+     },
+     {
+      "freq_khz": 8942,
+      "t": 26.4,
+      "bit_rate": 1800,
+      "slot": "D",
+      "pdu": "0707170000003f511a1dffff013252c137b338323415c831340243b0b0c1d5b632b9b0b5234346c2cdd0462f45cec720312046495245204c4f4fd020c22046c1d54c5483e3657fbf98",
+      "required": true
+     }
+    ]
+   },
+   "req": [
+    "DEC-01",
+    "DEC-04",
+    "DEC-05",
+    "DEC-06"
+   ]
+  },
+  {
+   "id": "synth-two-channels",
+   "source": "synthetic",
+   "description": "frames overlapping in time on 8927 and 8942 kHz",
+   "input": {
+    "file": "20261125T120000_synth-two-channels_8935000Hz.wav",
+    "kind": "iq",
+    "sample_rate": 48000,
+    "center_hz": 8935000,
+    "channels_khz": [
+     8927,
+     8942
+    ],
+    "start_utc_epoch": 1795608000,
+    "time_zone": "UTC"
+   },
+   "expected": {
+    "frames": [
+     {
+      "freq_khz": 8927,
+      "t": 1.0,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0087d3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000033700000830200b0880000cd13",
+      "required": true
+     },
+     {
+      "freq_khz": 8942,
+      "t": 1.3,
+      "bit_rate": 600,
+      "slot": "S",
+      "pdu": "01832e1009e0d79fa8b8b52e000000c223",
+      "required": true
+     },
+     {
+      "freq_khz": 8927,
+      "t": 4.0,
+      "bit_rate": 600,
+      "slot": "S",
+      "pdu": "01877310157d030dffff0132ae58c1adc1c44338df7fce832c6a7fc98f",
+      "required": true
+     },
+     {
+      "freq_khz": 8942,
+      "t": 4.2,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0703ff000000204d93bfa8b8b5ffd553553137333576c402c922224d030700100000070300000000994d",
+      "required": true
+     }
+    ]
+   },
+   "req": [
+    "DEC-01",
+    "DEC-04",
+    "DEC-05",
+    "DEC-06"
+   ]
+  },
+  {
+   "id": "synth-offsets",
+   "source": "synthetic",
+   "description": "carrier offsets of +15 and -20 Hz, a 40 ppm sample-rate error, an odd phase, a weaker frame",
+   "input": {
+    "file": "20261125T120000_synth-offsets_8950000Hz.wav",
+    "kind": "iq",
+    "sample_rate": 24000,
+    "center_hz": 8950000,
+    "channels_khz": [
+     8942,
+     8948
+    ],
+    "start_utc_epoch": 1795608000,
+    "time_zone": "UTC"
+   },
+   "expected": {
+    "frames": [
+     {
+      "freq_khz": 8942,
+      "t": 1.0,
+      "bit_rate": 600,
+      "slot": "S",
+      "pdu": "0707170000003f511a1dffff013252c137b338323415c831340243b0b0c1d5b632b9b0b5234346c2cdd0462f45cec720312046495245204c4f4fd020c22046c1d54c5483e3657fbf98",
+      "required": true
+     },
+     {
+      "freq_khz": 8942,
+      "t": 4.0,
+      "bit_rate": 1200,
+      "slot": "S",
+      "pdu": "07032e0000003136660dffd15355313030332e7302db1a4e390101030100000000000000000000000000000000000000000000000000000007ca3d",
+      "required": true
+     },
+     {
+      "freq_khz": 8948,
+      "t": 7.0,
+      "bit_rate": 300,
+      "slot": "S",
+      "pdu": "0087d3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000033700000830200b0880000cd13",
+      "required": true
+     }
+    ]
+   },
+   "req": [
+    "DEC-01",
+    "DEC-04",
+    "DEC-05",
+    "DEC-06"
+   ]
+  },
+  {
+   "id": "synth-noise-only",
+   "source": "synthetic",
+   "description": "white noise, no HFDL: no frame",
+   "input": {
+    "file": "20261125T120000_synth-noise-only_8950000Hz.wav",
+    "kind": "iq",
+    "sample_rate": 24000,
+    "center_hz": 8950000,
+    "channels_khz": [
+     8942
+    ],
+    "start_utc_epoch": 1795608000,
+    "time_zone": "UTC"
+   },
+   "expected": {
+    "frames": []
+   },
+   "req": [
+    "DEC-01",
+    "DEC-04",
+    "DEC-05",
+    "DEC-06",
+    "DEC-08"
+   ]
+  },
+  {
+   "id": "synth-silence",
+   "source": "synthetic",
+   "description": "digital silence: no frame",
+   "input": {
+    "file": "20261125T120000_synth-silence_8950000Hz.wav",
+    "kind": "iq",
+    "sample_rate": 24000,
+    "center_hz": 8950000,
+    "channels_khz": [
+     8942
+    ],
+    "start_utc_epoch": 1795608000,
+    "time_zone": "UTC"
+   },
+   "expected": {
+    "frames": []
+   },
+   "req": [
+    "DEC-01",
+    "DEC-04",
+    "DEC-05",
+    "DEC-06",
+    "DEC-08"
+   ]
+  }
+ ]
+}
